@@ -30,6 +30,20 @@ footer .footer ul > li > ul {
   font-size: 14px;
 }
 
+.section.footer-bottom ul,
+.section.footer-bottom p {
+  font-size: 12px;
+}
+
+.section.footer-bottom ul {
+  display: flex;
+}
+
+.section.footer-bottom ul li {
+  height: 26px;
+  margin-right: 10px;
+}
+
 .section.footer-top > div:first-of-type > ul {
   display: flex;
   flex-direction: column;
@@ -66,20 +80,6 @@ footer .footer ul > li > ul {
 
 .section.footer-top > div:last-of-type ul li ul {
   font-weight: normal;
-}
-
-.section.footer-bottom ul,
-.section.footer-bottom p {
-  font-size: 12px;
-}
-
-.section.footer-bottom ul {
-  display: flex;
-}
-
-.section.footer-bottom ul li {
-  height: 26px;
-  margin-right: 10px;
 }
 
 .section.footer-top > div:first-of-type > ul > li > ul {
@@ -119,6 +119,10 @@ footer .footer ul > li > ul {
     display: none;
   }
 
+  .section.footer-top > div:last-of-type ul {
+    font-size: 14px;
+  }
+
   .section.footer-top > div:last-of-type ul li ul {
     font-size: 12px;
   }
@@ -130,10 +134,6 @@ footer .footer ul > li > ul {
 
   .section.footer-top > div:first-of-type > ul > li > ul > li {
     margin-bottom: 11px;
-  }
-
-  .section.footer-top > div:last-of-type ul {
-    font-size: 14px;
   }
 
   .section.footer-top > div:first-of-type > ul > li:nth-of-type(5) {
