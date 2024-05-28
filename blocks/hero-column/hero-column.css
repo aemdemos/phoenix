@@ -47,7 +47,7 @@ body > main > div.section.hero-column-container > div > div > div:nth-child(2) {
 
 /* article datetime */
 .hero-column-container > div > div > div:nth-child(1) > div:nth-child(1) > p {
-  color: var(--text-color);
+  color: black;
   font-size: calc(var(--body-font-size-xs) * 0.75);
   line-height: 3rem;
   -webkit-font-smoothing: antialiased;

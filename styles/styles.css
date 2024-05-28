@@ -212,15 +212,15 @@ body > main > div:nth-child(1) {
 }
 
 body > main > div:nth-child(1) > div > h1 {
-  font-size: calc(var(--heading-font-size-l) * 1.15);
-  line-height: calc(var(--heading-font-size-l) * 1.5);
-  letter-spacing: 0.02rem;
+  font-size: calc(var(--heading-font-size-xxl)) !important;
+  line-height: calc(var(--heading-font-size-l) * 1.5) !important;
+  /*letter-spacing: 0rem;*/
   -webkit-font-smoothing: antialiased;
-  color: var(--darker-grey-color);
+  color: black;
 }
 
 .blog-image {
-  padding-top: 3% !important;
+  padding-top: 2% !important;
   padding-bottom: 0 !important;
 }
 
@@ -252,7 +252,7 @@ body > main > div:nth-child(1) > div > h1 {
 .index .default-content-wrapper h2 {
   padding-left: 2%;
   margin-top: 3% !important;
-  font-size: calc(var(--heading-font-size-m) * 0.85);
+  font-size: calc(var(--heading-font-size-xl));
 }
 
 .index .default-content-wrapper ul {
@@ -273,7 +273,7 @@ body > main > div:nth-child(1) > div > h1 {
 }
 
 .blog-content h2 {
-  font-size: var(--heading-font-size-s);
+  font-size: var(--heading-font-size-xl);
   margin-bottom: 1rem;
 }
 
