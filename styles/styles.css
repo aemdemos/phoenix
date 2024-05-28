@@ -197,9 +197,19 @@ main .section {
 }
 
 @media (width >= 900px) {
-  .section > div {
-    max-width: 1200px;
+  main > div > div:not(.fragment-wrapper)  {
+    /* max-width: 1200px; */
+    max-width: 75%;
     margin: auto;
+    position: relative;
+    left: 245px;
+  }
+  main > div > div.fragment-wrapper {
+    /* max-width: 1200px; */
+    max-width: 25%;
+    margin: auto;
+    position: absolute;
+    top: 42px;
   }
 }
 
@@ -207,4 +217,18 @@ main .section {
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
+}
+
+.fragment-wrapper a.button:any-link, button {
+  color: #fff;
+  background-color: inherit;
+  padding: 0 16px;
+}
+
+.fragment-wrapper {
+  background-color: #1a3d4d;
+}
+
+.fragment-wrapper p{
+  color: #fff;
 }
