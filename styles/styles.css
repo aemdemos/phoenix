@@ -204,6 +204,7 @@ main .section {
     position: relative;
     left: 245px;
   }
+
   main > div > div.fragment-wrapper {
     /* max-width: 1200px; */
     max-width: 25%;
