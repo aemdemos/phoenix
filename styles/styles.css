@@ -18,6 +18,11 @@
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
+  --color-white: #fff;
+  --color-almost-black: #001823;
+  --color-almost-black-l60: #b2bbbf;
+  --color-almost-black-l30: #5e7079;
+  --color-phoenix-red: #db3725;
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback;
