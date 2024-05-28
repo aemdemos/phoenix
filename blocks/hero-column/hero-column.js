@@ -4,8 +4,7 @@ function decorateSocialMediaIcons(block) {
     return;
   }
   socialMediaAnchors.forEach(() => {
-
-  })
+  });
 }
 
 export default function decorate(block) {

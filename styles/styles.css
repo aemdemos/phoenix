@@ -17,11 +17,10 @@
   --background-color: white;
   --light-color: #f2f3f3;
   --dark-color: #ccc;
-  --darker-grey-color: rgba(0, 0, 0, .87);
+  --darker-grey-color: #000000DE;
   --almost-black-color: #7b8a92;
   --text-color: black;
   --body-link-color: #30718d;
-  --text-color: rgba(0 0 0 / 87%);
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback;
@@ -214,7 +213,6 @@ body > main > div:nth-child(1) {
 body > main > div:nth-child(1) > div > h1 {
   font-size: calc(var(--heading-font-size-xxl)) !important;
   line-height: calc(var(--heading-font-size-l) * 1.5) !important;
-  /*letter-spacing: 0rem;*/
   -webkit-font-smoothing: antialiased;
   color: black;
 }
