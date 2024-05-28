@@ -152,12 +152,6 @@ a.button:any-link, button {
   border-radius: 30px;
 }
 
-.fragment-wrapper a.button:any-link, button {
-  color: #fff;
-  background-color: inherit;
-  padding: 0 16px;
-}
-
 a.button:hover, a.button:focus, button:hover, button:focus  {
   background-color: var(--link-hover-color);
   cursor: pointer;
@@ -166,6 +160,12 @@ a.button:hover, a.button:focus, button:hover, button:focus  {
 button:disabled, button:disabled:hover {
   background-color: var(--light-color);
   cursor: unset;
+}
+
+.fragment-wrapper a.button:any-link, button {
+  color: #fff;
+  background-color: inherit;
+  padding: 0 16px;
 }
 
 a.button.secondary, button.secondary {
