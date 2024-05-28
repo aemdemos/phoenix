@@ -302,7 +302,7 @@ body > main > div:nth-child(1) > div > h1 {
 main {
   display: grid;
   grid-template-columns: auto 1fr 2.2fr auto; /* 4 columns: left-gutter, left-side, right-side, right-gutter */
-  margin: 8% 8%;
+  margin: 8%;
 }
 
 main .section.aside-nav {
@@ -315,7 +315,7 @@ main .section.aside-nav {
   main {
     display: flex;
     flex-direction: column; /* Stack elements vertically */
-    margin: 15% 0 0 0;
+    margin: 15% 0 0;
   }
 
   main .section.aside-nav {
