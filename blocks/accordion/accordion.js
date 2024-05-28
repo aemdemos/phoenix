@@ -9,6 +9,32 @@ function hasWrapper(el) {
 }
 
 export default function decorate(block) {
+  // Get the value of 'data-parent-container' if the parent 'accordion-container' is found
+  let parentAccordionContainer = null;
+
+  let accordionParent = block;
+  while (accordionParent && !accordionParent.classList.contains('accordion-container')) {
+    accordionParent = accordionParent.parentElement;
+  }
+
+  if (accordionParent) {
+    const dataWrapperText = accordionParent.getAttribute('data-parent-container');
+    const summary = document.createElement('summary');
+    summary.className = 'accordion-item-label';
+    if (!hasWrapper(summary)) {
+      summary.innerHTML = `<p>${dataWrapperText}</p>`;
+    }
+    // decorate accordion item body
+    parentAccordionContainer = document.createElement('details');
+    parentAccordionContainer.className = 'accordion-item';
+    if (window.innerWidth > 990) {
+      parentAccordionContainer.setAttribute('open', 'open');
+    }
+    parentAccordionContainer.append(summary);
+  } else {
+    console.log('Parent accordion-container not found');
+  }
+
   [...block.children].forEach((row) => {
     // decorate accordion item label
     const label = row.children[0];
@@ -29,5 +55,9 @@ export default function decorate(block) {
     details.className = 'accordion-item';
     details.append(summary, body);
     row.replaceWith(details);
+    if (parentAccordionContainer) {
+      parentAccordionContainer.appendChild(details);
+    }
   });
+  block.appendChild(parentAccordionContainer);
 }

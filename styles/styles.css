@@ -189,12 +189,14 @@ main img {
 
 /* sections */
 main .section {
-  padding: 64px 16px;
+  /* padding: 64px 16px; */
+  grid-column: 3; /* the third column, the right side of the page */
+  padding: unset;
 }
 
 @media (width >= 600px) {
   main .section {
-    padding: 64px 32px;
+    /* padding: 64px 32px; */
   }
 }
 
@@ -284,4 +286,54 @@ body > main > div:nth-child(1) > div > h1 {
   width: 83.33%;
   margin: 0 auto;
   display: flex;
+}
+
+/* styling for aside */
+.aside-nav a.button:any-link, button {
+  color: #fff;
+  background-color: inherit;
+  padding: 0;
+}
+
+.aside-nav p{
+  color: #fff;
+}
+
+main {
+  display: grid;
+  grid-template-columns: auto 1fr 2fr auto; /* 4 columns: left-gutter, left-side, right-side, right-gutter */
+  margin-top: 6%;
+  margin-left: 12%;
+  margin-right: 12%;
+}
+
+main .section.aside-nav {
+  grid-column: 2; /* the second column, the left side of the page */
+  position: fixed;
+  max-width: 20%;
+  font-size: 18px;
+}
+
+@media (width <= 991px) {
+  main {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    margin: 15% 0 0;
+  }
+
+  main .section.aside-nav {
+    order: -1; /* Move the aside-nav to the top */
+    max-width: 100%; /* Full width on mobile */
+    position: fixed; /* Reset position to relative */
+    top: 10%; /* Reset top */
+  }
+
+  main .section {
+    order: 1; /* Move main sections below aside-nav */
+    width: 100%; /* Full width on mobile */
+  }
+
+  .aside-nav-bottom {
+    display: none;
+  }
 }

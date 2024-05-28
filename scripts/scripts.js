@@ -116,6 +116,21 @@ async function loadLazy(doc) {
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
+
+  /* scroll handling to keep asode-nav in view */
+  const asideDiv = document.querySelector('.aside-nav');
+  const footer = document.querySelector('footer');
+  if (window.innerWidth > 990) {
+    window.addEventListener('scroll', () => {
+      const footerTop = footer.getBoundingClientRect().top;
+      const divHeight = asideDiv.offsetHeight;
+      if (footerTop < divHeight + 150) {
+        asideDiv.style.top = `${document.body.scrollTop + footerTop - divHeight - 200}px`;
+      } else {
+        asideDiv.style.top = '20%';
+      }
+    });
+  }
 }
 
 /**
