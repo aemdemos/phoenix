@@ -60,8 +60,18 @@
   color: #fff;
 }
 
+.accordion-container {
+  background-color: #1a3d4d;
+}
+
 .accordion .accordion-item-body a.button:any-link, button {
   color: #001823;
   background-color: inherit;
   font-weight: 400;
+}
+
+@media (max-width: 991px) {
+  .aside-nav .default-content-wrapper:last-of-type {
+    display: none;
+  }
 }

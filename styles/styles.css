@@ -202,3 +202,56 @@ main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
 }
+
+/* styling for aside */
+.aside-nav a.button:any-link, button {
+  color: #fff;
+  background-color: inherit;
+  padding: 0;
+}
+
+.aside-nav p{
+  color: #fff;
+}
+
+main {
+  display: grid;
+  grid-template-columns: auto 1fr 2fr auto; /* 4 columns: left-gutter, left-side, right-side, right-gutter */
+  gap: 16px;
+}
+
+main .section {
+  grid-column: 3; /* the third column, the right side of the page */
+  padding: unset;
+}
+
+main .section.aside-nav {
+  grid-column: 2; /* the second column, the left side of the page */
+  position: absolute;
+  top: 0;
+  max-width: 400px;
+}
+
+@media (max-width: 991px) {
+  main {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  main .section.aside-nav {
+    order: -1; /* Move the aside-nav to the top */
+    max-width: 100%; /* Full width on mobile */
+    position: relative; /* Reset position to relative */
+    top: auto; /* Reset top */
+  }
+
+  main .section {
+    order: 1; /* Move main sections below aside-nav */
+    width: 100%; /* Full width on mobile */
+  }
+
+  .aside-nav-bottom {
+    display: none;
+  }
+}
+
