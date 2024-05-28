@@ -76,7 +76,7 @@ body > main > div.section.hero-column-container > div > div > div:nth-child(2) {
 /* writer-text */
 .hero-column-container > div > div > div:nth-child(2) > div p:nth-child(2) {
   width: 93%;
-  padding-top: 2.5%;
+  padding-top: 3%;
   font-size: var(--body-font-size-xs);
   font-weight: 400;
   color: var(--darker-grey-color);
