@@ -17,7 +17,15 @@
   --background-color: white;
   --light-color: #f2f3f3;
   --dark-color: #ccc;
-  --text-color: rgba(0 0 0 / 87%);
+  --darker-grey-color: #000000DE;
+  --almost-black-color: #7b8a92;
+  --text-color: black;
+  --color-white: #fff;
+  --color-almost-black: #001823;
+  --color-almost-black-l60: #b2bbbf;
+  --color-almost-black-l30: #5e7079;
+  --color-phoenix-red: #db3725;
+  --body-link-color: #30718d;
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback;
@@ -203,6 +211,81 @@ main .section.highlight {
   background-color: var(--light-color);
 }
 
+body > main > div:nth-child(1) {
+  padding: 0;
+}
+
+body > main > div:nth-child(1) > div > h1 {
+  font-size: calc(var(--heading-font-size-xxl)) !important;
+  line-height: calc(var(--heading-font-size-l) * 1.5) !important;
+  -webkit-font-smoothing: antialiased;
+  color: black;
+}
+
+.blog-image {
+  padding-top: 2% !important;
+  padding-bottom: 0 !important;
+}
+
+/* blog image p */
+.section.blog-image > div > p {
+  margin: 0 !important;
+}
+
+/* blog image  */
+.section.blog-image > div > p img {
+  width: 100%;
+  height: auto;
+}
+
+.index {
+  padding-top: 2% !important;
+  padding-bottom: 0 !important;
+}
+
+.index a, .blog-content a {
+  color: var(--body-link-color) !important;
+  text-decoration: underline;
+}
+
+.index .default-content-wrapper {
+  border: 1px solid var(--almost-black-color);
+}
+
+.index .default-content-wrapper h2 {
+  padding-left: 2%;
+  margin-top: 3% !important;
+  font-size: calc(var(--heading-font-size-xl));
+}
+
+.index .default-content-wrapper ul {
+  list-style-type: square;
+  padding-left: 5%;
+}
+
+.index .default-content-wrapper li {
+  padding-bottom: 1%;
+}
+
+.blog-content {
+  padding-top: 1% !important;
+}
+
+.blog-content p {
+  font-size: calc(var(--body-font-size-m) * 0.95);
+}
+
+.blog-content h2 {
+  font-size: var(--heading-font-size-xl);
+  margin-bottom: 1rem;
+}
+
+.blog-content img {
+  width: 83.33%;
+  margin: 0 auto;
+  display: flex;
+}
+
 /* styling for aside */
 .aside-nav a.button:any-link, button {
   color: #fff;
@@ -254,4 +337,3 @@ main .section.aside-nav {
     display: none;
   }
 }
-
