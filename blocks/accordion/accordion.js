@@ -9,7 +9,6 @@ function hasWrapper(el) {
 }
 
 export default function decorate(block) {
-
   // Get the value of 'data-parent-container' if the parent 'accordion-container' is found
   let parentAccordionContainer = null;
 
@@ -23,13 +22,13 @@ export default function decorate(block) {
     const summary = document.createElement('summary');
     summary.className = 'accordion-item-label';
     if (!hasWrapper(summary)) {
-      summary.innerHTML = '<p>'+dataWrapperText+'</p>';
+      summary.innerHTML = `<p>${dataWrapperText}</p>`;
     }
     // decorate accordion item body
     parentAccordionContainer = document.createElement('details');
     parentAccordionContainer.className = 'accordion-item';
-    if(window.innerWidth > 990) {
-      parentAccordionContainer.setAttribute("open", "open");
+    if (window.innerWidth > 990) {
+      parentAccordionContainer.setAttribute('open', 'open');
     }
     parentAccordionContainer.append(summary);
   } else {
