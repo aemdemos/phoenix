@@ -28,7 +28,7 @@
   --body-link-color: #30718d;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback;
+  --body-font-family: roboto, roboto-fallback, sans-serif;
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
@@ -125,8 +125,8 @@ main pre {
 
 /* links */
 a:any-link {
-  color: var(--link-color);
-  text-decoration: none;
+  color: var(--body-link-color);
+  text-decoration: underline;
 }
 
 a:hover {
@@ -205,6 +205,10 @@ main .section {
     max-width: 1300px;
     margin: auto;
   }
+
+  main {
+    max-width: min(85vw, 1300px);
+  }
 }
 
 /* section metadata */
@@ -219,7 +223,6 @@ body > main > div:nth-child(1) {
 
 body > main > div:nth-child(1) > div > h1 {
   font-size: calc(var(--heading-font-size-xxl)) !important;
-  line-height: calc(var(--heading-font-size-l) * 1.5) !important;
   -webkit-font-smoothing: antialiased;
   color: black;
 }
@@ -243,6 +246,7 @@ body > main > div:nth-child(1) > div > h1 {
 .index {
   padding-top: 2% !important;
   padding-bottom: 0 !important;
+  /*-webkit-font-smoothing: antialiased;*/
 }
 
 .index a, .blog-content a {
@@ -271,10 +275,13 @@ body > main > div:nth-child(1) > div > h1 {
 
 .blog-content {
   padding-top: 1% !important;
+  -webkit-font-smoothing: antialiased;
 }
 
-.blog-content p {
+.blog-content p,
+.blog-content li {
   font-size: calc(var(--body-font-size-m) * 0.95);
+  color: var(--darker-grey-color);
 }
 
 .blog-content h2 {
@@ -288,6 +295,10 @@ body > main > div:nth-child(1) > div > h1 {
   display: flex;
 }
 
+.blog-content em {
+  font-weight: 100;
+  font-size: calc(var(--body-font-size-m) * 0.9);
+}
 /* styling for aside */
 .aside-nav a.button:any-link, button {
   color: #fff;
@@ -301,10 +312,8 @@ body > main > div:nth-child(1) > div > h1 {
 
 main {
   display: grid;
-  grid-template-columns: auto 1fr 2fr auto; /* 4 columns: left-gutter, left-side, right-side, right-gutter */
-  margin-top: 6%;
-  margin-left: 12%;
-  margin-right: 12%;
+  grid-template-columns: auto 1fr 2.65fr auto; /* 4 columns: left-gutter, left-side, right-side, right-gutter */
+  margin: 6% auto 0;
 }
 
 main .section.aside-nav {
@@ -335,5 +344,33 @@ main .section.aside-nav {
 
   .aside-nav-bottom {
     display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  main {
+    max-width: 85.5vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .index .default-content-wrapper h2 {
+    padding-top: 3%;
+    padding-left: 5%;
+    margin-bottom: 0 !important;
+  }
+
+  .index .default-content-wrapper ul {
+    padding-left: 15%;
+    padding-right: 5%;
+  }
+
+  .index a {
+    font-size: calc(var(--body-font-size-xs) * 1.05);
+  }
+
+  .blog-content p,
+  .blog-content li {
+    font-size: var(--body-font-size-xs);
   }
 }

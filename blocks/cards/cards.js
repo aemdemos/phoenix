@@ -1,5 +1,16 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
+function handleReadMoreCardLinks(block) {
+  const cardLinks = block.querySelectorAll('.read-more ul li div p a');
+  const listItems = block.querySelectorAll('.read-more ul li');
+  listItems.forEach((item, index) => {
+    item.onclick = () => {
+      window.location.href = cardLinks.length > index ? cardLinks[index].href : '';
+    };
+    item.style.cursor = 'pointer';
+  });
+}
+
 export default function decorate(block) {
   /* change to ul, li */
   const ul = document.createElement('ul');
@@ -15,4 +26,5 @@ export default function decorate(block) {
   ul.querySelectorAll('img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
   block.textContent = '';
   block.append(ul);
+  handleReadMoreCardLinks(block);
 }
