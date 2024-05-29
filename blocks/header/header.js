@@ -278,8 +278,8 @@ function decorateNavItem(parent) {
   return navInMenuWrap;
 }
 
-function createBottomNav() {
-  const bottomSection = document.querySelector('.section.bottom-menu');
+function createBottomNav(nav) {
+  const bottomSection = nav.querySelector('.section.bottom-menu');
   const firstLink = bottomSection.querySelector('.button-container:first-of-type a');
   const secondLink = bottomSection.querySelector('.button-container:nth-of-type(2) a');
   const thirdLink = bottomSection.querySelector('.button-container:nth-of-type(3) a');
@@ -404,7 +404,7 @@ export default async function decorate(block) {
     }
   });
 
-  headerDropdownContainers.append(createBottomNav());
+  headerDropdownContainers.append(createBottomNav(nav));
   const headerNavDiv = document.createElement('div');
   headerNavDiv.className = 'header-nav';
   headerNavDiv.append(div(
