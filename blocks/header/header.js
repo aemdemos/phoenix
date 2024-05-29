@@ -1,7 +1,7 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import {
-  a, button, div, img, input, label, span,
+  a, button, div, img, input, label, span, ul,
 } from '../../scripts/dom-helpers.js';
 
 // media query match that indicates mobile/tablet width
@@ -96,6 +96,8 @@ function openHeaderOverlay() {
   searchHeader.classList.add('selected');
   const quickSearches = document.querySelector('.header-search .quick-searches');
   quickSearches.classList.add('active');
+  const searchIcon = document.querySelector('.icon-button-circle.search-icon');
+  searchIcon.classList.add('hide');
 }
 
 function closeHeaderOverlay() {
@@ -105,6 +107,8 @@ function closeHeaderOverlay() {
   searchHeader.classList.remove('selected');
   const quickSearches = document.querySelector('.header-search .quick-searches');
   quickSearches.classList.remove('active');
+  const searchIcon = document.querySelector('.icon-button-circle.search-icon');
+  searchIcon.classList.remove('hide');
 }
 
 function createSearchSection(searchSection) {
@@ -112,7 +116,8 @@ function createSearchSection(searchSection) {
 
   const headerOverlay = div({ class: 'header-overlay' });
 
-  const searchIcon = searchSection.querySelector('.default-content-wrapper p:first-of-type picture').cloneNode();
+  // const searchIcon =
+  // searchSection.querySelector('.default-content-wrapper p:first-of-type picture').cloneNode();
   const closeIcon = searchSection.querySelector('.default-content-wrapper p:nth-of-type(2) picture:nth-of-type(2)');
 
   const labelEl = searchSection.querySelector('.default-content-wrapper p:nth-of-type(3)');
@@ -132,7 +137,13 @@ function createSearchSection(searchSection) {
         ),
         label({ class: 'floating-label', for: 'searchBox' }, labelEl.innerText),
       ),
-      button({ class: 'search-icon', 'aria-label': 'search University of Phoenix' }, span({ class: 'icon' }, searchIcon)),
+      button(
+        { class: 'search-icon', 'aria-label': 'search University of Phoenix' },
+        span(
+          { class: 'icon' },
+          img({ src: '/icons/search.svg' }),
+        ),
+      ),
     ),
     div({ class: 'search-results-container' }, list),
     a(
@@ -145,11 +156,14 @@ function createSearchSection(searchSection) {
     ),
   );
 
-  const searchImg = searchSection.querySelector('picture:first-of-type');
-  const searchIconButton = button({
+  // const searchImg = searchSection.querySelector('picture:first-of-type');
+  const searchIconButton = a({
     class: 'icon-button-circle search-icon',
     onclick: openHeaderOverlay,
-  }, span({ class: 'icon' }, searchImg));
+  }, span(
+    { class: 'icon' },
+    img({ src: '/icons/search.svg' }),
+  ));
 
   searchDiv.append(headerOverlay);
   searchDiv.append(searchHeader);
@@ -159,8 +173,183 @@ function createSearchSection(searchSection) {
 }
 
 function createNavTop(searchDiv, phoneIconButton) {
-  const navTop = div({ class: 'nav-top' }, searchDiv, phoneIconButton);
+  const navTop = div(
+    { class: 'nav-top' },
+    searchDiv,
+    phoneIconButton,
+    a(
+      { class: 'student-login-container', href: 'https://my.phoenix.edu/' },
+      div(
+        { class: 'student-login' },
+        img({ src: '/icons/login-icon.svg' }),
+        span('Student Login'),
+      ),
+    ),
+  );
   return navTop;
+}
+
+/**
+ * Sanitizes a string for use as class name.
+ * @param {string} name The unsanitized string
+ * @returns {string} The class name
+ */
+function toClassName(name) {
+  return typeof name === 'string'
+    ? name
+      .toLowerCase()
+      .replace(/[^0-9a-z]/gi, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '')
+    : '';
+}
+
+function decorateNavItem(parent) {
+  const navInMenuWrap = document.createElement('div');
+  navInMenuWrap.className = 'nav-in-menu-wrap';
+
+  const tablist = ul({ class: 'tabs-list', role: 'tablist' });
+
+  navInMenuWrap.append(tablist);
+
+  const listUl = parent.querySelector('ul:first-of-type');
+  const list = listUl !== null ? listUl.children : null;
+  const listLen = list !== null ? list.length : 0;
+  let i = 0;
+  while (i < listLen) {
+    const tabInfo = list.item(i);
+    const tabHeading = tabInfo.querySelector('strong');
+    const id = toClassName(tabHeading !== null ? tabHeading.textContent : tabInfo.textContent);
+
+    const tabpanel = document.createElement('div');
+    navInMenuWrap.append(tabpanel);
+    // decorate tabpanel
+    tabpanel.className = 'tabs-panel';
+    tabpanel.id = `tabpanel-${id}`;
+    tabpanel.setAttribute('aria-hidden', !!i);
+    tabpanel.setAttribute('aria-labelledby', `tab-${id}`);
+    tabpanel.setAttribute('role', 'tabpanel');
+    const tabpanelItems = tabInfo.querySelector('ul');
+    if (tabpanelItems !== null) {
+      tabpanel.append(tabpanelItems);
+    }
+
+    // build tab button
+    const navButton = document.createElement('button');
+    navButton.className = 'tabs-tab';
+    navButton.id = `tab-${id}`;
+    navButton.innerHTML = tabInfo.innerHTML;
+    navButton.setAttribute('aria-controls', `tabpanel-${id}`);
+    navButton.setAttribute('aria-selected', !i);
+    navButton.setAttribute('role', 'tab');
+    navButton.setAttribute('type', 'button');
+    navButton.addEventListener('mouseover', () => {
+      parent.querySelectorAll('[role=tabpanel]').forEach((panel) => {
+        panel.setAttribute('aria-hidden', true);
+      });
+      tablist.querySelectorAll('button').forEach((btn) => {
+        btn.setAttribute('aria-selected', false);
+      });
+      tabpanel.setAttribute('aria-hidden', false);
+      navButton.setAttribute('aria-selected', true);
+    });
+    // const buttonContainer = li({role: 'tab'});
+    tablist.append(navButton);
+    navButton.addEventListener('click', () => {
+      document.querySelectorAll('.header-tabs-right .tabs-panel').forEach((panel) => {
+        panel.classList?.remove('selected');
+      });
+      document.querySelectorAll('.header-tabs-left .tabs-tab').forEach((panel) => {
+        panel.classList?.remove('selected');
+      });
+      navButton.classList.add('selected');
+      tabpanel.classList.add('selected');
+    });
+    if (i === 0) {
+      navButton.classList.add('selected');
+      tabpanel.classList.add('selected');
+    }
+    i += 1;
+  }
+
+  // parent.children[1].remove();
+  listUl.remove();
+
+  return navInMenuWrap;
+}
+
+function createBottomNav(nav) {
+  const bottomSection = nav.querySelector('.section.bottom-menu');
+  const firstLink = bottomSection.querySelector('.button-container:first-of-type a');
+  const secondLink = bottomSection.querySelector('.button-container:nth-of-type(2) a');
+  const thirdLink = bottomSection.querySelector('.button-container:nth-of-type(3) a');
+
+  const bottomMenu = div(
+    { class: 'header-bottom-section' },
+    div(
+      { class: 'bottom-container' },
+      a(
+        { href: firstLink.getAttribute('href'), class: 'header-bottom-button white-arrow' },
+        span(
+          firstLink.textContent,
+          div({ class: 'header-arrow' }),
+        ),
+      ),
+      a(
+        { href: secondLink.getAttribute('href'), class: 'header-bottom-button white-arrow' },
+        span(
+          secondLink.textContent,
+          div({ class: 'header-arrow' }),
+        ),
+      ),
+      a(
+        { href: thirdLink.getAttribute('href'), class: 'header-bottom-button white-border' },
+        span(thirdLink.textContent),
+      ),
+    ),
+  );
+
+  return bottomMenu;
+}
+
+function createDropDownContainer3Level(list, imgContainer) {
+  const navInMenuWrap = decorateNavItem(list);
+  const listTabList = navInMenuWrap.querySelector('.tabs-list');
+  const listTabPanels = navInMenuWrap.querySelectorAll('.tabs-panel');
+
+  const imgLink = imgContainer.querySelector('a');
+  imgLink.classList.add('img-link');
+  const image = imgContainer.querySelector('picture');
+  imgLink.append(image);
+
+  const dropDownContainer = div(
+    {
+      class: 'header-mega-nav',
+    },
+    div(
+      { class: 'center' },
+      div(
+        { class: 'headernavcontainer' },
+        div(
+          { class: 'header-container' },
+          div(
+            { class: 'headernavtabnavigation' },
+            div({ class: 'header-tabs-left' }, listTabList),
+            div(
+              { class: 'header-tabs-right' },
+              div({ class: 'header-tab-right-left' }, ...listTabPanels),
+              div(
+                { class: 'header-tab-right-right' },
+                div({ class: 'right-image' }, imgLink),
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+
+  return dropDownContainer;
 }
 
 /**
@@ -183,12 +372,45 @@ export default async function decorate(block) {
   headerTop.className = 'header-top';
   headerTop.append(nav.children[0]);
 
+  const navList = document.createElement('ul');
+
+  const headerDropdownContainers = document.createElement('nav');
+  headerDropdownContainers.classList.add('header-dropdown-container');
+
+  nav.querySelectorAll('.mega-menu').forEach((megaMenu) => {
+    const list = megaMenu.querySelector(':scope > .default-content-wrapper > ul > li');
+    if (list.querySelector('ul')) list.classList.add('nav-drop');
+    if (megaMenu.classList.contains('3-level')) {
+      const imgContainer = megaMenu.querySelector('.default-content-wrapper > p');
+      const container = createDropDownContainer3Level(list, imgContainer);
+      headerDropdownContainers.append(container);
+      list.addEventListener('click', () => {
+        if (container.classList.contains('selected')) {
+          container.classList.remove('selected');
+          const bottomMenu = document.querySelector('header .header-bottom-section');
+          bottomMenu.classList.remove('active');
+        } else {
+          document.querySelectorAll('.header-mega-nav').forEach((menu) => {
+            menu.classList.remove('selected');
+          });
+          container.classList.add('selected');
+          const bottomMenu = document.querySelector('header .header-bottom-section');
+          bottomMenu.classList.add('active');
+        }
+      });
+    }
+    if (list) {
+      navList.append(list);
+    }
+  });
+
+  headerDropdownContainers.append(createBottomNav(nav));
   const headerNavDiv = document.createElement('div');
   headerNavDiv.className = 'header-nav';
   headerNavDiv.append(div(
     { class: 'header-left' },
     nav.children[0].children[0].children[0],
-    div({ class: 'nav-sections' }, nav.children[2].children[0].children[0]),
+    div({ class: 'nav-sections' }, navList),
   ));
   nav.children[0].remove();
   nav.children[1].remove();
@@ -247,6 +469,8 @@ export default async function decorate(block) {
     nav.prepend(navTop);
   }
 
+  nav.append(headerDropdownContainers);
+
   /* const classes = ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
@@ -285,4 +509,7 @@ export default async function decorate(block) {
   navWrapper.append(headerTop);
   navWrapper.append(nav);
   block.append(navWrapper);
+
+  document.querySelectorAll('nav .mega-menu').forEach((megaMenu) => megaMenu.remove());
+  document.querySelector('nav .bottom-menu').remove();
 }
