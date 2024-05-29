@@ -20,13 +20,13 @@ export default function decorate(block) {
   if (accordionParent) {
     const dataWrapperText = accordionParent.getAttribute('data-parent-container');
     const summary = document.createElement('summary');
-    summary.className = 'accordion-item-label';
+    summary.classList.add('accordion-item-label', 'accordion-container-item-label');
     if (!hasWrapper(summary)) {
       summary.innerHTML = `<p>${dataWrapperText}</p>`;
     }
     // decorate accordion item body
     parentAccordionContainer = document.createElement('details');
-    parentAccordionContainer.className = 'accordion-item';
+    parentAccordionContainer.classList.add('accordion-item', 'accordion-container-item');
     if (window.innerWidth > 990) {
       parentAccordionContainer.setAttribute('open', 'open');
     }
