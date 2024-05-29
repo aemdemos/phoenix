@@ -165,6 +165,10 @@ header nav .nav-sections {
   background-color: var(--overlay-color);
 }
 
+header nav .header-dropdown-container {
+  display: none;
+}
+
 header nav[aria-expanded="true"] .nav-sections {
   display: block;
   visibility: visible;
@@ -247,6 +251,7 @@ header nav .nav-sections ul > li > ul > li {
   }
 
   header nav .header-dropdown-container {
+    display: block;
     width: 100%;
     background-color: var(--color-white);
     z-index: 999;
