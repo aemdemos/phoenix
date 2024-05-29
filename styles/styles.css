@@ -246,7 +246,6 @@ body > main > div:nth-child(1) > div > h1 {
 .index {
   padding-top: 2% !important;
   padding-bottom: 0 !important;
-  /*-webkit-font-smoothing: antialiased;*/
 }
 
 .index a, .blog-content a {
@@ -299,6 +298,7 @@ body > main > div:nth-child(1) > div > h1 {
   font-weight: 100;
   font-size: calc(var(--body-font-size-m) * 0.9);
 }
+
 /* styling for aside */
 .aside-nav a.button:any-link, button {
   color: #fff;
@@ -347,7 +347,7 @@ main .section.aside-nav {
   }
 }
 
-@media (max-width: 991px) {
+@media (width <= 990px) {
   main {
     max-width: 85.5vw;
     margin-left: auto;

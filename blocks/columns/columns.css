@@ -76,8 +76,7 @@
   }
 }
 
-@media (max-width: 990px) {
-
+@media (width <= 990px) {
   .contributor {
     padding: 3% 7%;
   }
