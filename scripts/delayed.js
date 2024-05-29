@@ -22,5 +22,5 @@ window.EDU = {
     chatClientlibHashCode: '1956f4d4e84fb208cfba5940203678b7',
   },
 };
-loadScript('/clientlibs/clientlib-chat.js');
-loadCSS('/clientlibs/clientlib-chat.css');
+loadScript('/clientlibs/clientlib-chat.min.js');
+loadCSS('/clientlibs/clientlib-chat.min.css');
