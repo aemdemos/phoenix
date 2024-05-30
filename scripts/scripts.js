@@ -69,7 +69,7 @@ function buildArticleHeader(main) {
   const reviewerDescription = getMetadata('reviewer-description');
   const reviewerImage = getMetadata('reviewer-image');
 
-  // eslint-disable-next-line function-paren-newline
+  /* eslint-disable function-paren-newline */
   main.prepend(div(buildBlock('article-header', [
     [main.querySelector('h1')],
     [
@@ -97,6 +97,7 @@ function buildArticleHeader(main) {
       p(img({ src: reviewerImage, alt: reviewer, class: 'icon'} ), 'Reviewed by ', a({ href: reviewerHref }, reviewer), ' ' + reviewerDescription),
     ],
   ])));
+  /* eslint-enable function-paren-newline */
 }
 
 /**
