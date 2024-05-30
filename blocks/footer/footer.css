@@ -35,7 +35,7 @@ footer .footer ul > li > ul {
 .footer-bottom {
   /*margin-top: 20px;*/
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row wrap;
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
@@ -46,17 +46,20 @@ footer .footer ul > li > ul {
 
 .footer-bottom-left {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .footer-bottom-left > div {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .footer-bottom-left > div > ul:first-of-type {
   display: flex;
-  flex-flow: row;
+  flex-flow: row wrap;
   justify-content: flex-start;
+  align-items: baseline;
   width: 100%;
 }
 
@@ -78,13 +81,27 @@ footer .footer ul > li > ul {
   display: inline-block;
 }
 
+.footer-bottom-left > div > ul > li > a {
+  color: #121212;
+  text-decoration: none;
+}
+
+.footer-bottom-left > div > ul:last-of-type > li:first-of-type > a {
+  text-decoration: underline;
+}
+
 .footer-bottom-right {
-  width: fit-content;
+  margin-top: 20px;
 }
 
 .footer-bottom-right > ul {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.footer-bottom-right > ul > li {
+  margin-right: 14px;
 }
 
 .footer-form-container {
@@ -108,6 +125,17 @@ footer .footer ul > li > ul {
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
+}
+
+.footer-top-columns > div > ul > li > ul {
+  margin-top: 10px;
+  line-height: 25px;
+}
+
+.footer-top-columns > div > ul > li > ul > li > a {
+  color: #121212;
+  text-decoration: none;
+  font-weight: 100;
 }
 
 .footer-top-columns > div:first-of-type {
@@ -282,15 +310,20 @@ footer .footer ul > li > ul {
     margin-bottom: 11px;
   }
 
-  .footer-top-columns > div:first-of-type > ul > li:nth-of-type(5) {
-    position: absolute;
-    left: 520px;
-    top: 200px;
-  }
+  /*TODO: Add 5th column below 4th as in OG site, but commenting position absolute due to its risk*/
+  /*.footer-top-columns > div:first-of-type > ul > li:nth-of-type(5) {*/
+  /*  position: absolute;*/
+  /*  left: 520px;*/
+  /*  top: 200px;*/
+  /*}*/
 
-  .footer-top-columns > div:first-of-type > ul > li:nth-of-type(6) {
-    position: relative;
-    left: 50px;
+  /*.footer-top-columns > div:first-of-type > ul > li:nth-of-type(6) {*/
+  /*  position: relative;*/
+  /*  left: 50px;*/
+  /*}*/
+
+  .footer-bottom-right {
+    margin-top: 0;
   }
 
   .footer-form-container {
@@ -300,7 +333,7 @@ footer .footer ul > li > ul {
   }
 
   .section.discover-more {
-    margin: -20px 0 0 200px
+    margin: 0 0 0 200px
   }
 
   .section.discover-more > div {
@@ -314,5 +347,13 @@ footer .footer ul > li > ul {
   .section.discover-more > div > ul > li {
     margin-right: 20px;
     width: unset;
+  }
+
+  .footer-bottom {
+    flex-flow: row wrap;
+  }
+
+  .footer-bottom-right > ul > li {
+    margin-right: 24px;
   }
 }

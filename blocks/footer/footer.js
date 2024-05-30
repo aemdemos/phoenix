@@ -110,8 +110,7 @@ export default async function decorate(block) {
   footer_bottom_left.classList.add('footer-bottom-left');
   footer_bottom_right.classList.add('footer-bottom-right');
 
-  // TODO: Add social media links
-  // footer_bottom_right.append(footer.querySelector('.section.social-media-links > div > ul'));
+  footer_bottom_right.append(footer.querySelector('.section.social-media-links > div > ul'));
   footer_bottom_left.append(footer.querySelector('.section.footer-logo p'));
   footer_bottom_left.append(footer.querySelector('.section.footer-bottom > div'));
 
