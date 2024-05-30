@@ -488,10 +488,25 @@ function buildMobileLevel3Nav(megaMenu) {
     level2AccordionButton.innerText = content2ndLevel.firstElementChild.innerText;
 
     const level2DivContent = document.createElement('div');
+    level2DivContent.classList.add('nav-accordian-content', 'level-2');
     level2DivContent.ariaExpanded = 'false';
     level2AccordionButton.addEventListener('click', () => {
-      level2DivContent.classList.toggle('active');
-      level2DivContent.ariaExpanded = level2DivContent.classList.contains('active');
+      if (level2DivContent.classList.contains('active')) {
+        level2DivContent.classList.remove('active');
+        level2AccordionButton.classList.remove('active');
+        level2DivContent.ariaExpanded = level2DivContent.classList.contains('active');
+      } else {
+        document.querySelectorAll('.nav-accordian.level-2').forEach((navButton) => {
+          navButton.classList.remove('active');
+        });
+        document.querySelectorAll('.nav-accordian-content.level-2').forEach((navContent) => {
+          navContent.classList.remove('active');
+          navContent.ariaExpanded = navContent.classList.contains('active');
+        });
+        level2AccordionButton.classList.add('active');
+        level2DivContent.classList.add('active');
+        level2DivContent.ariaExpanded = level2DivContent.classList.contains('active');
+      }
     });
 
     Array.from(content2ndLevel.querySelector('ul').children).forEach((content3rdLevel) => {
@@ -537,9 +552,23 @@ function buildMobileNav(nav) {
       content.ariaExpanded = 'false';
       content.classList.add('nav-accordian-content', 'level-1');
       accordionButton.addEventListener('click', () => {
-        accordionButton.classList.toggle('active');
-        content.classList.toggle('active');
-        content.ariaExpanded = content.classList.contains('active');
+        if (content.classList.contains('active')) {
+          content.classList.remove('active');
+          accordionButton.classList.remove('active');
+          content.ariaExpanded = content.classList.contains('active');
+        } else {
+          document.querySelectorAll('.nav-accordian.level-1').forEach((navButton) => {
+            navButton.classList.remove('active');
+          });
+          document.querySelectorAll('.nav-accordian-content.level-1').forEach((navContent) => {
+            navContent.classList.remove('active');
+            navContent.ariaExpanded = navContent.classList.contains('active');
+          });
+
+          accordionButton.classList.toggle('active');
+          content.classList.toggle('active');
+          content.ariaExpanded = content.classList.contains('active');
+        }
       });
       mobileNav.append(content);
     }

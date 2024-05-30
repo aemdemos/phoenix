@@ -7,6 +7,12 @@ header .nav-wrapper {
   position: fixed;
 }
 
+@media (width <= 900px) {
+  header .nav-wrapper {
+    background-color: transparent;
+  }
+}
+
 .hide {
   display: none !important;
 }
@@ -1337,10 +1343,17 @@ header nav[aria-expanded="false"] .mobile-nav {
 
 header nav .mobile-nav {
   width: 100%;
+  background-color: var(--color-almost-black-l90);
+  margin-top: -58px;
 }
 
 header nav .mobile-nav .nav-accordian {
   width: 100%;
+  margin: 0;
+}
+
+header nav .mobile-nav .nav-accordian:first-child {
+  margin-top: 58px;
 }
 
 header nav .mobile-nav .nav-accordian:hover, header nav .mobile-nav .nav-accordian:focus {
@@ -1352,7 +1365,6 @@ header nav .mobile-nav .nav-accordian.level-1 {
   border-bottom: 1px solid var(--color-almost-black-l30);
   text-align: left;
   padding: 18px 0;
-  margin: 0;
 }
 
 header nav .mobile-nav .nav-accordian.level-1.active {
@@ -1368,12 +1380,23 @@ header nav .mobile-nav .nav-accordian.level-2 {
   border-bottom: 1px solid var(--color-almost-black-l30);
   text-align: left;
   padding: 10px 0;
-  margin: 10px 0 0 0;
+  margin: 10px 0 0;
   border-radius: 0;
+  font-weight: 500;
+}
+
+header nav .mobile-nav .nav-accordian.level-2.active {
+  margin-bottom: 10px;
 }
 
 header nav .mobile-nav .nav-accordian.level-3 {
-  background-color: lightgreen;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+header nav .mobile-nav .nav-accordian.level-3 > a {
+  text-decoration: none;
 }
 
 header nav .mobile-nav div[aria-expanded="false"] {
