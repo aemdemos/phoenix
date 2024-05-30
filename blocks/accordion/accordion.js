@@ -32,6 +32,7 @@ export default function decorate(block) {
     }
     parentAccordionContainer.append(summary);
   } else {
+    // eslint-disable-next-line no-console
     console.log('Parent accordion-container not found');
   }
 

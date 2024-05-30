@@ -33,7 +33,7 @@ footer .footer ul > li > ul {
 }
 
 .footer-bottom {
-  /*margin-top: 20px;*/
+  /* margin-top: 20px; */
   display: flex;
   flex-flow: row wrap;
   width: 100%;
@@ -51,8 +51,7 @@ footer .footer ul > li > ul {
 
 .footer-bottom-left > div {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
 }
 
 .footer-bottom-left > div > ul:first-of-type {
@@ -96,8 +95,7 @@ footer .footer ul > li > ul {
 
 .footer-bottom-right > ul {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
 }
 
 .footer-bottom-right > ul > li {
@@ -150,7 +148,7 @@ footer .footer ul > li > ul {
 }
 
 .footer-top-columns > div:first-of-type > ul > li {
-  /*height: 26px;*/
+  /* height: 26px; */
   border-bottom: 1px solid #7b8a92;
   padding: 13px 6px;
   position: relative;
@@ -217,7 +215,6 @@ footer .footer ul > li > ul {
 .section.discover-more {
   margin-top: 20px;
   color: #121212;
-  font-family: "Roboto";
   line-height: 18px;
   text-decoration: none;
   font-size: 14px !important;
@@ -336,13 +333,14 @@ footer .footer ul > li > ul {
   }
 
   .section.discover-more > div {
-    /*margin-left: 20%;*/
+    /* margin-left: 20%; */
     flex-direction: unset;
   }
 
   .section.discover-more > div > ul {
     width: unset;
   }
+
   .section.discover-more > div > ul > li {
     margin-right: 20px;
     width: unset;
