@@ -20,14 +20,30 @@ export default async function decorate(block) {
   // decorate footer DOM
   block.textContent = '';
   const footer = document.createElement('div');
-  const innerDiv = document.createElement('div');
-  innerDiv.classList.add('footer-top-inner');
-  // footer.append(fragment);
-  while (fragment.firstElementChild) innerDiv.append(fragment.firstElementChild);
-  footer.append(innerDiv);
+  while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
+  const footer_top = footer.querySelector('.section.footer-top');
+  const footer_top_columns = document.createElement('div');
+  footer_top_columns.classList.add('footer-top-columns');
+  const footer_form_container = document.createElement('div');
+  footer_form_container.classList.add('footer-form-container');
 
+  footer_form_container.append(footer.querySelector('.newsletter-form-wrapper'));
+  footer_form_container.append(footer.querySelector('.trustscore-wrapper'));
+  footer_top_columns.append(footer.querySelector('.default-content-wrapper'));
+  footer_top_columns.append(footer_form_container);
 
+  const discover_more = document.createElement('div');
+  discover_more.classList.add('discover-more-container');
+  const discover_more_text = document.createElement('div');
+  discover_more_text.classList.add('discover-more-text');
+  discover_more_text.innerHTML = 'Discover More';
+  discover_more.append(discover_more_text);
+  discover_more.append(footer.querySelector('.discover-more-wrapper'));
+
+  footer_top.innerHTML = '';
+  footer_top.append(footer_top_columns);
+  footer_top.append(discover_more);
   block.append(footer);
 }
 
