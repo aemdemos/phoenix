@@ -395,6 +395,19 @@ function createDropDownContainer1Level(list, imgContainer) {
   return dropDownContainer;
 }
 
+function closeNavigationDropdown() {
+  const navDropdownActive = document.querySelector('header .header-dropdown-container .header-mega-nav.selected');
+  navDropdownActive.classList.remove('selected');
+  const navBottm = document.querySelector('header .header-bottom-section.active');
+  navBottm.classList.remove('active');
+}
+
+function createDropDownCloseButton() {
+  return button({
+    role: button, 'aria-label': 'Close Navigation', class: 'header-dropdown-close', onclick: closeNavigationDropdown,
+  }, span(), span());
+}
+
 /**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -453,6 +466,7 @@ export default async function decorate(block) {
       }
     });
     headerDropdownContainers.append(createBottomNav(nav));
+    headerDropdownContainers.append(createDropDownCloseButton());
     nav.append(headerDropdownContainers);
   } else { /* empty */ }
   const headerNavDiv = document.createElement('div');

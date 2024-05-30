@@ -612,6 +612,40 @@ header nav .nav-sections ul > li > ul > li {
     margin-left: 30px;
   }
 
+  header .header-dropdown-close {
+    display: none;
+    border: 0;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    cursor: pointer;
+    top: 70px;
+    right: 30px;
+    height: 24px;
+    border-radius: 100%;
+  }
+
+  header .header-dropdown-close span {
+    background: var(--color-almost-black);
+    transform: rotate(45deg) translate(4px,0);
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin-bottom: 2px;
+    position: relative;
+    top: 0;
+    right: 3px;
+  }
+
+  header .header-dropdown-close span:last-child {
+    transform: rotate(-45deg) translate(2px, 0);
+    left: -2px;
+  }
+
+  header .header-bottom-section.active ~ .header-dropdown-close {
+    display: block;
+  }
+
   header nav .nav-sections ul {
     display: flex;
     gap: 2em;
