@@ -350,6 +350,64 @@ function createDropDownContainer3Level(list, imgContainer) {
   return dropDownContainer;
 }
 
+function createDropDownContainer2Level(list, megaMenu) {
+  const listUl = list.querySelector('ul:first-of-type');
+  if (listUl === null) {
+    return null;
+  }
+  const subLists = listUl.children;
+  const subListsLen = subLists !== null ? subLists.length : 0;
+  const subListsInLeft = Math.ceil(subListsLen / 2);
+  const subListsInRight = subListsLen - subListsInLeft;
+
+  const dropDownContainer = div(
+    { class: 'header-mega-nav two-level' },
+    div(
+      { class: 'center' },
+      div(
+        { class: 'headernavcontainer-left' },
+        div(
+          { class: 'header-container' },
+        ),
+      ),
+      div(
+        { class: 'headernavcontainer-mid' },
+        div(
+          { class: 'header-container' },
+        ),
+      ),
+      div(
+        { class: 'headernavcontainer-right' },
+      ),
+    ),
+  );
+
+  const leftContainer = dropDownContainer.querySelector('.headernavcontainer-left .header-container');
+  const midContainer = dropDownContainer.querySelector('.headernavcontainer-mid .header-container');
+  for (let i = 0; i < subListsInLeft; i += 1) {
+    leftContainer.append(listUl.children[0]);
+  }
+  for (let i = 0; i < subListsInRight; i += 1) {
+    midContainer.append(listUl.children[0]);
+  }
+
+  listUl.remove();
+
+  const rightContainer = dropDownContainer.querySelector('.headernavcontainer-right');
+  const wrapper = megaMenu.querySelector('.default-content-wrapper');
+  wrapper.querySelector('ul')?.remove();
+
+  const link = wrapper.querySelector('a');
+  if (link) {
+    const imgContainer = a({ class: 'img-link', href: link.href }, wrapper.firstElementChild);
+    rightContainer.append(imgContainer);
+  }
+
+  while (wrapper.firstElementChild) rightContainer.append(wrapper.firstElementChild);
+
+  return dropDownContainer;
+}
+
 function createDropDownContainer1Level(list, imgContainer) {
   const navList = list.querySelector('ul:first-of-type');
   const imgLink = imgContainer.querySelector('a');
@@ -419,7 +477,7 @@ function createDropDownCloseButton() {
 export default async function decorate(block) {
   // load nav as fragment
   const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
+  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/draft/absarasw/nav';
   const fragment = await loadFragment(navPath);
 
   // decorate nav DOM
@@ -447,6 +505,8 @@ export default async function decorate(block) {
       } else if (megaMenu.classList.contains('1-level')) {
         const imgContainer = megaMenu.querySelector('.default-content-wrapper > p');
         container = createDropDownContainer1Level(list, imgContainer);
+      } else if (megaMenu.classList.contains('2-level')) {
+        container = createDropDownContainer2Level(list, megaMenu);
       }
       if (container !== null) {
         headerDropdownContainers.append(container);
