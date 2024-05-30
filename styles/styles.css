@@ -24,13 +24,16 @@
   --color-almost-black: #001823;
   --color-almost-black-l60: #b2bbbf;
   --color-almost-black-l30: #5e7079;
+  --color-almost-black-l40: #7b8a92;
   --color-almost-black-l90: #f2f3f3;
   --color-almost-black-l10: #1d333d;
-  --color-almost-black-l40: #7b8a92;
   --color-phoenix-red: #db3725;
   --body-link-color: #30718d;
   --color-river-blue: #30718d;
   --color-river-blue-dark: #1a3d4d;
+  --cta-blue-primary-background: var(--color-river-blue);
+  --cta-blue-primary-focus-background: #30718d;
+  
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback, sans-serif;

@@ -7,6 +7,12 @@ header .nav-wrapper {
   position: fixed;
 }
 
+@media (width <= 900px) {
+  header .nav-wrapper {
+    background-color: transparent;
+  }
+}
+
 .hide {
   display: none !important;
 }
@@ -1331,3 +1337,291 @@ header nav[aria-expanded='true'] .nav-hamburger div:last-child span {
     z-index: -2;
   }
 }
+
+header nav[aria-expanded="false"] .mobile-nav {
+  display: none;
+}
+
+header nav .mobile-nav {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: calc(100% - 20px);
+  height: 100%;
+  overflow-y: auto;
+  background-color: var(--color-almost-black-l90);
+  margin: 0 10px;
+  border-radius: 30px 30px 20px 20px;
+}
+
+header nav .mobile-nav .nav-links {
+  margin-top: 70px;
+  margin-bottom: 0;
+}
+
+/* header nav .mobile-nav .nav-accordian {
+  width: 100%;
+  margin: 0;
+} */
+
+header nav .mobile-nav li {
+  list-style-type: none;
+  width: 100%;
+  margin: 0;
+}
+
+header nav .mobile-nav .nav-accordian-content li {
+  list-style-type: none;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: var(--color-almost-black-l10);
+  line-height: 24px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+header nav .mobile-nav .nav-accordian-content li a {
+  list-style-type: none;
+  width: 100%;
+  margin: 0;
+  font-weight: 500;
+  color: var(--color-almost-black-l10);
+  line-height: 24px;
+  text-decoration: none;
+  display: flex;
+}
+
+header nav .mobile-nav .nav-accordian-content li a::before {
+  content: "";
+  width: 0;
+  left: 0;
+  bottom: -10px;
+  height: 2px;
+  border-radius: 30px;
+  background-color: var(--color-phoenix-red);
+  position: absolute;
+  display: block;
+  transition: all .3s ease-in-out;
+}
+
+header nav .mobile-nav .nav-accordian-content li a:hover::before {
+  width: 55%;
+  max-width: 130px;
+}
+
+header nav .mobile-nav ul {
+  padding: 0;
+}
+
+header nav .mobile-nav .nav-accordian:hover, header nav .mobile-nav .nav-accordian:focus {
+  background-color: unset;
+}
+
+header nav .mobile-nav .nav-accordian.level-1 {
+  border: none;
+  border-bottom: 1px solid var(--color-almost-black-l30);
+  text-align: left;
+  padding: 18px 0;
+  margin: 0 15px;
+  width: calc(100% - 30px);
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  border-radius: 3px;
+}
+
+header nav .mobile-nav .nav-accordian.level-1:last-child {
+  border: none;
+}
+
+header nav .mobile-nav .nav-accordian.level-1.active {
+  border: none;
+}
+
+header nav .mobile-nav .nav-accordian-content.level-1 {
+  padding: 10px 15px 0 30px;
+  background-color: white;
+}
+
+header nav .mobile-nav .nav-accordian.level-2 {
+  border: none;
+  border-bottom: 1px solid var(--color-almost-black-l30);
+  text-align: left;
+  padding: 10px 0;
+  margin: 10px 0 0;
+  border-radius: 0;
+  font-weight: 500;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+header nav .mobile-nav .nav-accordian.level-2.active {
+  margin-bottom: 10px;
+}
+
+header nav .mobile-nav p.nav-accordian.level-3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: var(--color-almost-black-l10);
+  line-height: 24px;
+  text-decoration: none;
+}
+
+header nav .mobile-nav .nav-accordian.level-3 > a {
+  text-decoration: none;
+}
+
+header nav .mobile-nav div[aria-expanded="false"] {
+  display: none;
+}
+
+header nav .mobile-nav div.student-login-container {
+  padding: 30px 10px;
+}
+
+header nav .mobile-nav a.student-login-container {
+  display: inline-block;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 30px;
+  text-decoration: none;
+  padding: 8px 15px;
+  margin: 0 13px 0 5px;
+  box-shadow: 0 0 5px 1px rgb(0 0 0 / 20%);
+}
+
+header nav .mobile-nav div.student-login {
+  display: flex;
+  font-size: 13px;
+}
+
+header nav .mobile-nav div.student-login img {
+  height: 16px;
+  width: 16px;
+  margin-right: 10px;
+}
+
+header nav .mobile-nav div.request-info {
+  display: flex;
+  justify-content: center;
+  background-color: var(--cta-blue-primary-focus-background);
+  padding: 12px;
+  padding-bottom: 40px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+header nav .mobile-nav div.request-info a {
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
+  background-color: transparent;
+  padding: 8px 20px;
+  margin: 0 5px;
+  border-radius: 30px;
+  font-size: 14px;
+  min-width: 88px;
+  text-align: center;
+  text-decoration: none;
+}
+
+header nav .mobile-nav .nav-heading {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-almost-black-l30);
+  line-height: 24px;
+  padding-top: 30px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  display: block;
+  border-top: 1px solid var(--color-almost-black-l40);
+
+}
+
+header nav .mobile-nav div:first-child > .nav-heading {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+header nav .mobile-nav .dropdown-arrow {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+header nav .mobile-nav .dropdown-arrow::before,
+header nav .mobile-nav .dropdown-arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 10px;
+  background-color: var(--color-almost-black);
+  transition: all .5s;
+}
+
+header nav .mobile-nav .dropdown-arrow::before {
+  transform: translate(0, -50%) rotate(45deg);
+}
+
+header nav .mobile-nav .dropdown-arrow::after {
+  transform: translate(-200%, -50%) rotate(-45deg);
+}
+
+header nav .mobile-nav button.active > .dropdown-arrow::before {
+  transform: translate(0, -50%) rotate(-45deg);
+}
+
+header nav .mobile-nav button.active > .dropdown-arrow::after {
+  transform: translate(-200%, -50%) rotate(45deg);
+}
+
+header nav .mobile-nav .picture-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+header nav .mobile-nav .picture-footer > picture,
+header nav .mobile-nav .picture-footer > picture > img {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+header nav .mobile-nav .picture-footer > a {
+  background-color: var(--cta-blue-primary-background);
+  color: var(--color-white);
+  border-radius: 2rem;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+header nav .mobile-nav .picture-footer.small {
+  display: block;
+  text-align: left;
+  color: var(--color-almost-black-l30);
+  font-size: 14px;
+  line-height: calc(14px*1.5);
+  padding-bottom: 32px;
+}
+
+header nav .mobile-nav .picture-footer > a.strong-link {
+  background: var(--color-white);
+  border-color: var(--color-river-blue);
+  color: var(--color-river-blue);
+}
+

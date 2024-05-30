@@ -59,7 +59,6 @@ function toggleAllNavSections(sections, expanded = false) {
 function toggleMenu(nav, navSections, forceExpanded = null) {
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
   // const button = nav.querySelector('.nav-hamburger button');
-  document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
   // button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
@@ -472,10 +471,248 @@ function closeNavigationDropdown() {
   body.classList.remove('no-scroll');
 }
 
+function buildMobileNavPictureFooter(megaMenu) {
+  const footers = megaMenu.querySelectorAll('p');
+  Array.from(footers).forEach((footer) => {
+    footer.classList.add('picture-footer');
+
+    // Check if the footer just contains text
+    if (footer.querySelector('a') === null
+      && footer.querySelector('picture') === null) {
+      footer.classList.add('small');
+    }
+
+    // Check if the footer contains a link in a strong tag
+    const strongLink = footer.querySelector('strong > a');
+    // If the footer contains a link in a strong tag, remove the strong tag
+    if (strongLink !== null) {
+      const link = strongLink.cloneNode(true);
+      link.classList.add('strong-link');
+      footer.innerHTML = '';
+      footer.append(link);
+    }
+  });
+
+  return footers;
+}
+
 function createDropDownCloseButton() {
   return button({
     role: button, 'aria-label': 'Close Navigation', class: 'header-dropdown-close', onclick: closeNavigationDropdown,
   }, span(), span());
+}
+
+function buildMobileLevel3Nav(megaMenu) {
+  const content = megaMenu.querySelector(':scope > .default-content-wrapper > ul > li');
+  const divContent = document.createElement('div');
+
+  Array.from(content.querySelector('ul').children).forEach((content2ndLevel) => {
+    const level2AccordionButton = document.createElement('button');
+    level2AccordionButton.classList.add('nav-accordian', 'level-2');
+    const buttonText = document.createElement('span');
+    buttonText.innerText = content2ndLevel.firstElementChild.innerText;
+    level2AccordionButton.append(buttonText);
+    const dropdownArrow = document.createElement('div');
+    dropdownArrow.classList.add('dropdown-arrow');
+    level2AccordionButton.append(dropdownArrow);
+
+    const level2DivContent = document.createElement('div');
+    level2DivContent.classList.add('nav-accordian-content', 'level-2');
+    level2DivContent.ariaExpanded = 'false';
+    level2AccordionButton.addEventListener('click', () => {
+      if (level2DivContent.classList.contains('active')) {
+        level2DivContent.classList.remove('active');
+        level2AccordionButton.classList.remove('active');
+        level2DivContent.ariaExpanded = level2DivContent.classList.contains('active');
+      } else {
+        document.querySelectorAll('.nav-accordian.level-2').forEach((navButton) => {
+          navButton.classList.remove('active');
+        });
+        document.querySelectorAll('.nav-accordian-content.level-2').forEach((navContent) => {
+          navContent.classList.remove('active');
+          navContent.ariaExpanded = navContent.classList.contains('active');
+        });
+        level2AccordionButton.classList.add('active');
+        level2DivContent.classList.add('active');
+        level2DivContent.ariaExpanded = level2DivContent.classList.contains('active');
+      }
+    });
+
+    Array.from(content2ndLevel.querySelector('ul').children).forEach((content3rdLevel) => {
+      const level3Button = document.createElement('p');
+      level3Button.classList.add('nav-accordian', 'level-3');
+      if (content3rdLevel.firstElementChild?.tagName === 'A') {
+        const link = content3rdLevel.firstElementChild.cloneNode(true);
+        level3Button.append(link);
+      } else {
+        const text = content3rdLevel.innerText;
+        const tmpSpan = document.createElement('span');
+        tmpSpan.innerText = text;
+        level3Button.append(tmpSpan);
+      }
+      level2DivContent.append(level3Button);
+    });
+
+    const pictureFooter = buildMobileNavPictureFooter(megaMenu);
+    Array.from(pictureFooter).forEach((footer) => {
+      level2DivContent.append(footer);
+    });
+
+    divContent.append(level2AccordionButton);
+    divContent.append(level2DivContent);
+  });
+
+  return divContent;
+}
+
+function buildMobileLevel2Nav(megaMenu) {
+  const divContent = document.createElement('div');
+  Array.from(megaMenu.querySelector('div > ul > li > ul').children).forEach((section) => {
+    const sectionContainer = document.createElement('div');
+    const sectionTitle = document.createElement('p');
+    sectionTitle.classList.add('nav-heading');
+    sectionTitle.innerText = section.firstChild.textContent.trim();
+    sectionContainer.append(sectionTitle);
+    const linkList = document.createElement('ul');
+    sectionContainer.append(linkList);
+    divContent.append(sectionContainer);
+
+    Array.from(section.querySelector(':scope > ul').children).forEach((content) => {
+      if (content.firstElementChild?.tagName === 'A') {
+        const link = content.firstElementChild.cloneNode(true);
+        const listItem = document.createElement('li');
+        listItem.append(link);
+        linkList.append(listItem);
+      } else {
+        const text = content.innerText;
+        const listItem = document.createElement('li');
+        listItem.innerText = text;
+        linkList.append(listItem);
+      }
+    });
+  });
+
+  const pictureFooters = buildMobileNavPictureFooter(megaMenu);
+  Array.from(pictureFooters).forEach((footer) => {
+    divContent.append(footer);
+  });
+
+  return divContent;
+}
+
+function buildMobileLevel1Nav(megaMenu) {
+  const divContent = document.createElement('div');
+  const linkList = document.createElement('ul');
+  divContent.append(linkList);
+  Array.from(megaMenu.querySelector('ul > li > ul').children).forEach((content) => {
+    if (content.firstElementChild?.tagName === 'A') {
+      const link = content.firstElementChild.cloneNode(true);
+      const listItem = document.createElement('li');
+      listItem.append(link);
+      linkList.append(listItem);
+    } else {
+      const text = content.innerText;
+      const listItem = document.createElement('li');
+      listItem.innerText = text;
+      linkList.append(listItem);
+    }
+  });
+
+  const pictureFooters = buildMobileNavPictureFooter(megaMenu);
+  Array.from(pictureFooters).forEach((footer) => {
+    divContent.append(footer);
+  });
+
+  return divContent;
+}
+
+function buildMobileNav(nav) {
+  const mobileNav = document.createElement('div');
+  mobileNav.id = 'mobile-nav';
+  mobileNav.classList.add('mobile-nav');
+  const linkContainer = document.createElement('ul');
+  linkContainer.classList.add('nav-links');
+  mobileNav.append(linkContainer);
+
+  nav.querySelectorAll('.mega-menu').forEach((megaMenu) => {
+    const listItem = document.createElement('li');
+    linkContainer.append(listItem);
+    const title = megaMenu.querySelector(':scope > .default-content-wrapper > ul > li').firstElementChild.innerText;
+    const accordionButton = document.createElement('button');
+    accordionButton.classList.add('nav-accordian', 'level-1');
+    const buttonText = document.createElement('span');
+    buttonText.innerText = title;
+    accordionButton.append(buttonText);
+    const dropdownArrow = document.createElement('div');
+    dropdownArrow.classList.add('dropdown-arrow');
+    accordionButton.append(dropdownArrow);
+    listItem.append(accordionButton);
+
+    let content = null;
+
+    if (megaMenu.classList.contains('3-level')) {
+      content = buildMobileLevel3Nav(megaMenu);
+    } else if (megaMenu.classList.contains('2-level')) {
+      content = buildMobileLevel2Nav(megaMenu);
+    } else if (megaMenu.classList.contains('1-level')) {
+      content = buildMobileLevel1Nav(megaMenu);
+    }
+
+    if (content) {
+      content.ariaExpanded = 'false';
+      content.classList.add('nav-accordian-content', 'level-1');
+      accordionButton.addEventListener('click', () => {
+        if (content.classList.contains('active')) {
+          content.classList.remove('active');
+          accordionButton.classList.remove('active');
+          content.ariaExpanded = content.classList.contains('active');
+        } else {
+          document.querySelectorAll('.nav-accordian.level-1').forEach((navButton) => {
+            navButton.classList.remove('active');
+          });
+          document.querySelectorAll('.nav-accordian-content.level-1').forEach((navContent) => {
+            navContent.classList.remove('active');
+            navContent.ariaExpanded = navContent.classList.contains('active');
+          });
+
+          accordionButton.classList.toggle('active');
+          content.classList.toggle('active');
+          content.ariaExpanded = content.classList.contains('active');
+        }
+      });
+      listItem.append(content);
+    }
+  });
+
+  // Open first accordian by default
+  const firstAccordion = mobileNav.querySelector('.nav-accordian.level-1');
+  const firstAccordionContent = mobileNav.querySelector('.nav-accordian-content.level-1');
+  firstAccordion.classList.add('active');
+  firstAccordionContent.classList.add('active');
+  firstAccordionContent.ariaExpanded = firstAccordionContent.classList.contains('active');
+
+  // Student Login Button
+  const studentLoginButton = a(
+    { class: 'student-login-container', href: 'https://my.phoenix.edu/' },
+    div(
+      { class: 'student-login' },
+      img({ src: '/icons/login-icon.svg' }),
+      span('Student Login'),
+    ),
+  );
+  const studentLoginContainer = document.createElement('div');
+  studentLoginContainer.classList.add('student-login-container');
+  studentLoginContainer.append(studentLoginButton);
+  mobileNav.append(studentLoginContainer);
+
+  // Request Info Button
+  const requestInfo = div(
+    { class: 'request-info' },
+    a({ href: '/request/international-student' }, 'Request Info'),
+  );
+  mobileNav.append(requestInfo);
+
+  return mobileNav;
 }
 
 /**
@@ -544,7 +781,10 @@ export default async function decorate(block) {
     headerDropdownContainers.append(createBottomNav(nav));
     headerDropdownContainers.append(createDropDownCloseButton());
     nav.append(headerDropdownContainers);
-  } else { /* empty */ }
+  } else {
+    const mobileNav = buildMobileNav(nav);
+    nav.append(mobileNav);
+  }
   const headerNavDiv = document.createElement('div');
   headerNavDiv.className = 'header-nav';
   headerNavDiv.append(div(
