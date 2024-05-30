@@ -398,8 +398,10 @@ function createDropDownContainer1Level(list, imgContainer) {
 function closeNavigationDropdown() {
   const navDropdownActive = document.querySelector('header .header-dropdown-container .header-mega-nav.selected');
   navDropdownActive.classList.remove('selected');
-  const navBottm = document.querySelector('header .header-bottom-section.active');
-  navBottm.classList.remove('active');
+  const navBottom = document.querySelector('header .header-bottom-section.active');
+  navBottom.classList.remove('active');
+  const navItem = document.querySelector('nav .nav-sections .nav-drop[aria-expanded="true"]');
+  navItem.setAttribute('aria-expanded', 'false');
 }
 
 function createDropDownCloseButton() {
