@@ -383,8 +383,14 @@ main .section.aside-nav {
   min-width: 6rem !important;
 }
 
+
 @media (width < 900px) {
   .cx-widget {
     display: none !important;
   }
+}
+
+body.no-scroll {
+  height: 100%;
+  overflow-y: hidden;
 }
