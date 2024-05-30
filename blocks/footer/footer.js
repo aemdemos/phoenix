@@ -1,42 +1,42 @@
-import { getMetadata } from '../../scripts/aem.js';
-import { loadFragment } from '../fragment/fragment.js';
-import { loadNewsletterForm } from './newsletter-form.js';
+import {getMetadata} from '../../scripts/aem.js';
+import {loadFragment} from '../fragment/fragment.js';
+import {loadNewsletterForm} from './newsletter-form.js';
 
 function ratingStars(stars) {
-    switch (stars) {
-      case 0:
-        return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_0star_grey-RGB-128x24.png"
-        break;
-      case 1:
-        return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_1star-RGB-128x24.png"
-        break;
-      case 1.5:
-        return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_1halfstar-RGB-128x24.png"
-        break;
-      case 2:
-        return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_2star-RGB-128x24.png"
-        break;
-      case 2.5:
-        return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_2halfstar-RGB-128x24.png"
-        break;
-      case 3:
-        return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_3star-RGB-128x24.png"
-        break;
-      case 3.5:
-        return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_3halfstar-RGB-128x24.png"
-        break;
-      case 4:
-        return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_4star-RGB-128x24.png"
-        break;
-      case 4.5:
-        return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_4halfstar-RGB-128x24.png"
-        break;
-      case 5:
-        return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_5star-RGB-128x24.png"
-        break;
-      default:
-        return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_4halfstar-RGB-128x24.png"
-    }
+  switch (stars) {
+    case 0:
+      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_0star_grey-RGB-128x24.png"
+      break;
+    case 1:
+      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_1star-RGB-128x24.png"
+      break;
+    case 1.5:
+      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_1halfstar-RGB-128x24.png"
+      break;
+    case 2:
+      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_2star-RGB-128x24.png"
+      break;
+    case 2.5:
+      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_2halfstar-RGB-128x24.png"
+      break;
+    case 3:
+      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_3star-RGB-128x24.png"
+      break;
+    case 3.5:
+      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_3halfstar-RGB-128x24.png"
+      break;
+    case 4:
+      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_4star-RGB-128x24.png"
+      break;
+    case 4.5:
+      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_4halfstar-RGB-128x24.png"
+      break;
+    case 5:
+      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_5star-RGB-128x24.png"
+      break;
+    default:
+      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_4halfstar-RGB-128x24.png"
+  }
 }
 
 /**
@@ -54,7 +54,6 @@ export default async function decorate(block) {
   loadNewsletterForm();
 
 
-
   // decorate footer DOM
   block.textContent = '';
   const footer = document.createElement('div');
@@ -62,19 +61,19 @@ export default async function decorate(block) {
 
 
   // Restructure footer top
-  const footer_top = footer.querySelector('.section.footer-top');
-  const footer_top_columns = document.createElement('div');
-  footer_top_columns.classList.add('footer-top-columns');
-  const footer_form_container = document.createElement('div');
-  footer_form_container.classList.add('footer-form-container');
+  const footerTop = footer.querySelector('.section.footer-top');
+  const footerTopColumn = document.createElement('div');
+  footerTopColumn.classList.add('footer-top-columns');
+  const footerFormContainer = document.createElement('div');
+  footerFormContainer.classList.add('footer-form-container');
 
-  footer_form_container.append(footer.querySelector('.newsletter-form-wrapper'));
-  footer_top_columns.append(footer.querySelector('.default-content-wrapper'));
-  footer_top_columns.append(footer_form_container);
+  footerFormContainer.append(footer.querySelector('.newsletter-form-wrapper'));
+  footerTopColumn.append(footer.querySelector('.default-content-wrapper'));
+  footerTopColumn.append(footerFormContainer);
 
-  footer_top.innerHTML = '';
-  footer_top.append(footer_top_columns);
-  footer_top.append(footer.querySelector('.section.discover-more'));
+  footerTop.innerHTML = '';
+  footerTop.append(footerTopColumn);
+  footerTop.append(footer.querySelector('.section.discover-more'));
   // footer.querySelector('.section.discover-more').remove();
 
   // Decorate trustscore container
@@ -89,7 +88,7 @@ export default async function decorate(block) {
       <div>
         <span><a href="https://www.phoenix.edu/life-as-a-phoenix/reviews.html"> <span class="trustscore-reviews">${reviews} reviews</span></a> </span>
       </div>`;
-  footer_form_container.append(trustscore_box);
+  footerFormContainer.append(trustscore_box);
 
 
   // Expand footer lists on click only on mobile view
@@ -103,24 +102,24 @@ export default async function decorate(block) {
   }
 
   // Restructure footer bottom
-  const footer_bottom = document.createElement('div');
-  const footer_bottom_left = document.createElement('div');
-  const footer_bottom_right = document.createElement('div');
-  footer_bottom.classList.add('footer-bottom');
-  footer_bottom_left.classList.add('footer-bottom-left');
-  footer_bottom_right.classList.add('footer-bottom-right');
+  const footerBottom = document.createElement('div');
+  const footerBottomLeft = document.createElement('div');
+  const footerBottomRight = document.createElement('div');
+  footerBottom.classList.add('footer-bottom');
+  footerBottomLeft.classList.add('footer-bottom-left');
+  footerBottomRight.classList.add('footer-bottom-right');
 
-  footer_bottom_right.append(footer.querySelector('.section.social-media-links > div > ul'));
-  footer_bottom_left.append(footer.querySelector('.section.footer-logo p'));
-  footer_bottom_left.append(footer.querySelector('.section.footer-bottom > div'));
+  footerBottomRight.append(footer.querySelector('.section.social-media-links > div > ul'));
+  footerBottomLeft.append(footer.querySelector('.section.footer-logo p'));
+  footerBottomLeft.append(footer.querySelector('.section.footer-bottom > div'));
 
-  footer_bottom.append(footer_bottom_left);
-  footer_bottom.append(footer_bottom_right);
+  footerBottom.append(footerBottomLeft);
+  footerBottom.append(footerBottomRight);
 
   footer.querySelector('.section.footer-bottom').remove();
   footer.querySelector('.section.social-media-links').remove();
   footer.querySelector('.section.footer-logo').remove();
-  footer.append(footer_bottom);
+  footer.append(footerBottom);
 
   // Adjust logo width
   footer.querySelector('.footer-bottom-left img').style.width = '33px';
