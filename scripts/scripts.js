@@ -118,16 +118,16 @@ async function loadLazy(doc) {
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
 
-  /* scroll handling to keep asode-nav in view */
+  /* scroll handling to keep aside-nav in view */
   const asideDiv = document.querySelector('.aside-nav');
   const footer = document.querySelector('footer');
   if (window.innerWidth > 990) {
     window.addEventListener('scroll', () => {
       const footerTop = footer.getBoundingClientRect().top;
       const divHeight = asideDiv.offsetHeight;
-      if (footerTop < divHeight + 150) {
-        asideDiv.style.top = `${document.body.scrollTop + footerTop - divHeight - 200}px`;
-      } else {
+      if (footerTop < window.innerHeight) {
+        asideDiv.style.top = `${document.body.scrollTop + footerTop - divHeight}px`;
+      } else if (footerTop - window.innerHeight > (0.2 * window.innerHeight)) {
         asideDiv.style.top = '20%';
       }
     });
