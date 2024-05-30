@@ -69,6 +69,7 @@ function buildArticleHeader(main) {
   const reviewerDescription = getMetadata('reviewer-description');
   const reviewerImage = getMetadata('reviewer-image');
 
+  // eslint-disable-next-line function-paren-newline
   main.prepend(div(buildBlock('article-header', [
     [main.querySelector('h1')],
     [
@@ -82,16 +83,13 @@ function buildArticleHeader(main) {
           span({ classList: ['icon', 'icon-facebook-black'] }, img({src: '/icons/facebook-black.svg', alt: 'facebook', class: 'icon'} )))),
       p(
         a({ href: 'https://www.linkedin.com/cws/share?url=='+window.location },
-          span({ classList: ['icon', 'icon-linkedin-black'] }, img({src: '/icons/linkedin-black.svg', alt: 'linkedin', class: 'icon'} )
-          ))),
+          span({ classList: ['icon', 'icon-linkedin-black'] }, img({src: '/icons/linkedin-black.svg', alt: 'linkedin', class: 'icon'} )))),
       p(
         a({ href: 'javascript:void((function()%7Bvar%20e=document.createElement(\'script\');e.setAttribute(\'type\',\'text/javascript\');e.setAttribute(\'charset\',\'UTF-8\');e.setAttribute(\'src\',\'//assets.pinterest.com/js/pinmarklet.js?r=%27+Math.random()*99999999);document.body.appendChild(e)%7D)());'+window.location },
-          span({ classList: ['icon', 'icon-pinterest-black'] }, img({src: '/icons/pinterest-black.svg', alt: 'pinterest', class: 'icon' })))
-      ),
+          span({ classList: ['icon', 'icon-pinterest-black'] }, img({src: '/icons/pinterest-black.svg', alt: 'pinterest', class: 'icon' })))),
       p(
         a({ href: 'mailto:?subject=How%20to%20Prepare%20for%20an%20Unpredictable%20Job%20Market%20&body=%20Check%20this%20out:%20'+window.location },
-          span({ classList: ['icon', 'icon-email-black'] }, img({src: '/icons/email-black.svg', alt: 'email', class: 'icon'})))
-      ),
+          span({ classList: ['icon', 'icon-email-black'] }, img({src: '/icons/email-black.svg', alt: 'email', class: 'icon'})))),
       ),
     ],
     [
