@@ -81,7 +81,7 @@
   .aside-nav .default-content-wrapper:last-of-type {
     display: none;
   }
-  
+
   .accordion details summary::after {
     transform: translateY(-50%) rotate(135deg);
   }
