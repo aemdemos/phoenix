@@ -1429,6 +1429,7 @@ header nav .mobile-nav .nav-accordian.level-1 {
   display: flex;
   justify-content: space-between;
   position: relative;
+  border-radius: 3px;
 }
 
 header nav .mobile-nav .nav-accordian.level-1:last-child {
