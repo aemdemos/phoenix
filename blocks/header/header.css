@@ -1348,23 +1348,23 @@ header nav .mobile-nav {
   border-radius: 30px 30px 20px 20px;
 }
 
-header nav .mobile-nav .nav-accordian {
-  width: 100%;
-  margin: 0;
+header nav .mobile-nav .nav-links {
+  margin-top: 58px;
 }
 
-header nav .mobile-nav .nav-accordian-content li {
+/* header nav .mobile-nav .nav-accordian {
+  width: 100%;
+  margin: 0;
+} */
+
+header nav .mobile-nav li {
   list-style-type: none;
   width: 100%;
   margin: 0;
 }
 
-header nav .mobile-nav .nav-accordian-content ul {
+header nav .mobile-nav ul {
   padding: 0;
-}
-
-header nav .mobile-nav button.nav-accordian.level-1:first-child {
-  margin-top: 58px;
 }
 
 header nav .mobile-nav .nav-accordian:hover, header nav .mobile-nav .nav-accordian:focus {
@@ -1377,6 +1377,7 @@ header nav .mobile-nav .nav-accordian.level-1 {
   text-align: left;
   padding: 18px 0;
   margin: 0 15px;
+  width: calc(100% - 30px);
 }
 
 header nav .mobile-nav .nav-accordian.level-1:last-child {
@@ -1400,6 +1401,7 @@ header nav .mobile-nav .nav-accordian.level-2 {
   margin: 10px 0 0;
   border-radius: 0;
   font-weight: 500;
+  width: 100%;
 }
 
 header nav .mobile-nav .nav-accordian.level-2.active {

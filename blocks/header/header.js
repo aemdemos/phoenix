@@ -583,16 +583,19 @@ function buildMobileNav(nav) {
   const mobileNav = document.createElement('div');
   mobileNav.id = 'mobile-nav';
   mobileNav.classList.add('mobile-nav');
-  const linkContainer = document.createElement('div');
+  const linkContainer = document.createElement('ul');
   linkContainer.classList.add('nav-links');
+  mobileNav.append(linkContainer);
 
   nav.querySelectorAll('.mega-menu').forEach((megaMenu) => {
+    const listItem = document.createElement('li');
+    linkContainer.append(listItem);
     const title = megaMenu.querySelector(':scope > .default-content-wrapper > ul > li').firstElementChild.innerText;
     const accordionButton = document.createElement('button');
     accordionButton.classList.add('nav-accordian', 'level-1');
     accordionButton.innerText = title;
-    linkContainer.append(accordionButton);
-    mobileNav.append(linkContainer);
+    listItem.append(accordionButton);
+
     let content = null;
 
     if (megaMenu.classList.contains('3-level')) {
@@ -625,7 +628,7 @@ function buildMobileNav(nav) {
           content.ariaExpanded = content.classList.contains('active');
         }
       });
-      linkContainer.append(content);
+      listItem.append(content);
     }
   });
 
