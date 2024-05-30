@@ -1,4 +1,4 @@
-export function loadNewsletterForm() {
+function loadNewsletterForm() {
   let scrolledPercent;
   let loadingflag = true;
 
@@ -19,3 +19,4 @@ export function loadNewsletterForm() {
     }
   });
 }
+export default loadNewsletterForm;
