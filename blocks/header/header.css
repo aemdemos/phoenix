@@ -1349,7 +1349,8 @@ header nav .mobile-nav {
 }
 
 header nav .mobile-nav .nav-links {
-  margin-top: 58px;
+  margin-top: 70px;
+  margin-bottom: 0;
 }
 
 /* header nav .mobile-nav .nav-accordian {
@@ -1454,6 +1455,9 @@ header nav .mobile-nav p.nav-accordian.level-3 {
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 15px;
+  color: var(--color-almost-black-l10);
+  line-height: 24px;
+  text-decoration: none;
 }
 
 header nav .mobile-nav .nav-accordian.level-3 > a {
