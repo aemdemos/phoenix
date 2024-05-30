@@ -1337,6 +1337,7 @@ header nav[aria-expanded='true'] .nav-hamburger div:last-child span {
     z-index: -2;
   }
 }
+
 header nav[aria-expanded="false"] .mobile-nav {
   display: none;
 }
@@ -1349,7 +1350,6 @@ header nav .mobile-nav {
   height: 100%;
   overflow-y: auto;
   background-color: var(--color-almost-black-l90);
-  margin-top: -58px;
   margin: 0 10px;
   border-radius: 30px 30px 20px 20px;
 }
@@ -1403,7 +1403,6 @@ header nav .mobile-nav .nav-accordian-content li a::before {
   background-color: var(--color-phoenix-red);
   position: absolute;
   display: block;
-  -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
 }
 
@@ -1491,7 +1490,7 @@ header nav .mobile-nav a.student-login-container {
   text-decoration: none;
   padding: 8px 15px;
   margin: 0 13px 0 5px;
-  box-shadow: 0 0 5px 1px rgba(0,0,0,.2);
+  box-shadow: 0 0 5px 1px rgb(0 0 0 / 20%);
 }
 
 header nav .mobile-nav div.student-login {
@@ -1503,11 +1502,6 @@ header nav .mobile-nav div.student-login img {
   height: 16px;
   width: 16px;
   margin-right: 10px;
-}
-
-header nav .mobile-nav div.request-info {
-  display: flex;
-  justify-content: center;
 }
 
 header nav .mobile-nav div.request-info {
