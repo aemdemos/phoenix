@@ -576,6 +576,21 @@ function buildMobileNav(nav) {
     }
   });
 
+  // Student Login Button
+  const studentLoginButton = a(
+    { class: 'student-login-container', href: 'https://my.phoenix.edu/' },
+    div(
+      { class: 'student-login' },
+      img({ src: '/icons/login-icon.svg' }),
+      span('Student Login'),
+    ),
+  );
+  const studentLoginContainer = document.createElement('div');
+  studentLoginContainer.classList.add('student-login-container');
+  studentLoginContainer.append(studentLoginButton);
+  mobileNav.append(studentLoginContainer);
+
+
   return mobileNav;
 }
 

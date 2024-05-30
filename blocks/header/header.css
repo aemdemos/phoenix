@@ -1408,3 +1408,29 @@ header nav .mobile-nav .nav-accordian.level-3 > a {
 header nav .mobile-nav div[aria-expanded="false"] {
   display: none;
 }
+
+header nav .mobile-nav div.student-login-container {
+  padding: 30px 10px;
+}
+
+header nav .mobile-nav a.student-login-container {
+  display: inline-block;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 30px;
+  text-decoration: none;
+  padding: 8px 15px;
+  margin: 0 13px 0 5px;
+  box-shadow: 0 0 5px 1px rgba(0,0,0,.2);
+}
+
+header nav .mobile-nav div.student-login {
+  display: flex;
+  font-size: 13px;
+}
+
+header nav .mobile-nav div.student-login img {
+  height: 16px;
+  width: 16px;
+  margin-right: 10px;
+}
