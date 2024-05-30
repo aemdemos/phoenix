@@ -322,7 +322,6 @@ main {
 main .section.aside-nav {
   grid-column: 2; /* the second column, the left side of the page */
   position: fixed;
-  max-width: 21.5%;
   font-size: 18px;
 }
 

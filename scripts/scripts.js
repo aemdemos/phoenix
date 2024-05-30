@@ -149,9 +149,7 @@ async function loadLazy(doc) {
     window.addEventListener('scroll', () => {
       requestInfoButtonContainer.style.visibility = 'visible';
       const footerTop = footer.getBoundingClientRect().top;
-      console.log('----' + footerTop);
       if (footerTop < window.innerHeight) {
-      console.log('inside ---')
         requestInfoButtonContainer.style.position = 'static';
       } else {
         requestInfoButtonContainer.style.position = 'fixed';
