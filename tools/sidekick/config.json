@@ -1,0 +1,13 @@
+{
+  "project": "University of Phoenix",
+  "host": "https://main--phoenix--aemsites.hlx.live",
+  "plugins": [
+    {
+      "id": "library",
+      "title": "Library",
+      "environments": [ "edit" ],
+      "url": "/tools/sidekick/library.html",
+      "includePaths": [ "**.docx**" ]
+    }
+  ]
+}
