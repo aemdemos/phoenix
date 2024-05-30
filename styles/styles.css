@@ -246,33 +246,9 @@ body > main > div:nth-child(1) > div > h1 {
   height: auto;
 }
 
-.index {
-  padding-top: 2% !important;
-  padding-bottom: 0 !important;
-}
-
-.index a, .blog-content a {
+.blog-content a {
   color: var(--body-link-color) !important;
   text-decoration: underline;
-}
-
-.index .default-content-wrapper {
-  border: 1px solid var(--almost-black-color);
-}
-
-.index .default-content-wrapper h2 {
-  padding-left: 2%;
-  margin-top: 3% !important;
-  font-size: calc(var(--heading-font-size-xl));
-}
-
-.index .default-content-wrapper ul {
-  list-style-type: square;
-  padding-left: 5%;
-}
-
-.index .default-content-wrapper li {
-  padding-bottom: 1%;
 }
 
 .blog-content {
@@ -381,21 +357,6 @@ main .section.aside-nav {
     max-width: 85.5vw;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .index .default-content-wrapper h2 {
-    padding-top: 3%;
-    padding-left: 5%;
-    margin-bottom: 0 !important;
-  }
-
-  .index .default-content-wrapper ul {
-    padding-left: 15%;
-    padding-right: 5%;
-  }
-
-  .index a {
-    font-size: calc(var(--body-font-size-xs) * 1.05);
   }
 
   .blog-content p,
