@@ -7,25 +7,25 @@ function ratingStars(stars) {
     case 0:
       return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_0star_grey-RGB-128x24.png';
     case 1:
-      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_1star-RGB-128x24.png'
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_1star-RGB-128x24.png';
     case 1.5:
-      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_1halfstar-RGB-128x24.png'
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_1halfstar-RGB-128x24.png';
     case 2:
-      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_2star-RGB-128x24.png'
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_2star-RGB-128x24.png';
     case 2.5:
-      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_2halfstar-RGB-128x24.png'
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_2halfstar-RGB-128x24.png';
     case 3:
-      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_3star-RGB-128x24.png'
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_3star-RGB-128x24.png';
     case 3.5:
-      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_3halfstar-RGB-128x24.png'
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_3halfstar-RGB-128x24.png';
     case 4:
-      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_4star-RGB-128x24.png'
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_4star-RGB-128x24.png';
     case 4.5:
-      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_4halfstar-RGB-128x24.png'
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_4halfstar-RGB-128x24.png';
     case 5:
-      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_5star-RGB-128x24.png'
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_5star-RGB-128x24.png';
     default:
-      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_4halfstar-RGB-128x24.png'
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_4halfstar-RGB-128x24.png';
   }
 }
 
@@ -43,12 +43,10 @@ export default async function decorate(block) {
   // load newsletter form
   loadNewsletterForm();
 
-
   // decorate footer DOM
   block.textContent = '';
   const footer = document.createElement('div');
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
-
 
   // Restructure footer top
   const footerTop = footer.querySelector('.section.footer-top');
@@ -70,16 +68,15 @@ export default async function decorate(block) {
   const trustscore = footer.querySelector('.section.trustscore').getAttribute('data-score');
   const reviews = footer.querySelector('.section.trustscore').getAttribute('data-reviews');
   footer.querySelector('.section.trustscore').remove();
-  const trustscore_box = document.createElement('div');
-  trustscore_box.classList.add('trustscore-box');
-  trustscore_box.innerHTML = `
+  const trustscoreBox = document.createElement('div');
+  trustscoreBox.classList.add('trustscore-box');
+  trustscoreBox.innerHTML = `
       <img src='${ratingStars(trustscore)}' alt='rating' />
       <span class='trustscore-text'>TrustScore: <span class='trustscore-rating'>${trustscore}</span></span>
       <div>
         <span><a href='https://www.phoenix.edu/life-as-a-phoenix/reviews.html'> <span class='trustscore-reviews'>${reviews} reviews</span></a> </span>
       </div>`;
-  footerFormContainer.append(trustscore_box);
-
+  footerFormContainer.append(trustscoreBox);
 
   // Expand footer lists on click only on mobile view
   if (!isDesktop.matches) {
