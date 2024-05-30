@@ -558,6 +558,27 @@ function buildMobileLevel2Nav(megaMenu) {
   return divContent;
 }
 
+function buildMobileLevel1Nav(megaMenu) {
+  const divContent = document.createElement('div');
+  const linkList = document.createElement('ul');
+  divContent.append(linkList);
+  Array.from(megaMenu.querySelector('ul > li > ul').children).forEach((content) => {
+    if (content.firstElementChild?.tagName === 'A') {
+      const link = content.firstElementChild.cloneNode(true);
+      const listItem = document.createElement('li');
+      listItem.append(link);
+      linkList.append(listItem);
+    } else {
+      const text = content.innerText;
+      const listItem = document.createElement('li');
+      listItem.innerText = text;
+      linkList.append(listItem);
+    }
+  });
+
+  return divContent;
+}
+
 function buildMobileNav(nav) {
   const mobileNav = document.createElement('div');
   mobileNav.id = 'mobile-nav';
@@ -576,10 +597,10 @@ function buildMobileNav(nav) {
 
     if (megaMenu.classList.contains('3-level')) {
       content = buildMobileLevel3Nav(megaMenu);
-    }
-
-    if (megaMenu.classList.contains('2-level')) {
+    } else if (megaMenu.classList.contains('2-level')) {
       content = buildMobileLevel2Nav(megaMenu);
+    } else if (megaMenu.classList.contains('1-level')) {
+      content = buildMobileLevel1Nav(megaMenu);
     }
 
     if (content) {
