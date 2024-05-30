@@ -98,9 +98,30 @@ body > main > div.section.hero-column-container > div > div > div:nth-child(2) {
   }
 }
 
+.hero-column > div:nth-child(1) > div:nth-child(2) > p > a:nth-child(1) {
+  background-image: url("./../icons/twitter-white.svg");
+}
+
+.hero-column > div:nth-child(1) > div:nth-child(2) > p > a:nth-child(2) {
+  background-image: url("./../icons/facebook-white.svg");
+}
+
+.hero-column > div:nth-child(1) > div:nth-child(2) > p > a:nth-child(3) {
+  background-image: url("./../icons/linkedin-white.svg");
+}
+
+.hero-column > div:nth-child(1) > div:nth-child(2) > p > a:nth-child(4) {
+  background-image: url("./../icons/pinterest-white.svg");
+}
+
+.hero-column > div:nth-child(1) > div:nth-child(2) > p > a:nth-child(5) {
+  background-image: url("./../icons/email-white.svg");
+}
+
 @media (width <= 990px) {
   body > main > div:nth-child(1) > div > h1 {
     font-size: var(--heading-font-size-xl) !important;
+    margin-top: 50px;
   }
 
   .hero-column-container > div > div > div:nth-child(1) > div > p {

@@ -322,7 +322,6 @@ main {
 main .section.aside-nav {
   grid-column: 2; /* the second column, the left side of the page */
   position: fixed;
-  max-width: 21.5%;
   font-size: 18px;
 }
 
@@ -347,6 +346,33 @@ main .section.aside-nav {
 
   .aside-nav-bottom {
     display: none;
+  }
+
+  .request-info-button-mobile {
+    position: fixed;
+    width: 100%;
+    opacity: 1;
+    bottom: 0;
+    z-index: 5;
+    visibility: hidden;
+  }
+
+  .request-info-button-mobile div {
+    display: flex;
+    box-shadow: 1px 1px 7px 2px rgb(0 0 0 / 20%);
+    justify-content: center;
+    background-color: white;
+  }
+
+  .request-info-button-mobile a {
+    display: block;
+    padding: 1% 5%;
+    margin: 2.5% !important;
+    background-color: var(--color-phoenix-red);
+    border-radius: 20px;
+    color: white !important;
+    text-decoration: none !important;
+    font-size: calc(var(--body-font-size-xs) * 0.85);
   }
 }
 

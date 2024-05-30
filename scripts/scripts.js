@@ -118,10 +118,10 @@ async function loadLazy(doc) {
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
 
-  /* scroll handling to keep aside-nav in view */
-  const asideDiv = document.querySelector('.aside-nav');
-  const footer = document.querySelector('footer');
+  /* scroll handling to keep aside-nav in view for desktop */
   if (window.innerWidth > 990) {
+    const asideDiv = document.querySelector('.aside-nav');
+    const footer = document.querySelector('footer');
     window.addEventListener('scroll', () => {
       const footerTop = footer.getBoundingClientRect().top;
       const divHeight = asideDiv.offsetHeight;
@@ -129,6 +129,30 @@ async function loadLazy(doc) {
         asideDiv.style.top = `${document.body.scrollTop + footerTop - divHeight}px`;
       } else if (footerTop - window.innerHeight > (0.2 * window.innerHeight)) {
         asideDiv.style.top = '20%';
+      }
+    });
+  }
+
+  /* request Info button for mobile view */
+  if (window.innerWidth < 991) {
+    const requestInfoButtonContainer = document.createElement('div');
+    requestInfoButtonContainer.classList.add('section');
+    requestInfoButtonContainer.classList.add('request-info-button-mobile');
+    const requestInfoButtonWrapper = document.createElement('div');
+    const requestInfoButton = document.createElement('a');
+    requestInfoButton.setAttribute('href', 'https://www.phoenix.edu/request/international-student');
+    requestInfoButton.innerText = 'Request Info';
+    requestInfoButtonWrapper.appendChild(requestInfoButton);
+    requestInfoButtonContainer.appendChild(requestInfoButtonWrapper);
+    const footer = document.querySelector('footer');
+    main.parentElement.insertBefore(requestInfoButtonContainer, footer);
+    window.addEventListener('scroll', () => {
+      requestInfoButtonContainer.style.visibility = 'visible';
+      const footerTop = footer.getBoundingClientRect().top;
+      if (footerTop < window.innerHeight) {
+        requestInfoButtonContainer.style.position = 'static';
+      } else {
+        requestInfoButtonContainer.style.position = 'fixed';
       }
     });
   }
