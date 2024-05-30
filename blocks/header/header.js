@@ -643,6 +643,13 @@ function buildMobileNav(nav) {
     }
   });
 
+  // Open first accordian by default
+  const firstAccordion = mobileNav.querySelector('.nav-accordian.level-1');
+  const firstAccordionContent = mobileNav.querySelector('.nav-accordian-content.level-1');
+  firstAccordion.classList.add('active');
+  firstAccordionContent.classList.add('active');
+  firstAccordionContent.ariaExpanded = firstAccordionContent.classList.contains('active');
+
   // Student Login Button
   const studentLoginButton = a(
     { class: 'student-login-container', href: 'https://my.phoenix.edu/' },

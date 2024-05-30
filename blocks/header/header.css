@@ -1558,7 +1558,7 @@ header nav .mobile-nav .dropdown-arrow::after {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 2px;
+  width: 3px;
   height: 10px;
   background-color: var(--color-almost-black);
   transition: all .5s;
@@ -1569,7 +1569,7 @@ header nav .mobile-nav .dropdown-arrow::before {
 }
 
 header nav .mobile-nav .dropdown-arrow::after {
-  transform: translate(-275%, -50%) rotate(-45deg);
+  transform: translate(-200%, -50%) rotate(-45deg);
 }
 
 header nav .mobile-nav button.active > .dropdown-arrow::before {
@@ -1577,5 +1577,5 @@ header nav .mobile-nav button.active > .dropdown-arrow::before {
 }
 
 header nav .mobile-nav button.active > .dropdown-arrow::after {
-  transform: translate(-275%, -50%) rotate(45deg);
+  transform: translate(-200%, -50%) rotate(45deg);
 }
