@@ -1352,7 +1352,7 @@ header nav .mobile-nav .nav-accordian {
   margin: 0;
 }
 
-header nav .mobile-nav .nav-accordian:first-child {
+header nav .mobile-nav button.nav-accordian.level-1:first-child {
   margin-top: 58px;
 }
 
@@ -1365,6 +1365,11 @@ header nav .mobile-nav .nav-accordian.level-1 {
   border-bottom: 1px solid var(--color-almost-black-l30);
   text-align: left;
   padding: 18px 0;
+  margin: 0 15px;
+}
+
+header nav .mobile-nav .nav-accordian.level-1:last-child {
+  border: none;
 }
 
 header nav .mobile-nav .nav-accordian.level-1.active {
@@ -1373,6 +1378,7 @@ header nav .mobile-nav .nav-accordian.level-1.active {
 
 header nav .mobile-nav .nav-accordian-content.level-1 {
   padding: 10px 15px 0 30px;
+  background-color: white;
 }
 
 header nav .mobile-nav .nav-accordian.level-2 {
@@ -1389,7 +1395,7 @@ header nav .mobile-nav .nav-accordian.level-2.active {
   margin-bottom: 10px;
 }
 
-header nav .mobile-nav .nav-accordian.level-3 {
+header nav .mobile-nav p.nav-accordian.level-3 {
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 15px;

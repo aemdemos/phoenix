@@ -59,7 +59,6 @@ function toggleAllNavSections(sections, expanded = false) {
 function toggleMenu(nav, navSections, forceExpanded = null) {
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
   // const button = nav.querySelector('.nav-hamburger button');
-  document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
   // button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
@@ -535,13 +534,16 @@ function buildMobileNav(nav) {
   const mobileNav = document.createElement('div');
   mobileNav.id = 'mobile-nav';
   mobileNav.classList.add('mobile-nav');
+  const linkContainer = document.createElement('div');
+  linkContainer.classList.add('nav-links');
 
   nav.querySelectorAll('.mega-menu').forEach((megaMenu) => {
     const title = megaMenu.querySelector(':scope > .default-content-wrapper > ul > li').firstElementChild.innerText;
     const accordionButton = document.createElement('button');
     accordionButton.classList.add('nav-accordian', 'level-1');
     accordionButton.innerText = title;
-    mobileNav.append(accordionButton);
+    linkContainer.append(accordionButton);
+    mobileNav.append(linkContainer);
     let content = null;
 
     if (megaMenu.classList.contains('3-level')) {
@@ -570,7 +572,7 @@ function buildMobileNav(nav) {
           content.ariaExpanded = content.classList.contains('active');
         }
       });
-      mobileNav.append(content);
+      linkContainer.append(content);
     }
   });
 
