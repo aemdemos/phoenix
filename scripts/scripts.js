@@ -17,7 +17,7 @@ import {
 import wrapImgsInLinks from './utils.js';
 import {
   a, p, div, span, img,
-} from '../../scripts/dom-helpers.js';
+} from './dom-helpers.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 
@@ -72,28 +72,28 @@ function buildArticleHeader(main) {
   main.prepend(div(buildBlock('article-header', [
     [main.querySelector('h1')],
     [
-      div({class: 'publication-date'}, p(publicationDate)),
-      div({class: 'social-container'},
+      div({ class: 'publication-date' }, p(publicationDate)),
+      div({ class: 'social-container' },
       p(
         a({ href: 'https://twitter.com/intent/tweet?text=Check+this+out:='+window.location },
-        span({classList: ['icon', 'icon-twitter-black']},img({src: '/icons/twitter-black.svg', alt: 'twitter', class: 'icon'})))),
+        span({ classList: ['icon', 'icon-twitter-black'] },img({src: '/icons/twitter-black.svg', alt: 'twitter', class: 'icon'} )))),
       p(
         a({ href: 'https://www.facebook.com/sharer/sharer.php?u='+window.location },
-          span({classList: ['icon', 'icon-facebook-black']},img({src: '/icons/facebook-black.svg', alt: 'facebook', class: 'icon'})))),
+          span({ classList: ['icon', 'icon-facebook-black'] },img({src: '/icons/facebook-black.svg', alt: 'facebook', class: 'icon'} )))),
       p(
         a({ href: 'https://www.linkedin.com/cws/share?url=='+window.location },
-          span({classList: ['icon', 'icon-linkedin-black']},img({src: '/icons/linkedin-black.svg', alt: 'linkedin', class: 'icon'})))),
+          span({ classList: ['icon', 'icon-linkedin-black'] },img({src: '/icons/linkedin-black.svg', alt: 'linkedin', class: 'icon'} )))),
       p(
         a({ href: 'javascript:void((function()%7Bvar%20e=document.createElement(\'script\');e.setAttribute(\'type\',\'text/javascript\');e.setAttribute(\'charset\',\'UTF-8\');e.setAttribute(\'src\',\'//assets.pinterest.com/js/pinmarklet.js?r=%27+Math.random()*99999999);document.body.appendChild(e)%7D)());'+window.location },
-          span({classList: ['icon', 'icon-pinterest-black']},img({src: '/icons/pinterest-black.svg', alt: 'pinterest', class: 'icon'})))),
+          span({ classList: ['icon', 'icon-pinterest-black'] },img({src: '/icons/pinterest-black.svg', alt: 'pinterest', class: 'icon' })))),
       p(
         a({ href: 'mailto:?subject=How%20to%20Prepare%20for%20an%20Unpredictable%20Job%20Market%20&body=%20Check%20this%20out:%20'+window.location },
-          span({classList: ['icon', 'icon-email-black']},img({src: '/icons/email-black.svg', alt: 'email', class: 'icon'}))))
+          span({ classList: ['icon', 'icon-email-black'] },img({src: '/icons/email-black.svg', alt: 'email', class: 'icon'}))))
       )
     ],
     [
-      p(img({src: writerImage, alt: writer, class: 'icon'}), "Written by ", a({ href: writerHref }, writer)),
-      p(img({src: reviewerImage, alt: reviewer, class: 'icon'}), "Reviewed by ", a({ href: reviewerHref }, reviewer), " "+ reviewerDescription),
+      p(img({src: writerImage, alt: writer, class: 'icon'}), 'Written by ', a({ href: writerHref }, writer)),
+      p(img({src: reviewerImage, alt: reviewer, class: 'icon'}), 'Reviewed by ', a({ href: reviewerHref }, reviewer), ' ' + reviewerDescription),
     ],
   ])));
 }
