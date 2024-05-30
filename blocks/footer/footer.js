@@ -1,41 +1,31 @@
-import {getMetadata} from '../../scripts/aem.js';
-import {loadFragment} from '../fragment/fragment.js';
-import {loadNewsletterForm} from './newsletter-form.js';
+import { getMetadata } from '../../scripts/aem.js';
+import { loadFragment } from '../fragment/fragment.js';
+import { loadNewsletterForm } from './newsletter-form.js';
 
 function ratingStars(stars) {
   switch (stars) {
     case 0:
-      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_0star_grey-RGB-128x24.png"
-      break;
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_0star_grey-RGB-128x24.png';
     case 1:
-      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_1star-RGB-128x24.png"
-      break;
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_1star-RGB-128x24.png'
     case 1.5:
-      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_1halfstar-RGB-128x24.png"
-      break;
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_1halfstar-RGB-128x24.png'
     case 2:
-      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_2star-RGB-128x24.png"
-      break;
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_2star-RGB-128x24.png'
     case 2.5:
-      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_2halfstar-RGB-128x24.png"
-      break;
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_2halfstar-RGB-128x24.png'
     case 3:
-      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_3star-RGB-128x24.png"
-      break;
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_3star-RGB-128x24.png'
     case 3.5:
-      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_3halfstar-RGB-128x24.png"
-      break;
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_3halfstar-RGB-128x24.png'
     case 4:
-      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_4star-RGB-128x24.png"
-      break;
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_4star-RGB-128x24.png'
     case 4.5:
-      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_4halfstar-RGB-128x24.png"
-      break;
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_4halfstar-RGB-128x24.png'
     case 5:
-      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_5star-RGB-128x24.png"
-      break;
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_5star-RGB-128x24.png'
     default:
-      return "https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_4halfstar-RGB-128x24.png"
+      return 'https://www.phoenix.edu/content/dam/edu/img/trustpilot/new/Trustpilot_ratings_4halfstar-RGB-128x24.png'
   }
 }
 
@@ -83,10 +73,10 @@ export default async function decorate(block) {
   const trustscore_box = document.createElement('div');
   trustscore_box.classList.add('trustscore-box');
   trustscore_box.innerHTML = `
-      <img src="${ratingStars(trustscore)}" alt="rating" />
-      <span class="trustscore-text">TrustScore: <span class="trustscore-rating">${trustscore}</span></span>
+      <img src='${ratingStars(trustscore)}' alt='rating' />
+      <span class='trustscore-text'>TrustScore: <span class='trustscore-rating'>${trustscore}</span></span>
       <div>
-        <span><a href="https://www.phoenix.edu/life-as-a-phoenix/reviews.html"> <span class="trustscore-reviews">${reviews} reviews</span></a> </span>
+        <span><a href='https://www.phoenix.edu/life-as-a-phoenix/reviews.html'> <span class='trustscore-reviews'>${reviews} reviews</span></a> </span>
       </div>`;
   footerFormContainer.append(trustscore_box);
 
