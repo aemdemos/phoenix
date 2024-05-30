@@ -535,6 +535,7 @@ function buildMobileLevel2Nav(megaMenu) {
   Array.from(megaMenu.querySelector('div > ul > li > ul').children).forEach((section) => {
     const sectionContainer = document.createElement('div');
     const sectionTitle = document.createElement('p');
+    sectionTitle.classList.add('nav-heading');
     sectionTitle.innerText = section.firstChild.textContent.trim();
     sectionContainer.append(sectionTitle);
     const linkList = document.createElement('ul');
