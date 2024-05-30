@@ -98,6 +98,10 @@ function openHeaderOverlay() {
   quickSearches.classList.add('active');
   const searchIcon = document.querySelector('.icon-button-circle.search-icon');
   searchIcon.classList.add('hide');
+  if (!isDesktop.matches) {
+    const headerTop = document.querySelector('.header-top');
+    headerTop.classList.add('hide');
+  }
 }
 
 function closeHeaderOverlay() {
@@ -109,6 +113,10 @@ function closeHeaderOverlay() {
   quickSearches.classList.remove('active');
   const searchIcon = document.querySelector('.icon-button-circle.search-icon');
   searchIcon.classList.remove('hide');
+  if (!isDesktop.matches) {
+    const headerTop = document.querySelector('.header-top');
+    headerTop.classList.remove('hide');
+  }
 }
 
 function createSearchSection(searchSection) {
