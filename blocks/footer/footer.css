@@ -129,7 +129,7 @@ footer .footer ul > li > ul {
 
 .footer-top-columns > div > ul > li > ul {
   margin-top: 10px;
-  line-height: 25px;
+  line-height: 20px;
 }
 
 .footer-top-columns > div > ul > li > ul > li > a {
@@ -310,17 +310,16 @@ footer .footer ul > li > ul {
     margin-bottom: 11px;
   }
 
-  /*TODO: Add 5th column below 4th as in OG site, but commenting position absolute due to its risk*/
-  /*.footer-top-columns > div:first-of-type > ul > li:nth-of-type(5) {*/
-  /*  position: absolute;*/
-  /*  left: 520px;*/
-  /*  top: 200px;*/
-  /*}*/
+  .footer-top-columns > div:first-of-type > ul > li:nth-of-type(5) {
+    position: absolute;
+    left: 500px;
+    top: 240px;
+  }
 
-  /*.footer-top-columns > div:first-of-type > ul > li:nth-of-type(6) {*/
-  /*  position: relative;*/
-  /*  left: 50px;*/
-  /*}*/
+  .footer-top-columns > div:first-of-type > ul > li:nth-of-type(6) {
+    position: relative;
+    left: 50px;
+  }
 
   .footer-bottom-right {
     margin-top: 0;
