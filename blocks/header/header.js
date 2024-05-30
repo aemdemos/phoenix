@@ -374,37 +374,38 @@ export default async function decorate(block) {
 
   const navList = document.createElement('ul');
 
-  const headerDropdownContainers = document.createElement('nav');
-  headerDropdownContainers.classList.add('header-dropdown-container');
-
-  nav.querySelectorAll('.mega-menu').forEach((megaMenu) => {
-    const list = megaMenu.querySelector(':scope > .default-content-wrapper > ul > li');
-    if (list.querySelector('ul')) list.classList.add('nav-drop');
-    if (megaMenu.classList.contains('3-level')) {
-      const imgContainer = megaMenu.querySelector('.default-content-wrapper > p');
-      const container = createDropDownContainer3Level(list, imgContainer);
-      headerDropdownContainers.append(container);
-      list.addEventListener('click', () => {
-        if (container.classList.contains('selected')) {
-          container.classList.remove('selected');
-          const bottomMenu = document.querySelector('header .header-bottom-section');
-          bottomMenu.classList.remove('active');
-        } else {
-          document.querySelectorAll('.header-mega-nav').forEach((menu) => {
-            menu.classList.remove('selected');
-          });
-          container.classList.add('selected');
-          const bottomMenu = document.querySelector('header .header-bottom-section');
-          bottomMenu.classList.add('active');
-        }
-      });
-    }
-    if (list) {
-      navList.append(list);
-    }
-  });
-
-  headerDropdownContainers.append(createBottomNav(nav));
+  if (isDesktop.matches) {
+    const headerDropdownContainers = document.createElement('nav');
+    headerDropdownContainers.classList.add('header-dropdown-container');
+    nav.querySelectorAll('.mega-menu').forEach((megaMenu) => {
+      const list = megaMenu.querySelector(':scope > .default-content-wrapper > ul > li');
+      if (list.querySelector('ul')) list.classList.add('nav-drop');
+      if (megaMenu.classList.contains('3-level')) {
+        const imgContainer = megaMenu.querySelector('.default-content-wrapper > p');
+        const container = createDropDownContainer3Level(list, imgContainer);
+        headerDropdownContainers.append(container);
+        list.addEventListener('click', () => {
+          if (container.classList.contains('selected')) {
+            container.classList.remove('selected');
+            const bottomMenu = document.querySelector('header .header-bottom-section');
+            bottomMenu.classList.remove('active');
+          } else {
+            document.querySelectorAll('.header-mega-nav').forEach((menu) => {
+              menu.classList.remove('selected');
+            });
+            container.classList.add('selected');
+            const bottomMenu = document.querySelector('header .header-bottom-section');
+            bottomMenu.classList.add('active');
+          }
+        });
+      }
+      if (list) {
+        navList.append(list);
+      }
+    });
+    headerDropdownContainers.append(createBottomNav(nav));
+    nav.append(headerDropdownContainers);
+  } else { /* empty */ }
   const headerNavDiv = document.createElement('div');
   headerNavDiv.className = 'header-nav';
   headerNavDiv.append(div(
@@ -468,8 +469,6 @@ export default async function decorate(block) {
     const navTop = createNavTop(searchDiv, phoneIconButton);
     nav.prepend(navTop);
   }
-
-  nav.append(headerDropdownContainers);
 
   /* const classes = ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {

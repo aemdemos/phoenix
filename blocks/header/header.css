@@ -362,6 +362,8 @@ header nav .nav-sections ul > li > ul > li {
     display: block;
     padding-left: 30px;
     padding-right: 30px;
+    top: -20px;
+    position: relative;
   }
 
   header nav .header-dropdown-container .header-mega-nav.selected .center .headernavcontainer .header-container .headernavtabnavigation .header-tabs-right .tabs-panel.selected ul {
@@ -636,7 +638,6 @@ header .nav-overall {
   position: relative;
   transition: all .3s ease-in-out;
   max-width: 1420px;
-  margin: auto;
   padding: 10px 0;
 }
 
