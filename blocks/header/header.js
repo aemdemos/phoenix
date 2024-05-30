@@ -402,6 +402,8 @@ function closeNavigationDropdown() {
   navBottom.classList.remove('active');
   const navItem = document.querySelector('nav .nav-sections .nav-drop[aria-expanded="true"]');
   navItem.setAttribute('aria-expanded', 'false');
+  const body = document.querySelector('body');
+  body.classList.remove('no-scroll');
 }
 
 function createDropDownCloseButton() {
@@ -453,10 +455,14 @@ export default async function decorate(block) {
             container.classList.remove('selected');
             const bottomMenu = document.querySelector('header .header-bottom-section');
             bottomMenu.classList.remove('active');
+            const body = document.querySelector('body');
+            body.classList.remove('no-scroll');
           } else {
             document.querySelectorAll('.header-mega-nav').forEach((menu) => {
               menu.classList.remove('selected');
             });
+            const body = document.querySelector('body');
+            body.classList.add('no-scroll');
             container.classList.add('selected');
             const bottomMenu = document.querySelector('header .header-bottom-section');
             bottomMenu.classList.add('active');
