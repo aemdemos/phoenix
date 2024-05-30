@@ -366,8 +366,8 @@ main .section.aside-nav {
 
   .request-info-button-mobile a {
     display: block;
-    padding: 1% 5%;
-    margin: 2.5% !important;
+    padding: 1.1% 5%;
+    margin: 3% !important;
     background-color: var(--color-phoenix-red);
     border-radius: 20px;
     color: white !important;
