@@ -116,7 +116,7 @@ body > main > div.section.aside-nav.fragment-container.accordion-container > div
   border-bottom-left-radius: 4%;
   border-bottom-right-radius: 4%;
   -webkit-font-smoothing: antialiased;
-  top: 22%;
+  top: 20%;
 }
 
 body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.aside-nav-bottom > div > p:nth-child(2) {

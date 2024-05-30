@@ -128,7 +128,7 @@ async function loadLazy(doc) {
       if (footerTop < window.innerHeight) {
         asideDiv.style.top = `${document.body.scrollTop + footerTop - divHeight}px`;
       } else if (footerTop - window.innerHeight > (0.2 * window.innerHeight)) {
-        asideDiv.style.top = '22%';
+        asideDiv.style.top = '20%';
       }
     });
   }
