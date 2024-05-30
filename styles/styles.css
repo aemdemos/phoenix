@@ -382,3 +382,9 @@ main .section.aside-nav {
 .cx-widget.cx-theme-light button.cx-btn {
   min-width: 6rem !important;
 }
+
+@media (width < 900px) {
+  .cx-widget {
+    display: none !important;
+  }
+}
