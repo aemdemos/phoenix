@@ -323,9 +323,7 @@ function createDropDownContainer3Level(list, imgContainer) {
   imgLink.append(image);
 
   const dropDownContainer = div(
-    {
-      class: 'header-mega-nav',
-    },
+    { class: 'header-mega-nav three-level' },
     div(
       { class: 'center' },
       div(
@@ -343,6 +341,51 @@ function createDropDownContainer3Level(list, imgContainer) {
                 div({ class: 'right-image' }, imgLink),
               ),
             ),
+          ),
+        ),
+      ),
+    ),
+  );
+
+  return dropDownContainer;
+}
+
+function createDropDownContainer1Level(list, imgContainer) {
+  const navList = list.querySelector('ul:first-of-type');
+  const imgLink = imgContainer.querySelector('a');
+  const linkHref = imgLink.getAttribute('href');
+  const image = imgContainer.querySelector('picture');
+  imgLink.append(image);
+  const buttonText = imgLink?.textContent;
+  const lowerButton = a(
+    { class: 'lower-button', role: 'link', href: linkHref },
+    span({ class: 'button-text' }, buttonText),
+  );
+
+  navList.classList.add('header-links-list');
+
+  const dropDownContainer = div(
+    { class: 'header-mega-nav one-level' },
+    div(
+      { class: 'center' },
+      div(
+        { class: 'headernavcontainer' },
+        div(
+          { class: 'header-container' },
+          div(
+            { class: 'headernavtitleandlinks' },
+            div({ class: 'header-links' }, navList),
+          ),
+        ),
+      ),
+      div(
+        { class: 'headernavcontainer-right' },
+        div(
+          { class: 'header-container' },
+          div(
+            { class: 'container-content' },
+            div({ class: 'image-container' }, imgLink),
+            div({ class: 'button-container' }, lowerButton),
           ),
         ),
       ),
@@ -380,9 +423,15 @@ export default async function decorate(block) {
     nav.querySelectorAll('.mega-menu').forEach((megaMenu) => {
       const list = megaMenu.querySelector(':scope > .default-content-wrapper > ul > li');
       if (list.querySelector('ul')) list.classList.add('nav-drop');
+      let container = null;
       if (megaMenu.classList.contains('3-level')) {
         const imgContainer = megaMenu.querySelector('.default-content-wrapper > p');
-        const container = createDropDownContainer3Level(list, imgContainer);
+        container = createDropDownContainer3Level(list, imgContainer);
+      } else if (megaMenu.classList.contains('1-level')) {
+        const imgContainer = megaMenu.querySelector('.default-content-wrapper > p');
+        container = createDropDownContainer1Level(list, imgContainer);
+      }
+      if (container !== null) {
         headerDropdownContainers.append(container);
         list.addEventListener('click', () => {
           if (container.classList.contains('selected')) {
