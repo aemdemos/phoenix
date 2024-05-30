@@ -590,6 +590,12 @@ function buildMobileNav(nav) {
   studentLoginContainer.append(studentLoginButton);
   mobileNav.append(studentLoginContainer);
 
+  // Request Info Button
+  const requestInfo = div(
+    { class: 'request-info' },
+    a({ href: '/request/international-student' }, 'Request Info'),
+  );
+  mobileNav.append(requestInfo);
 
   return mobileNav;
 }

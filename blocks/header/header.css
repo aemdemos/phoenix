@@ -1345,6 +1345,7 @@ header nav .mobile-nav {
   width: 100%;
   background-color: var(--color-almost-black-l90);
   margin-top: -58px;
+  border-radius: 30px 30px 20px 20px;
 }
 
 header nav .mobile-nav .nav-accordian {
@@ -1433,4 +1434,32 @@ header nav .mobile-nav div.student-login img {
   height: 16px;
   width: 16px;
   margin-right: 10px;
+}
+
+header nav .mobile-nav div.request-info {
+  display: flex;
+  justify-content: center;
+}
+
+header nav .mobile-nav div.request-info {
+  display: flex;
+  justify-content: center;
+  background-color: var(--cta-blue-primary-focus-background);
+  padding: 12px;
+  padding-bottom: 40px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+header nav .mobile-nav div.request-info a {
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
+  background-color: transparent;
+  padding: 8px 20px;
+  margin: 0 5px;
+  border-radius: 30px;
+  font-size: 14px;
+  min-width: 88px;
+  text-align: center;
+  text-decoration: none;
 }
