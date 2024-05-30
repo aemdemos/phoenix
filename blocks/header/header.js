@@ -471,6 +471,31 @@ function closeNavigationDropdown() {
   body.classList.remove('no-scroll');
 }
 
+function buildMobileNavPictureFooter(megaMenu) {
+  const footers = megaMenu.querySelectorAll('p');
+  Array.from(footers).forEach((footer) => {
+    footer.classList.add('picture-footer');
+
+    // Check if the footer just contains text
+    if (footer.querySelector('a') === null
+      && footer.querySelector('picture') === null) {
+      footer.classList.add('small');
+    }
+
+    // Check if the footer contains a link in a strong tag
+    const strongLink = footer.querySelector('strong > a');
+    // If the footer contains a link in a strong tag, remove the strong tag
+    if (strongLink !== null) {
+      const link = strongLink.cloneNode(true);
+      link.classList.add('strong-link');
+      footer.innerHTML = '';
+      footer.append(link);
+    }
+  });
+
+  return footers;
+}
+
 function createDropDownCloseButton() {
   return button({
     role: button, 'aria-label': 'Close Navigation', class: 'header-dropdown-close', onclick: closeNavigationDropdown,
@@ -528,6 +553,11 @@ function buildMobileLevel3Nav(megaMenu) {
       level2DivContent.append(level3Button);
     });
 
+    const pictureFooter = buildMobileNavPictureFooter(megaMenu);
+    Array.from(pictureFooter).forEach((footer) => {
+      level2DivContent.append(footer);
+    });
+
     divContent.append(level2AccordionButton);
     divContent.append(level2DivContent);
   });
@@ -561,6 +591,12 @@ function buildMobileLevel2Nav(megaMenu) {
       }
     });
   });
+
+  const pictureFooters = buildMobileNavPictureFooter(megaMenu);
+  Array.from(pictureFooters).forEach((footer) => {
+    divContent.append(footer);
+  });
+
   return divContent;
 }
 
@@ -580,6 +616,11 @@ function buildMobileLevel1Nav(megaMenu) {
       listItem.innerText = text;
       linkList.append(listItem);
     }
+  });
+
+  const pictureFooters = buildMobileNavPictureFooter(megaMenu);
+  Array.from(pictureFooters).forEach((footer) => {
+    divContent.append(footer);
   });
 
   return divContent;

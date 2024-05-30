@@ -1585,3 +1585,48 @@ header nav .mobile-nav button.active > .dropdown-arrow::before {
 header nav .mobile-nav button.active > .dropdown-arrow::after {
   transform: translate(-200%, -50%) rotate(45deg);
 }
+
+header nav .mobile-nav .picture-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+header nav .mobile-nav .picture-footer > picture,
+header nav .mobile-nav .picture-footer > picture > img {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+header nav .mobile-nav .picture-footer > a {
+  background-color: var(--cta-blue-primary-background);
+  color: var(--color-white);
+  border-radius: 2rem;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+header nav .mobile-nav .picture-footer.small {
+  display: block;
+  text-align: left;
+  color: var(--color-almost-black-l30);
+  font-size: 14px;
+  line-height: calc(14px*1.5);
+  padding-bottom: 32px;
+}
+
+header nav .mobile-nav .picture-footer > a.strong-link {
+  background: var(--color-white);
+  border-color: var(--color-river-blue);
+  color: var(--color-river-blue);
+}
+
