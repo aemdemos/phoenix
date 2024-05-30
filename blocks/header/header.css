@@ -638,7 +638,7 @@ header .nav-overall {
   position: relative;
   transition: all .3s ease-in-out;
   max-width: 1420px;
-  padding: 10px 0;
+  padding: 10px 0 0;
 }
 
 header .header-nav {
@@ -1015,4 +1015,12 @@ header nav[aria-expanded='true'] .nav-hamburger div:last-child {
 
 header nav[aria-expanded='true'] .nav-hamburger div:last-child span {
   display: none;
+}
+
+@media (width <= 900px) {
+  header nav {
+    position: fixed;
+    width: 100%;
+    z-index: -2;
+  }
 }
