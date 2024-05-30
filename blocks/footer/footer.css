@@ -12,6 +12,8 @@ footer .footer .section {
   background-color: var(--light-color);
   padding-top: 98px;
   padding-bottom: 20px;
+  display: flex;
+  flex-flow: column wrap;
 }
 
 footer .footer p {
