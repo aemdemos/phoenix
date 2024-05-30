@@ -1421,6 +1421,9 @@ header nav .mobile-nav .nav-accordian.level-1 {
   padding: 18px 0;
   margin: 0 15px;
   width: calc(100% - 30px);
+  display: flex;
+  justify-content: space-between;
+  position: relative;
 }
 
 header nav .mobile-nav .nav-accordian.level-1:last-child {
@@ -1445,6 +1448,8 @@ header nav .mobile-nav .nav-accordian.level-2 {
   border-radius: 0;
   font-weight: 500;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 header nav .mobile-nav .nav-accordian.level-2.active {
@@ -1539,4 +1544,38 @@ header nav .mobile-nav div:first-child > .nav-heading {
   border-top: 0;
   padding-top: 0;
   margin-top: 0;
+}
+
+header nav .mobile-nav .dropdown-arrow {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+header nav .mobile-nav .dropdown-arrow::before,
+header nav .mobile-nav .dropdown-arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 10px;
+  background-color: var(--color-almost-black);
+  transition: all .5s;
+}
+
+header nav .mobile-nav .dropdown-arrow::before {
+  transform: translate(0, -50%) rotate(45deg);
+}
+
+header nav .mobile-nav .dropdown-arrow::after {
+  transform: translate(-275%, -50%) rotate(-45deg);
+}
+
+header nav .mobile-nav button.active > .dropdown-arrow::before {
+  transform: translate(0, -50%) rotate(-45deg);
+}
+
+header nav .mobile-nav button.active > .dropdown-arrow::after {
+  transform: translate(-275%, -50%) rotate(45deg);
 }

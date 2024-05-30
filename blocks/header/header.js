@@ -484,7 +484,12 @@ function buildMobileLevel3Nav(megaMenu) {
   Array.from(content.querySelector('ul').children).forEach((content2ndLevel) => {
     const level2AccordionButton = document.createElement('button');
     level2AccordionButton.classList.add('nav-accordian', 'level-2');
-    level2AccordionButton.innerText = content2ndLevel.firstElementChild.innerText;
+    const buttonText = document.createElement('span');
+    buttonText.innerText = content2ndLevel.firstElementChild.innerText;
+    level2AccordionButton.append(buttonText);
+    const dropdownArrow = document.createElement('div');
+    dropdownArrow.classList.add('dropdown-arrow');
+    level2AccordionButton.append(dropdownArrow);
 
     const level2DivContent = document.createElement('div');
     level2DivContent.classList.add('nav-accordian-content', 'level-2');
@@ -594,7 +599,12 @@ function buildMobileNav(nav) {
     const title = megaMenu.querySelector(':scope > .default-content-wrapper > ul > li').firstElementChild.innerText;
     const accordionButton = document.createElement('button');
     accordionButton.classList.add('nav-accordian', 'level-1');
-    accordionButton.innerText = title;
+    const buttonText = document.createElement('span');
+    buttonText.innerText = title;
+    accordionButton.append(buttonText);
+    const dropdownArrow = document.createElement('div');
+    dropdownArrow.classList.add('dropdown-arrow');
+    accordionButton.append(dropdownArrow);
     listItem.append(accordionButton);
 
     let content = null;
