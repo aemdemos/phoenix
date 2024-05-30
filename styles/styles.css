@@ -312,14 +312,14 @@ body > main > div:nth-child(1) > div > h1 {
 
 main {
   display: grid;
-  grid-template-columns: auto 1fr 2.65fr auto; /* 4 columns: left-gutter, left-side, right-side, right-gutter */
+  grid-template-columns: auto 1fr 2.55fr auto; /* 4 columns: left-gutter, left-side, right-side, right-gutter */
   margin: 6% auto 0;
 }
 
 main .section.aside-nav {
   grid-column: 2; /* the second column, the left side of the page */
   position: fixed;
-  max-width: 20%;
+  max-width: 21.5%;
   font-size: 18px;
 }
 
