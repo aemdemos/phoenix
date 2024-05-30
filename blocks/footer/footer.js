@@ -1,6 +1,6 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
-import { loadNewsletterForm } from './newsletter-form.js';
+import loadNewsletterForm from './newsletter-form.js';
 
 function ratingStars(stars) {
   switch (stars) {
