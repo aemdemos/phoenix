@@ -1331,3 +1331,51 @@ header nav[aria-expanded='true'] .nav-hamburger div:last-child span {
     z-index: -2;
   }
 }
+header nav[aria-expanded="false"] .mobile-nav {
+  display: none;
+}
+
+header nav .mobile-nav {
+  width: 100%;
+}
+
+header nav .mobile-nav .nav-accordian {
+  width: 100%;
+}
+
+header nav .mobile-nav .nav-accordian:hover, header nav .mobile-nav .nav-accordian:focus {
+  background-color: unset;
+}
+
+header nav .mobile-nav .nav-accordian.level-1 {
+  border: none;
+  border-bottom: 1px solid var(--color-almost-black-l30);
+  text-align: left;
+  padding: 18px 0;
+  margin: 0;
+}
+
+header nav .mobile-nav .nav-accordian.level-1.active {
+  border: none;
+}
+
+header nav .mobile-nav .nav-accordian-content.level-1 {
+  padding: 10px 15px 0 30px;
+}
+
+header nav .mobile-nav .nav-accordian.level-2 {
+  border: none;
+  border-bottom: 1px solid var(--color-almost-black-l30);
+  text-align: left;
+  padding: 10px 0;
+  margin: 10px 0 0 0;
+  border-radius: 0;
+}
+
+header nav .mobile-nav .nav-accordian.level-3 {
+  background-color: lightgreen;
+}
+
+header nav .mobile-nav div[aria-expanded="false"] {
+  display: none;
+}

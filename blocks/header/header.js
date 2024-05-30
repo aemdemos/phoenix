@@ -478,6 +478,76 @@ function createDropDownCloseButton() {
   }, span(), span());
 }
 
+function buildMobileLevel3Nav(megaMenu) {
+  const content = megaMenu.querySelector(':scope > .default-content-wrapper > ul > li');
+  const divContent = document.createElement('div');
+
+  Array.from(content.querySelector('ul').children).forEach((content2ndLevel) => {
+    const level2AccordionButton = document.createElement('button');
+    level2AccordionButton.classList.add('nav-accordian', 'level-2');
+    level2AccordionButton.innerText = content2ndLevel.firstElementChild.innerText;
+
+    const level2DivContent = document.createElement('div');
+    level2DivContent.ariaExpanded = 'false';
+    level2AccordionButton.addEventListener('click', () => {
+      level2DivContent.classList.toggle('active');
+      level2DivContent.ariaExpanded = level2DivContent.classList.contains('active');
+    });
+
+    Array.from(content2ndLevel.querySelector('ul').children).forEach((content3rdLevel) => {
+      const level3Button = document.createElement('p');
+      level3Button.classList.add('nav-accordian', 'level-3');
+      if (content3rdLevel.firstElementChild?.tagName === 'A') {
+        const link = content3rdLevel.firstElementChild.cloneNode(true);
+        level3Button.append(link);
+      } else {
+        const text = content3rdLevel.innerText;
+        const tmpSpan = document.createElement('span');
+        tmpSpan.innerText = text;
+        level3Button.append(tmpSpan);
+      }
+      level2DivContent.append(level3Button);
+    });
+
+    divContent.append(level2AccordionButton);
+    divContent.append(level2DivContent);
+  });
+
+  return divContent;
+}
+
+function buildMobileNav(nav) {
+  const mobileNav = document.createElement('div');
+  mobileNav.id = 'mobile-nav';
+  mobileNav.classList.add('mobile-nav');
+
+  nav.querySelectorAll('.mega-menu').forEach((megaMenu) => {
+    const title = megaMenu.querySelector(':scope > .default-content-wrapper > ul > li').firstElementChild.innerText;
+    const accordionButton = document.createElement('button');
+    accordionButton.classList.add('nav-accordian', 'level-1');
+    accordionButton.innerText = title;
+    mobileNav.append(accordionButton);
+    let content = null;
+
+    if (megaMenu.classList.contains('3-level')) {
+      content = buildMobileLevel3Nav(megaMenu);
+    }
+
+    if (content) {
+      content.ariaExpanded = 'false';
+      content.classList.add('nav-accordian-content', 'level-1');
+      accordionButton.addEventListener('click', () => {
+        accordionButton.classList.toggle('active');
+        content.classList.toggle('active');
+        content.ariaExpanded = content.classList.contains('active');
+      });
+      mobileNav.append(content);
+    }
+  });
+
+  return mobileNav;
+}
+
 /**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -544,7 +614,10 @@ export default async function decorate(block) {
     headerDropdownContainers.append(createBottomNav(nav));
     headerDropdownContainers.append(createDropDownCloseButton());
     nav.append(headerDropdownContainers);
-  } else { /* empty */ }
+  } else {
+    const mobileNav = buildMobileNav(nav);
+    nav.append(mobileNav);
+  }
   const headerNavDiv = document.createElement('div');
   headerNavDiv.className = 'header-nav';
   headerNavDiv.append(div(
