@@ -530,6 +530,34 @@ function buildMobileLevel3Nav(megaMenu) {
   return divContent;
 }
 
+function buildMobileLevel2Nav(megaMenu) {
+  const divContent = document.createElement('div');
+  Array.from(megaMenu.querySelector('div > ul > li > ul').children).forEach((section) => {
+    const sectionContainer = document.createElement('div');
+    const sectionTitle = document.createElement('p');
+    sectionTitle.innerText = section.firstChild.textContent.trim();
+    sectionContainer.append(sectionTitle);
+    const linkList = document.createElement('ul');
+    sectionContainer.append(linkList);
+    divContent.append(sectionContainer);
+
+    Array.from(section.querySelector(':scope > ul').children).forEach((content) => {
+      if (content.firstElementChild?.tagName === 'A') {
+        const link = content.firstElementChild.cloneNode(true);
+        const listItem = document.createElement('li');
+        listItem.append(link);
+        linkList.append(listItem);
+      } else {
+        const text = content.innerText;
+        const listItem = document.createElement('li');
+        listItem.innerText = text;
+        linkList.append(listItem);
+      }
+    });
+  });
+  return divContent;
+}
+
 function buildMobileNav(nav) {
   const mobileNav = document.createElement('div');
   mobileNav.id = 'mobile-nav';
@@ -548,6 +576,10 @@ function buildMobileNav(nav) {
 
     if (megaMenu.classList.contains('3-level')) {
       content = buildMobileLevel3Nav(megaMenu);
+    }
+
+    if (megaMenu.classList.contains('2-level')) {
+      content = buildMobileLevel2Nav(megaMenu);
     }
 
     if (content) {

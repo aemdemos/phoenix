@@ -1353,6 +1353,16 @@ header nav .mobile-nav .nav-accordian {
   margin: 0;
 }
 
+header nav .mobile-nav .nav-accordian-content li {
+  list-style-type: none;
+  width: 100%;
+  margin: 0;
+}
+
+header nav .mobile-nav .nav-accordian-content ul {
+  padding: 0;
+}
+
 header nav .mobile-nav button.nav-accordian.level-1:first-child {
   margin-top: 58px;
 }
