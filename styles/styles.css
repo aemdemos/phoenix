@@ -382,3 +382,8 @@ main .section.aside-nav {
 .cx-widget.cx-theme-light button.cx-btn {
   min-width: 6rem !important;
 }
+
+body.no-scroll {
+  height: 100%;
+  overflow-y: hidden;
+}
