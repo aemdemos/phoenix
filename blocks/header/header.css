@@ -17,6 +17,11 @@ header .nav-wrapper {
   display: none !important;
 }
 
+.nav-expanded {
+  width: 100% !important;
+  padding-bottom: 0 !important;
+}
+
 header nav {
   box-sizing: border-box;
   display: flex;
@@ -383,6 +388,7 @@ header nav .nav-sections ul > li > ul > li {
     font-family: Roboto, "Helvetica Neue", serif;
     padding: 0;
     margin: 0 0 25px;
+    line-height: 24px;
   }
 
   header nav .header-dropdown-container .header-mega-nav.three-level.selected .center .headernavcontainer .header-container .headernavtabnavigation .header-tabs-right .tabs-panel.selected ul li::before {
@@ -532,7 +538,8 @@ header nav .nav-sections ul > li > ul > li {
   header nav .header-dropdown-container .header-mega-nav.one-level.selected .center .headernavcontainer-right .header-container .container-content .button-container {
     float: left;
     clear: none;
-    width: 100%;
+    width: 90%;
+    margin-left: 10%;
   }
 
   header nav .header-dropdown-container .header-mega-nav.one-level.selected .center .headernavcontainer-right .header-container .container-content .button-container a {
