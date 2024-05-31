@@ -55,7 +55,7 @@ function isArticlePage() {
  */
 function buildArticleHeader(main) {
   if (main.querySelector('.article-header') || !main.querySelector('h1')) {
-    // already got an article header or no title with h1 to ignore for fragments like aside-nav trying to auto block
+    // already have article header or no h1 to ignore for fragments (aside-nav) calling auto block
     return;
   }
 

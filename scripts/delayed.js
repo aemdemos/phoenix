@@ -22,7 +22,9 @@ window.EDU = {
     chatClientlibHashCode: '1956f4d4e84fb208cfba5940203678b7',
   },
 };
+
 // Load Launch script for tag manager
-loadScript('https://assets.adobedtm.com/51b39232f128/fd9ec2c2b234/launch-e97b90be17d8-development.min.js', 'head', { async: true });
+loadScript('https://assets.adobedtm.com/51b39232f128/fd9ec2c2b234/launch-e97b90be17d8-development.min.js', { async: true });
+
 loadScript('/clientlibs/clientlib-chat.min.js');
 loadCSS('/clientlibs/clientlib-chat.min.css');
