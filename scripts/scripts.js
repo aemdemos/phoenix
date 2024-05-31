@@ -89,12 +89,12 @@ function buildArticleHeader(main) {
             span({ classList: ['icon', 'icon-pinterest-black'] }, img({ src: '/icons/pinterest-black.svg', alt: 'pinterest', class: 'icon' })))),
         p(
           a({ href: 'mailto:?subject=How%20to%20Prepare%20for%20an%20Unpredictable%20Job%20Market%20&body=%20Check%20this%20out:%20${window.location}' },
-            span({ classList: ['icon', 'icon-email-black'] }, img({ src: '/icons/email-black.svg', alt: 'email', class: 'icon'})))),
+            span({ classList: ['icon', 'icon-email-black'] }, img({ src: '/icons/email-black.svg', alt: 'email', class: 'icon' })))),
       ),
     ],
     [
-      p(img({ src: writerImage, alt: writer, class: 'icon'} ), 'Written by ', a({ href: writerHref }, writer)),
-      p(img({ src: reviewerImage, alt: reviewer, class: 'icon'} ), 'Reviewed by ', a({ href: reviewerHref }, reviewer), ' ' + reviewerDescription),
+      p(img({ src: writerImage, alt: writer, class: 'icon' }), 'Written by ', a({ href: writerHref }, writer)),
+      p(img({ src: reviewerImage, alt: reviewer, class: 'icon' }), 'Reviewed by ', a({ href: reviewerHref }, reviewer), ` ${reviewerDescription}`),
     ],
   ])));
   /* eslint-enable function-paren-newline */
