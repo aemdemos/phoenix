@@ -1211,6 +1211,29 @@ header .header-search .search-results-container .quick-searches.active li a {
   font-family: Roboto, "Helvetica Neue", serif;
 }
 
+header .header-search .search-results-container .quick-searches.active li a {
+  text-decoration: none;
+  width: fit-content;
+  display: block;
+}
+
+header .header-search .search-results-container .quick-searches.active li a::after {
+  bottom: -2px;
+  height: 2px;
+  content: "";
+  width: 0;
+  left: 0;
+  border-radius: 30px;
+  background-color: var(--color-phoenix-red);
+  position: relative;
+  display: block;
+  transition: all .3s ease-in-out;
+}
+
+header .header-search .search-results-container .quick-searches.active li a:hover::after {
+  width: 100%;
+}
+
 header .header-search .close-icon {
   display: none;
 }
