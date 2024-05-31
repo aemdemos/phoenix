@@ -1218,7 +1218,7 @@ header .header-search .search-results-container .quick-searches.active li a {
 }
 
 header .header-search .search-results-container .quick-searches.active li a::after {
-  bottom: -2px;
+  bottom: 9px;
   height: 2px;
   content: "";
   width: 0;
@@ -1227,7 +1227,6 @@ header .header-search .search-results-container .quick-searches.active li a::aft
   background-color: var(--color-phoenix-red);
   position: relative;
   display: block;
-  transition: all .3s ease-in-out;
 }
 
 header .header-search .search-results-container .quick-searches.active li a:hover::after {
