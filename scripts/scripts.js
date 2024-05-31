@@ -12,8 +12,12 @@ import {
   loadBlocks,
   loadCSS,
   loadScript,
+  getMetadata,
 } from './aem.js';
 import wrapImgsInLinks from './utils.js';
+import {
+  a, p, div, span, img,
+} from './dom-helpers.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 
@@ -24,12 +28,92 @@ const LCP_BLOCKS = []; // add your LCP blocks to the list
 function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
+  /* if(picture) {
+    const img = picture.querySelector('img');
+    if(img) {
+      img.setAttribute('loading', 'eager');
+    }
+  } */
   // eslint-disable-next-line no-bitwise
-  if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
+  if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_FOLLOWING)) {
     const section = document.createElement('div');
     section.append(buildBlock('hero', { elems: [picture, h1] }));
     main.prepend(section);
   }
+}
+
+/**
+ * Returns true if the page is an article based on the template metadata.
+ * @returns {boolean}
+ */
+function isArticlePage() {
+  return getMetadata('template') === 'Blog Article';
+}
+
+/**
+ * Builds an article header and prepends to main in a new section.
+ * @param main
+ */
+function buildArticleHeader(main) {
+  if (main.querySelector('.article-header')) {
+    // already got an article header
+    return;
+  }
+
+  const publicationDate = getMetadata('date-read-time');
+  const writer = getMetadata('writer');
+  const writerHref = getMetadata('writer-link');
+  const writerImage = getMetadata('writer-image');
+  const reviewer = getMetadata('reviewer');
+  const reviewerHref = getMetadata('reviewer-link');
+  const reviewerDescription = getMetadata('reviewer-description');
+  const reviewerImage = getMetadata('reviewer-image');
+
+  /* eslint-disable function-paren-newline */
+  main.prepend(div(buildBlock('article-header', [
+    [main.querySelector('h1')],
+    [
+      p({ class: 'publication-date' }, publicationDate),
+      p(
+        { class: 'social-container' },
+        a({ href: `https://twitter.com/intent/tweet?text=Check+this+out:=${window.location}` },
+          span({ classList: ['icon', 'icon-twitter-black'] }, img({ src: '/icons/twitter-black.svg', alt: 'twitter', class: 'icon' }))),
+        a({ href: `https://www.facebook.com/sharer/sharer.php?u=${window.location}` },
+          span({ classList: ['icon', 'icon-facebook-black'] }, img({ src: '/icons/facebook-black.svg', alt: 'facebook', class: 'icon' }))),
+        a({ href: `https://www.linkedin.com/cws/share?url=${window.location}` },
+          span({ classList: ['icon', 'icon-linkedin-black'] }, img({ src: '/icons/linkedin-black.svg', alt: 'linkedin', class: 'icon' }))),
+        // eslint-disable-next-line no-script-url
+        a({ href: 'javascript:void((function()%7Bvar%20e=document.createElement(\'script\');e.setAttribute(\'type\',\'text/javascript\');e.setAttribute(\'charset\',\'UTF-8\');e.setAttribute(\'src\',\'//assets.pinterest.com/js/pinmarklet.js?r=%27+Math.random()*99999999);document.body.appendChild(e)%7D)());' },
+          span({ classList: ['icon', 'icon-pinterest-black'] }, img({ src: '/icons/pinterest-black.svg', alt: 'pinterest', class: 'icon' }))),
+        a({ href: `mailto:?subject=How%20to%20Prepare%20for%20an%20Unpredictable%20Job%20Market%20&body=%20Check%20this%20out:%20${window.location}` },
+          span({ classList: ['icon', 'icon-email-black'] }, img({ src: '/icons/email-black.svg', alt: 'email', class: 'icon' }))),
+      ),
+    ],
+    [
+      div(
+        { class: 'writer-details' },
+        p(
+          img({ src: writerImage, alt: writer, class: 'icon' }),
+        ),
+        p(
+          'Written by ',
+          a({ href: writerHref }, writer),
+        ),
+      ),
+      div(
+        { class: 'reviewer-details' },
+        p(
+          img({ src: reviewerImage, alt: reviewer, class: 'icon' }),
+        ),
+        p(
+          'Reviewed by ',
+          a({ href: reviewerHref }, reviewer),
+          ` ${reviewerDescription}`,
+        ),
+      ),
+    ],
+  ])));
+  /* eslint-enable function-paren-newline */
 }
 
 /**
@@ -51,6 +135,9 @@ async function loadFonts() {
 function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
+    if (isArticlePage) {
+      buildArticleHeader(main);
+    }
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
