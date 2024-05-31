@@ -96,6 +96,7 @@
 .aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details > summary p,
 .aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details:nth-child(2) > summary p:nth-child(3) {
   margin: 0 !important;
+  
   /* margin-bottom: 2% !important; */
 }
 
