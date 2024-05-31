@@ -85,8 +85,8 @@ export default async function decorate(block) {
   let reviews = footer.querySelector('.section.trustscore').getAttribute('data-reviews');
 
   const trustScoreData = await loadTrustScoreData();
-  trustscore = trustScoreData && trustscoreData.stars ? trustScoreData.stars : trustscore;
-  reviews = trustScoreData && trustscoreData.reviews ? trustScoreData.reviews : reviews;
+  trustscore = trustScoreData && trustScoreData.stars ? trustScoreData.stars : trustscore;
+  reviews = trustScoreData && trustScoreData.reviews ? trustScoreData.reviews : reviews;
 
   footer.querySelector('.section.trustscore').remove();
   const trustscoreBox = document.createElement('div');
