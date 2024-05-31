@@ -35,7 +35,7 @@ footer .footer ul > li > ul {
 .footer-bottom {
   /* margin-top: 20px; */
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row wrap-reverse;
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
@@ -46,12 +46,18 @@ footer .footer ul > li > ul {
 
 .footer-bottom-left {
   display: flex;
-  flex-wrap: wrap;
+  /*flex-wrap: wrap;*/
+}
+
+footer .footer-bottom-left > p {
+  /* Containing the logo */
+  margin-right: 15px;
 }
 
 .footer-bottom-left > div {
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .footer-bottom-left > div > ul:first-of-type {
@@ -60,6 +66,7 @@ footer .footer ul > li > ul {
   justify-content: flex-start;
   align-items: baseline;
   width: 100%;
+  line-height: 26px;
 }
 
 .footer-bottom-left > div > ul:first-of-type > li {
@@ -71,13 +78,17 @@ footer .footer ul > li > ul {
 
 .footer-bottom-left > div > ul:last-of-type {
   margin-top: 0;
-  padding-top: 14px;
 }
 
 .footer-bottom-left > div > ul:last-of-type > li {
   padding: 0;
   margin: 0 17px 0 0;
   display: inline-block;
+}
+
+.footer-bottom-left > div > ul > li {
+  color: #121212;
+  font-size: 12px;
 }
 
 .footer-bottom-left > div > ul > li > a {
@@ -89,13 +100,20 @@ footer .footer ul > li > ul {
   text-decoration: underline;
 }
 
+.footer-bottom-left > div > p > a {
+  font-size: 12px;
+  color: #121212;
+  text-decoration: none;
+}
+
 .footer-bottom-right {
-  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 .footer-bottom-right > ul {
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .footer-bottom-right > ul > li {
@@ -215,6 +233,7 @@ footer .footer ul > li > ul {
 .section.discover-more {
   margin-top: 20px;
   color: #121212;
+  font-family: "Roboto";
   line-height: 18px;
   text-decoration: none;
   font-size: 14px !important;
@@ -319,7 +338,7 @@ footer .footer ul > li > ul {
   }
 
   .footer-bottom-right {
-    margin-top: 0;
+    margin-top: 10px;
   }
 
   .footer-form-container {
@@ -352,5 +371,13 @@ footer .footer ul > li > ul {
 
   .footer-bottom-right > ul > li {
     margin-right: 24px;
+  }
+
+  .footer-bottom-left > div > ul:last-of-type {
+    padding-top: 14px;
+  }
+
+  .footer-bottom-left > div > p {
+    display: none;
   }
 }
