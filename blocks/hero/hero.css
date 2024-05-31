@@ -17,9 +17,6 @@ main .hero-container {
   color: white;
 }
 
-.hero picture {
-}
-
 .hero img {
   object-fit: cover;
   width: 100%;
