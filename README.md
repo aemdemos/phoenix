@@ -2,8 +2,8 @@
 Your project's description...
 
 ## Environments
-- Preview: https://main--phoenix--aemdemos.hlx.page/
-- Live: https://main--phoenix--aemdemos.hlx.live/
+- Preview: https://main--phoenix--aemsites.hlx.page/blog/how-to-prepare-for-an-unpredictable-job-market
+- Live: https://main--phoenix--aemsites.hlx.live/blog/how-to-prepare-for-an-unpredictable-job-market
 
 ## Installation
 
