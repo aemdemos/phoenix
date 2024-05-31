@@ -137,7 +137,7 @@ function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
     if (isArticlePage) {
-      // buildArticleHeader(main);
+      buildArticleHeader(main);
     }
   } catch (error) {
     // eslint-disable-next-line no-console
