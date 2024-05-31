@@ -26,6 +26,7 @@ const LCP_BLOCKS = []; // add your LCP blocks to the list
  * @param {Element} main The container element
  */
 function buildHeroBlock(main) {
+  console.log('buildHeroBlock');
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
   /* if(picture) {
@@ -136,7 +137,7 @@ function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
     if (isArticlePage) {
-      buildArticleHeader(main);
+      // buildArticleHeader(main);
     }
   } catch (error) {
     // eslint-disable-next-line no-console
