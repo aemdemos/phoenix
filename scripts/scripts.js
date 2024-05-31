@@ -54,8 +54,8 @@ function isArticlePage() {
  * @param main
  */
 function buildArticleHeader(main) {
-  if (main.querySelector('.article-header')) {
-    // already got an article header
+  if (main.querySelector('.article-header') || !main.querySelector('h1')) {
+    // already got an article header or no title with h1 to ignore for fragments like aside-nav trying to auto block
     return;
   }
 
