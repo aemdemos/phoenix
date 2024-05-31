@@ -10,8 +10,8 @@ footer .footer .section {
 
 .section.footer-top {
   background-color: var(--light-color);
-  padding-top: 98px;
-  padding-bottom: 20px;
+  padding-top: 50px;
+  padding-bottom: 10px;
   display: flex;
   flex-flow: column wrap;
 }
@@ -301,6 +301,8 @@ footer .footer-bottom-left > p {
     height: unset;
     border: none;
     padding: 0;
+    width: max-content;
+    max-width: 180px;
   }
 
   .footer-top-columns > div:first-of-type > ul > li::after {
@@ -326,8 +328,8 @@ footer .footer-bottom-left > p {
 
   .footer-top-columns > div:first-of-type > ul > li:nth-of-type(5) {
     position: absolute;
-    left: 500px;
-    top: 240px;
+    left: 520px;
+    top: 200px;
   }
 
   .footer-top-columns > div:first-of-type > ul > li:nth-of-type(6) {
@@ -346,7 +348,7 @@ footer .footer-bottom-left > p {
   }
 
   .section.discover-more {
-    margin: 0 0 0 200px
+    margin: -25px 0 0 200px
   }
 
   .section.discover-more > div {
