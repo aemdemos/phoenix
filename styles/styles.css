@@ -215,7 +215,7 @@ main .section {
   }
 
   main {
-    max-width: min(85vw, 1300px);
+    max-width: 75%;
   }
 }
 
@@ -296,13 +296,19 @@ body > main > div:nth-child(1) > div > h1 {
 main {
   display: grid;
   grid-template-columns: auto 1fr 2.5fr auto; /* 4 columns: left-gutter, left-side, right-side, right-gutter */
-  margin: 6% auto 0;
+  margin: 6% auto 1% 12%;
 }
 
 main .section.aside-nav {
   grid-column: 2; /* the second column, the left side of the page */
   position: fixed;
   font-size: 18px;
+}
+
+@media (width > 991px) {
+  main .section.aside-nav {
+    left: 195px;
+  }
 }
 
 @media (width <= 991px) {

@@ -33,7 +33,7 @@
     align-items: center;
     object-fit: cover;
     border-radius: 50%;
-    padding: 2.2%;
+    padding: 0 0 0 10px;
 }
 
 .article-shares .social-container a:hover {
