@@ -262,7 +262,7 @@ body > main > div:nth-child(1) > div > h1 {
 
 .blog-content p,
 .blog-content li {
-  font-size: calc(var(--body-font-size-m) * 0.95);
+  font-size: 20px;
   color: black;
 }
 
