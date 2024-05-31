@@ -28,12 +28,12 @@ const LCP_BLOCKS = []; // add your LCP blocks to the list
 function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
-  if(picture) {
+  /* if(picture) {
     const img = picture.querySelector('img');
     if(img) {
       img.setAttribute('loading', 'eager');
     }
-  }
+  } */
   // eslint-disable-next-line no-bitwise
   if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_FOLLOWING)) {
     const section = document.createElement('div');
