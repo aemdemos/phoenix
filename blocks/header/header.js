@@ -239,6 +239,12 @@ function decorateNavItem(parent) {
     const tabpanelItems = tabInfo.querySelector('ul');
     if (tabpanelItems !== null) {
       tabpanel.append(tabpanelItems);
+      const subList = tabpanelItems.children;
+      const subListLen = subList !== null ? subList.length : 0;
+      if (subListLen > 10) {
+        tabpanelItems.style['column-count'] = 2;
+        tabpanelItems.style['margin-bottom'] = 0;
+      }
     }
 
     // build tab button
@@ -271,6 +277,20 @@ function decorateNavItem(parent) {
       });
       navButton.classList.add('selected');
       tabpanel.classList.add('selected');
+
+      const subList = tabpanelItems.children;
+      const subListLen = subList !== null ? subList.length : 0;
+      if (subListLen > 10) {
+        const midContainer = document.querySelector('.header-tab-right-left');
+        const rightContainer = document.querySelector('.header-tab-right-right');
+        midContainer.classList.add('nav-expanded');
+        rightContainer.classList.add('hide');
+      } else {
+        const midContainer = document.querySelector('.header-tab-right-left');
+        const rightContainer = document.querySelector('.header-tab-right-right');
+        midContainer.classList.remove('nav-expanded');
+        rightContainer.classList.remove('hide');
+      }
     });
     if (i === 0) {
       navButton.classList.add('selected');
@@ -498,7 +518,7 @@ function buildMobileNavPictureFooter(megaMenu) {
 
 function createDropDownCloseButton() {
   return button({
-    role: button, 'aria-label': 'Close Navigation', class: 'header-dropdown-close', onclick: closeNavigationDropdown,
+    role: 'button', 'aria-label': 'Close Navigation', class: 'header-dropdown-close', onclick: closeNavigationDropdown,
   }, span(), span());
 }
 
