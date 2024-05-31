@@ -99,6 +99,19 @@
 }
 
 @media (width <= 990px) {
+  .columns.border h2 {
+    padding-left: 5%;
+  }
+
+  .columns.border ul {
+    padding-left: 13%;
+    padding-right: 5%;
+  }
+
+  .columns.border li a {
+    font-size: var(--body-font-size-xs) !important;
+  }
+
   .contributor {
     padding: 3% 7%;
   }
