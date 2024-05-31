@@ -11,7 +11,6 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
-  loadScript,
   getMetadata,
 } from './aem.js';
 import wrapImgsInLinks from './utils.js';
