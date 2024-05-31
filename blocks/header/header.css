@@ -396,11 +396,13 @@ header nav .nav-sections ul > li > ul > li {
     height: 2px;
   }
 
-  header nav .header-dropdown-container .header-mega-nav.three-level.selected .center .headernavcontainer .header-container .headernavtabnavigation .header-tabs-right .tabs-panel.selected ul li a:any-link {
+  header nav .header-dropdown-container li a:any-link {
     text-decoration: none;
+    width: fit-content;
+    display: block;
   }
 
-  header nav .header-dropdown-container .header-mega-nav.three-level.selected .center .headernavcontainer .header-container .headernavtabnavigation .header-tabs-right .tabs-panel.selected ul li a::after {
+  header nav .header-dropdown-container li a::after {
     bottom: -2px;
     height: 2px;
     content: "";
@@ -413,7 +415,7 @@ header nav .nav-sections ul > li > ul > li {
     transition: all .3s ease-in-out;
   }
 
-  header nav .header-dropdown-container .header-mega-nav.three-level.selected .center .headernavcontainer .header-container .headernavtabnavigation .header-tabs-right .tabs-panel.selected ul li a:hover::after {
+  header nav li a:hover::after {
     width: 100%;
   }
 
