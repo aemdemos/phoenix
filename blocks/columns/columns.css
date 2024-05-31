@@ -25,7 +25,9 @@
 
 .columns.border h2{
   padding-left: 2%;
-  font-size: calc(var(--heading-font-size-xl));
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
 }
 
 .columns.border ul{
@@ -37,8 +39,14 @@
   padding-bottom: 1%;
 }
 
+.columns.border li::marker {
+  font-size: 24px;
+}
+
 .columns.border a:any-link {
-  font-size: var(--body-font-size-m);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
 }
 
 .contributor {
