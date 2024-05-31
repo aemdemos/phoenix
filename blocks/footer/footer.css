@@ -46,7 +46,8 @@ footer .footer ul > li > ul {
 
 .footer-bottom-left {
   display: flex;
-  /*flex-wrap: wrap;*/
+
+  /* flex-wrap: wrap; */
 }
 
 footer .footer-bottom-left > p {
@@ -56,8 +57,7 @@ footer .footer-bottom-left > p {
 
 .footer-bottom-left > div {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
 }
 
 .footer-bottom-left > div > ul:first-of-type {
@@ -112,8 +112,7 @@ footer .footer-bottom-left > p {
 
 .footer-bottom-right > ul {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
 }
 
 .footer-bottom-right > ul > li {
@@ -233,7 +232,7 @@ footer .footer-bottom-left > p {
 .section.discover-more {
   margin-top: 20px;
   color: #121212;
-  font-family: "Roboto";
+  font-family: Roboto, "Helvetica Neue", serif;
   line-height: 18px;
   text-decoration: none;
   font-size: 14px !important;
