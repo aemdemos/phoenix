@@ -24,7 +24,7 @@ window.EDU = {
 };
 
 // Load Launch script for tag manager
-loadScript('https://assets.adobedtm.com/51b39232f128/fd9ec2c2b234/launch-e97b90be17d8-development.min.js', { async: true });
+loadScript('https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-4c68fe2386f7.min.js', { async: true });
 
 loadScript('/clientlibs/clientlib-chat.min.js');
 loadCSS('/clientlibs/clientlib-chat.min.css');
