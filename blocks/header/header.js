@@ -121,7 +121,7 @@ function closeHeaderOverlay() {
 function createSearchSection(searchSection) {
   const searchDiv = document.createElement('div');
 
-  const headerOverlay = div({ class: 'header-overlay' });
+  const headerOverlay = div({ class: 'header-overlay', onClick: closeHeaderOverlay });
 
   // const searchIcon =
   // searchSection.querySelector('.default-content-wrapper p:first-of-type picture').cloneNode();
