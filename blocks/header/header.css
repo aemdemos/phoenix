@@ -59,6 +59,7 @@ header nav[aria-expanded="true"] {
   header nav[aria-expanded="true"] {
     min-height: 0;
     overflow: visible;
+    height: 0;
   }
 }
 
@@ -214,6 +215,11 @@ header nav .nav-sections ul > li > ul > li {
 }
 
 @media (width >= 900px) {
+  header nav .nav-overall,
+  header nav .nav-top {
+    background-color: rgb(255 255 255 / 90%);
+  }
+
   header nav .nav-sections {
     display: block;
     visibility: visible;
