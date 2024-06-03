@@ -209,12 +209,13 @@ async function loadLazy(doc) {
   if (window.innerWidth > 990) {
     const asideDiv = document.querySelector('.aside-nav');
     const footer = document.querySelector('footer');
+    let isFixed = true;
     window.addEventListener('scroll', () => {
       const footerTop = footer.getBoundingClientRect().top;
       const divHeight = asideDiv.offsetHeight;
-      if (footerTop < window.innerHeight) {
+      if (footerTop <= divHeight + 150) {
         asideDiv.style.top = `${document.body.scrollTop + footerTop - divHeight}px`;
-      } else if (footerTop - window.innerHeight > (0.2 * window.innerHeight)) {
+      } else {
         asideDiv.style.top = '150px';
       }
     });

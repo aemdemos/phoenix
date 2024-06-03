@@ -1,5 +1,7 @@
 .article-title h1 {
     margin-bottom: 0;
+    font-weight: 600;
+    -webkit-font-smoothing: antialiased;
 }
 
 .article-shares {
