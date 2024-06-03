@@ -35,21 +35,40 @@
   display: none;
 }
 
-.accordion details summary::after {
-  content: "";
+.accordion .accordion-dropdown-arrow {
+  height: 10px;
   position: absolute;
-  top: 50%;
   right: 18px;
-  transform: translateY(-50%) rotate(45deg);
-  width: 9px;
-  height: 9px;
-  border: 2px solid;
-  border-width: 2.5px 2.5px 0 0;
-  transition: transform 0.2s;
+  top: 25%;
+  width: 17px;
 }
 
-.accordion details[open] summary::after {
-  transform: translateY(-50%) rotate(135deg);
+.accordion .accordion-dropdown-arrow::after, .accordion .accordion-dropdown-arrow::before {
+  background-color: #fff;
+  bottom: 0;
+  content: "";
+  height: 100%;
+  position: absolute;
+  transition: all .5s;
+  width: 3px;
+}
+
+.accordion .accordion-dropdown-arrow::before {
+  left: 4px;
+  transform: rotate(-48deg)
+}
+
+.accordion .accordion-dropdown-arrow::after {
+  right: 3px;
+  transform: rotate(48deg)
+}
+
+.accordion-item details[open] .accordion-dropdown-arrow::after {
+  transform: rotate(-48deg)
+}
+
+.accordion-item details[open] .accordion-dropdown-arrow::before {
+  transform: rotate(48deg)
 }
 
 .accordion details .accordion-item-body {
@@ -96,7 +115,7 @@
 .aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details > summary p,
 .aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details:nth-child(2) > summary p:nth-child(3) {
   margin: 0 !important;
-  
+
   /* margin-bottom: 2% !important; */
 }
 
