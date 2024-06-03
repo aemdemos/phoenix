@@ -307,12 +307,6 @@ main .section.aside-nav {
   font-size: 18px;
 }
 
-@media (width > 991px) {
-  main .section.aside-nav {
-    /*left: 195px;*/
-  }
-}
-
 @media (width <= 991px) {
   main {
     display: flex;
