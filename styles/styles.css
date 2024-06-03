@@ -252,8 +252,12 @@ body > main > div:nth-child(1) > div > h1 {
 }
 
 .blog-content a {
-  color: var(--body-link-color) !important;
+  color: var(--body-link-color);
   text-decoration: underline;
+}
+
+.blog-content a:hover {
+  color: var(--color-phoenix-red);
 }
 
 .blog-content {
@@ -264,6 +268,7 @@ body > main > div:nth-child(1) > div > h1 {
 .blog-content li {
   font-size: 20px;
   color: black;
+  margin: 0 0 16px;
 }
 
 .blog-content h2 {
