@@ -1,0 +1,26 @@
+.article-content a {
+    color: var(--body-link-color) !important;
+    text-decoration: underline;
+}
+
+.article-content p,
+.article-content li {
+    font-size: 20px;
+    color: black;
+}
+
+.article-content h2 {
+    font-size: var(--heading-font-size-xl);
+    margin-bottom: 1rem;
+}
+
+.article-content img {
+    width: 83.33%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.article-content em {
+    font-weight: 100;
+    font-size: calc(var(--body-font-size-m) * 0.9);
+}
