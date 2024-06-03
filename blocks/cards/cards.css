@@ -26,7 +26,7 @@
 
 .cards > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: auto;
   object-fit: cover;
 }
 
@@ -62,7 +62,6 @@ body > main > div.section.columns-container.cards-container > div.default-conten
       -12px 0 19px -12px rgba(0 0 0 / 12%),
       12px 0 19px -12px rgba(0 0 0 / 12%),
       0 12px 19px -12px rgba(0 0 0 / 12%);
-  padding-bottom: 10%;
   padding-top: 2%;
 }
 
