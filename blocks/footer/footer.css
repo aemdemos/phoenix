@@ -38,7 +38,7 @@ footer .footer ul > li > ul {
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
-  justify-content: center;
+  justify-content: space-between;
   min-height: 98px;
   padding: 24px 10px;
 }
@@ -115,7 +115,12 @@ footer .footer-bottom-left > p {
 }
 
 .footer-bottom-right > ul > li {
-  margin-right: 14px;
+  margin-right: 24px;
+}
+
+.footer-bottom-right > ul > li .icon img {
+  width: 27px;
+  height: 27px;
 }
 
 .footer-form-container {
@@ -372,7 +377,12 @@ footer .footer-bottom-left > p {
   }
 
   .footer-bottom-right > ul > li {
-    margin-right: 24px;
+    margin-right: 18px;
+  }
+
+  .footer-bottom-right > ul > li .icon img {
+    width: 22px;
+    height: 22px;
   }
 
   .footer-bottom-left > div > ul:last-of-type {
