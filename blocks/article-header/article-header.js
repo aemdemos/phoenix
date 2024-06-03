@@ -51,7 +51,7 @@ export default async function decorate(block) {
   // title
   const titleContainer = rows[0];
   titleContainer.classList.add('article-title');
-  // byLine
+  // social-media
   const articleShares = rows[1];
   articleShares.classList.add('article-shares');
   // byLine

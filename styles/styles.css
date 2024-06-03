@@ -295,8 +295,10 @@ body > main > div:nth-child(1) > div > h1 {
 
 main {
   display: grid;
-  grid-template-columns: auto 1fr 2.5fr auto; /* 4 columns: left-gutter, left-side, right-side, right-gutter */
-  margin: 6% auto 1% 12%;
+  grid-template-columns: auto 1.05fr 2.5fr auto;
+  width: 83%;
+  max-width: 1300px;
+  margin: 100px auto 1%;
 }
 
 main .section.aside-nav {
@@ -307,7 +309,7 @@ main .section.aside-nav {
 
 @media (width > 991px) {
   main .section.aside-nav {
-    left: 195px;
+    /*left: 195px;*/
   }
 }
 
