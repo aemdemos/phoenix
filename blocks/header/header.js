@@ -762,7 +762,11 @@ export default async function decorate(block) {
     headerDropdownContainers.classList.add('header-dropdown-container');
     nav.querySelectorAll('.mega-menu').forEach((megaMenu) => {
       const list = megaMenu.querySelector(':scope > .default-content-wrapper > ul > li');
-      if (list.querySelector('ul')) list.classList.add('nav-drop');
+      if (list.querySelector('ul')) {
+        list.classList.add('nav-drop');
+        const dropdown = div({ class: 'header-dropdown-arrow' });
+        list.append(dropdown);
+      }
       let container = null;
       if (megaMenu.classList.contains('3-level')) {
         const imgContainer = megaMenu.querySelector('.default-content-wrapper > p');
