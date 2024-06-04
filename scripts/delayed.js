@@ -20,6 +20,6 @@ window.EDU = {
 
 // Load Launch script for tag manager
 loadScript('https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-4c68fe2386f7.min.js', { async: true });
-
+loadScript('https://www.phoenix.edu/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.js', { defer: true });
 loadScript('/clientlibs/clientlib-chat.min.js', { defer: true });
 loadCSS('/clientlibs/clientlib-chat.min.css');
