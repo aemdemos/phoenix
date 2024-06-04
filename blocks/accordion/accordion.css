@@ -2,13 +2,9 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.accordion details {
-  /* border: 1px solid var(--dark-color); */
-}
-
 /* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
-  margin-top: 16px;
+  margin-top: 15px;
 }
 
 .accordion details summary {
@@ -17,58 +13,43 @@
   padding-right: 48px;
   cursor: pointer;
   list-style: none;
-
-  /* overflow: auto; */
   transition: background-color 0.2s;
 }
 
 .accordion details[open] summary {
-  /* background-color: var(--light-color); */
+  margin-bottom: 1%;
 }
 
-.accordion details summary:focus,
-.accordion details summary:hover {
-  /* background-color: var(--dark-color); */
-}
-
-.accordion details summary::-webkit-details-marker {
-  display: none;
-}
-
-.accordion .accordion-dropdown-arrow {
-  height: 10px;
-  position: absolute;
-  right: 18px;
-  top: 25%;
-  width: 17px;
-}
-
-.accordion .accordion-dropdown-arrow::after, .accordion .accordion-dropdown-arrow::before {
-  background-color: #fff;
-  bottom: 0;
+.accordion details:not(.accordion-container-item) > summary::before {
   content: "";
-  height: 100%;
   position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%) rotate(-48deg);
+  width: 8px;
+  border: 2px solid;
+  border-width: 2.5px 2.5px 0 0;
   transition: all .5s;
-  width: 3px;
 }
 
-.accordion .accordion-dropdown-arrow::before {
-  left: 4px;
-  transform: rotate(-48deg)
+.accordion details:not(.accordion-container-item) > summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%) rotate(48deg);
+  width: 8px;
+  border: 2px solid;
+  border-width: 2.5px 2.5px 0 0;
+  transition: all .5s;
 }
 
-.accordion .accordion-dropdown-arrow::after {
-  right: 3px;
-  transform: rotate(48deg)
+.accordion details:not(.accordion-container-item)[open] > summary::before {
+  transform: translateY(-50%) rotate(-134deg);
 }
 
-.accordion-item details[open] .accordion-dropdown-arrow::after {
-  transform: rotate(-48deg)
-}
-
-.accordion-item details[open] .accordion-dropdown-arrow::before {
-  transform: rotate(48deg)
+.accordion details:not(.accordion-container-item)[open] > summary::after {
+  transform: translateY(-50%) rotate(134deg);
 }
 
 .accordion details .accordion-item-body {
@@ -88,6 +69,7 @@
   color: #001823;
   background-color: inherit;
   font-weight: 400;
+  line-height: 1.5rem;
 }
 
 @media (width > 991px) {
@@ -110,30 +92,32 @@
   font-size: 20px;
   font-weight: 600;
   margin-top: 12%;
+  margin-bottom: 7%;
 }
 
 .aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details > summary p,
 .aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details:nth-child(2) > summary p:nth-child(3) {
   margin: 0 !important;
-
-  /* margin-bottom: 2% !important; */
 }
 
 body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details:nth-child(8) > summary > p:nth-child(2) > a {
   border-radius: 0 !important;
   border: 0;
+  margin-top: 0;
+  font-weight: 400;
 }
 
-body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details:nth-child(8) > summary::after {
+body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details:last-child > summary::after,
+body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details:last-child > summary::before {
   display: none;
 }
 
 .aside-nav {
-  -webkit-font-smoothing: antialiased;
   top: 150px;
   background-color: #1a3d4d;
   border-radius: 0 0 20px 20px;
-  max-width: min(328px, 21.5%);
+  width: min(338px, 21.5%);
+  box-shadow: 1px 1px 7px 2px rgba(0 0 0 / 20%);
 }
 
 body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.aside-nav-bottom > div > p:nth-child(2) {
@@ -163,20 +147,15 @@ body > main > div.section.aside-nav.fragment-container.accordion-container > div
   margin-top: 4% !important;
 }
 
-body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details > div {
-  box-shadow:
-      -12px 0 19px -12px rgba(0 0 0 / 12%),
-      12px 0 19px -12px rgba(0 0 0 / 12%),
-      0 12px 19px -12px rgba(0 0 0 / 12%);
-}
-
 body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details > div > p a {
   margin: 0 auto !important;
   font-size: var(--body-font-size-xs) !important;
+  border-radius: 0 !important;
+  line-height: 1.5rem;
+  -webkit-font-smoothing: antialiased;
 }
 
 body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details[open] > summary::after {
-  top: 60%;
   border-width: 0 0 2.5px 2.5px !important;
 }
 
@@ -193,10 +172,15 @@ body > main > div.section.aside-nav.fragment-container.accordion-container > div
   }
 
   body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > summary > p {
-    font-size: calc(var(--body-font-size-xs) * 1.05);
+    font-size: calc(var(--body-font-size-xs));
     font-weight: 200;
-    margin-top: 34px;
-    margin-bottom: 8.8px;
+    margin-top: 36px;
+    margin-bottom: 9.5px;
+    margin-left: 1px;
+  }
+
+  body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details[open] > summary > p {
+    padding-bottom: 10px !important;
   }
 
   body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details[open] {
@@ -213,18 +197,12 @@ body > main > div.section.aside-nav.fragment-container.accordion-container > div
   }
 
   body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > summary {
-    padding-bottom: 2%;
     background-color: #1a3d4d;
     border-radius: 0 0 20px 20px;
   }
 
   body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details[open] > summary {
     border-radius: 0;
-  }
-
-  body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details[open] > summary::after {
-    top: 40%;
-    border-width: 0 0 2.5px 2.5px !important;
   }
 
   body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details p {
@@ -250,7 +228,58 @@ body > main > div.section.aside-nav.fragment-container.accordion-container > div
     top: 50%;
   }
 
-  .accordion .accordion-dropdown-arrow::after, .accordion .accordion-dropdown-arrow::before {
-    background-color: black;
+  .accordion details:not(.accordion-container-item) > summary::before {
+    color: black;
   }
+
+  .accordion details.accordion-container-item > summary::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    transform: translateY(-50%) rotate(-48deg);
+    width: 8px;
+    border: 2px solid;
+    border-width: 2.5px 2.5px 0 0;
+    transition: all .5s;
+    color: white;
+  }
+
+  .accordion details.accordion-container-item > summary::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 24px;
+    transform: translateY(-50%) rotate(48deg);
+    width: 8px;
+    border: 2px solid;
+    border-width: 2.5px 2.5px 0 0;
+    transition: all .5s;
+    color: white;
+  }
+
+  .accordion details[open].accordion-container-item > summary::before {
+    transform: translateY(-50%) rotate(-134deg);
+  }
+
+  .accordion details[open].accordion-container-item > summary::after {
+    transform: translateY(-50%) rotate(134deg);
+  }
+}
+
+.aside-nav .accordion-item-body .button-container a::after {
+  bottom: -2px;
+  height: 4.6px;
+  content: "";
+  width: 0;
+  left: 0;
+  border-radius: 30px;
+  background-color: var(--body-link-color);
+  position: relative;
+  display: block;
+  transition: all .3s ease-in-out;
+}
+
+.aside-nav .accordion-item-body .button-container a:hover::after {
+  width: 100%;
 }

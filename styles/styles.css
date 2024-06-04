@@ -301,7 +301,7 @@ body > main > div:nth-child(1) > div > h1 {
 main {
   display: grid;
   grid-template-columns: auto 1.05fr 2.5fr auto;
-  width: 83%;
+  width: 87%;
   max-width: 1300px;
   margin: 100px auto 1%;
 }
