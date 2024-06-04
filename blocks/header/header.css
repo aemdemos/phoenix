@@ -1610,15 +1610,14 @@ header nav .mobile-nav .picture-footer {
   margin-bottom: 10px;
 }
 
-header nav .mobile-nav .picture-footer > picture,
-header nav .mobile-nav .picture-footer > picture > img {
+header nav .mobile-nav .picture-footer picture,
+header nav .mobile-nav .picture-footer picture > img {
   width: 100%;
   height: auto;
   text-align: center;
 }
 
 header nav .mobile-nav .picture-footer > a {
-  background-color: var(--cta-blue-primary-background);
   color: var(--color-white);
   border-radius: 2rem;
   padding: 10px 20px;
@@ -1627,6 +1626,10 @@ header nav .mobile-nav .picture-footer > a {
   font-weight: 500;
   margin-top: 8px;
   margin-bottom: 10px;
+}
+
+header nav .mobile-nav .picture-footer > a:not(:has(picture)) {
+  background-color: var(--cta-blue-primary-background);
 }
 
 header nav .mobile-nav .picture-footer.small {
