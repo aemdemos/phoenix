@@ -132,12 +132,11 @@ header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
 }
 
-@media (width >= 900px) {
-  header nav .nav-overall,
-  header nav .nav-top {
-    background-color: rgb(255 255 255 / 90%);
-  }
+.blur-background {
+  background-color: rgb(255 255 255 / 90%) !important;
+}
 
+@media (width >= 900px) {
   header nav .nav-sections {
     display: block;
     visibility: visible;
@@ -844,6 +843,7 @@ header .header-top {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: -5;
 }
 
 header .header-top p {
@@ -871,6 +871,8 @@ header nav .nav-top {
   position: relative;
   width: 100%;
   padding: 10px 0 0;
+  animation:  enter-from-top 0s ease-in-out;
+  animation-duration: 0.4s;
 }
 
 header nav .nav-top .icon-button-circle .icon {
@@ -880,6 +882,10 @@ header nav .nav-top .icon-button-circle .icon {
 header nav .nav-top .icon-button-circle .icon img {
   width: 15px;
   height: 15px;
+}
+
+header nav .header-call .header-phone-text {
+  display: none;
 }
 
 header nav .nav-top .student-login-container {
@@ -917,7 +923,8 @@ header .nav-overall {
   width: 100%;
   z-index: 1000;
   position: relative;
-  transition: all .3s ease-in-out;
+  animation:  enter-from-top 0s ease-in-out;
+  animation-duration: 0.4s;
   max-width: 1420px;
   padding: 10px 0 0;
 }
@@ -931,6 +938,15 @@ header .header-nav {
   box-shadow: 1px 1px 7px 2px rgb(0 0 0 / 20%);
   height: 58px;
   align-items: center;
+}
+
+
+@keyframes enter-from-top {
+  0% {
+    opacity: 1;
+    transform: translateY(-55px);
+  }
+  100% {transform: translateY(0);}
 }
 
 header .header-nav > .header-left > p > picture:first-of-type {
@@ -973,6 +989,19 @@ header .nav-right .request-info {
 }
 
 @media (width >= 900px) {
+  header nav .nav-top .header-call .header-phone-text {
+    font-size: 12px;
+    display: none;
+    font-weight: 400;
+    color: var(--color-almost-black);
+    padding-left: 10px;
+    line-height: 12px;
+  }
+
+  header nav .nav-top .header-call.selected .header-phone-text {
+    display: block;
+  }
+
   header .header-nav > .header-left > p > picture:first-of-type {
     display: block;
   }
