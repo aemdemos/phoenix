@@ -1,4 +1,4 @@
-import { getMetadata } from '../../scripts/aem.js';
+import {getMetadata, loadCSS, loadScript} from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import {
   a, button, div, img, input, label, span, ul,
@@ -756,6 +756,17 @@ function toggleHeaderCall() {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
+  const resp = await fetch('/blocks/header/master.contentonly.html');
+  if (resp.ok) {
+    const body = document.querySelector('body');
+    const headerDiv = document.createElement('div');
+    headerDiv.innerHTML = resp.text();
+    body.append(headerDiv);
+    loadCSS('/blocks/header/clientlib-common-library.min.css');
+    loadScript('/blocks/header/clientlib-common-library.min.js');
+  }
+
+  return;
   // load nav as fragment
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
