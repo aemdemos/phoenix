@@ -760,7 +760,7 @@ export default async function decorate(block) {
   if (resp.ok) {
     const body = document.querySelector('body');
     const headerDiv = document.createElement('div');
-    headerDiv.innerHTML = resp.text();
+    headerDiv.innerHTML = await resp.text();
     body.append(headerDiv);
     loadCSS('/blocks/header/clientlib-common-library.min.css');
     loadScript('/blocks/header/clientlib-common-library.min.js');
