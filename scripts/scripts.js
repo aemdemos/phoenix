@@ -11,7 +11,6 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
-  loadScript,
   getMetadata,
 } from './aem.js';
 import wrapImgsInLinks from './utils.js';
@@ -243,9 +242,6 @@ async function loadLazy(doc) {
       }
     });
   }
-
-  // Load Launch script for tag manager
-  loadScript('https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-4c68fe2386f7.min.js');
 }
 
 /**

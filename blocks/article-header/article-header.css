@@ -8,6 +8,7 @@
     line-height: 1rem !important;
     display: flex;
     gap: 32px;
+    padding-top: 16px;
 }
 
 .article-shares > div {
@@ -18,16 +19,20 @@
 .article-shares .publication-date {
     color: black;
     font-size: calc(var(--body-font-size-xs) * 0.75);
-    line-height: 3rem;
+    line-height: 30px;
     -webkit-font-smoothing: antialiased;
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
+    margin-top: 0;
 }
 
 .social-container {
     display: flex;
     justify-content: flex-end;
     gap: 0.4rem;
+    margin: 0;
+    height: 40px;
 }
 
 .article-shares .social-container a {

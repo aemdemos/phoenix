@@ -45,6 +45,9 @@ export default function decorate(block) {
     if (!hasWrapper(summary)) {
       summary.innerHTML = `<p>${summary.innerHTML}</p>`;
     }
+    const dropdownArrow = document.createElement('div');
+    dropdownArrow.className = 'accordion-dropdown-arrow';
+    summary.append(dropdownArrow);
     // decorate accordion item body
     const body = row.children[1];
     body.className = 'accordion-item-body';
