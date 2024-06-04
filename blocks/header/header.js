@@ -538,6 +538,7 @@ function createDropDownCloseButton() {
 function buildMobileLevel3Nav(megaMenu) {
   const content = megaMenu.querySelector(':scope > .default-content-wrapper > ul > li');
   const divContent = document.createElement('div');
+  const pictureFooter = buildMobileNavPictureFooter(megaMenu, true);
 
   Array.from(content.querySelector('ul').children).forEach((content2ndLevel) => {
     const level2AccordionButton = document.createElement('button');
@@ -586,9 +587,8 @@ function buildMobileLevel3Nav(megaMenu) {
       level2DivContent.append(level3Button);
     });
 
-    const pictureFooter = buildMobileNavPictureFooter(megaMenu, true);
     Array.from(pictureFooter).forEach((footer) => {
-      level2DivContent.append(footer);
+      level2DivContent.append(footer.cloneNode(true));
     });
 
     divContent.append(level2AccordionButton);
