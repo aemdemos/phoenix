@@ -491,10 +491,23 @@ function closeNavigationDropdown() {
   body.classList.remove('no-scroll');
 }
 
-function buildMobileNavPictureFooter(megaMenu) {
+function buildMobileNavPictureFooter(megaMenu, removeLink = false) {
   const footers = megaMenu.querySelectorAll('p');
   Array.from(footers).forEach((footer) => {
     footer.classList.add('picture-footer');
+
+    // If there is an anchor tag in the footer, copy it and put the picture tag in it.
+    if (footer.querySelector(':scope > a') !== null && footer.querySelector(':scope > picture') !== null) {
+      const existingLink = footer.querySelector(':scope > a');
+      const picture = footer.querySelector(':scope > picture');
+      const link = existingLink.cloneNode(true);
+      link.innerHTML = '';
+      footer.insertBefore(link, picture);
+      link.append(picture);
+      if (removeLink) {
+        existingLink.remove();
+      }
+    }
 
     // Check if the footer just contains text
     if (footer.querySelector('a') === null
@@ -573,7 +586,7 @@ function buildMobileLevel3Nav(megaMenu) {
       level2DivContent.append(level3Button);
     });
 
-    const pictureFooter = buildMobileNavPictureFooter(megaMenu);
+    const pictureFooter = buildMobileNavPictureFooter(megaMenu, true);
     Array.from(pictureFooter).forEach((footer) => {
       level2DivContent.append(footer);
     });
