@@ -193,6 +193,11 @@ function createNavTop(searchDiv, phoneIconButton) {
       ),
     ),
   );
+  navTop.addEventListener('animationend', () => {
+    if (isDesktop.matches) {
+      navTop.classList.add('blur-background');
+    }
+  });
   return navTop;
 }
 
@@ -735,6 +740,17 @@ function buildMobileNav(nav) {
   return mobileNav;
 }
 
+function toggleHeaderCall() {
+  const headerCall = document.querySelector('.header-call');
+  if (!isDesktop.matches || !headerCall) return;
+
+  if (headerCall.classList.contains('selected')) {
+    headerCall.classList.remove('selected');
+  } else {
+    headerCall.classList.add('selected');
+  }
+}
+
 /**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -821,6 +837,11 @@ export default async function decorate(block) {
 
   const navOverallContainer = document.createElement('div');
   navOverallContainer.className = 'nav-overall';
+  navOverallContainer.addEventListener('animationend', () => {
+    if (isDesktop.matches) {
+      navOverallContainer.classList.add('blur-background');
+    }
+  });
   const navRightContainer = document.createElement('div');
   navRightContainer.className = 'nav-right';
   // hamburger for mobile
@@ -842,15 +863,23 @@ export default async function decorate(block) {
   // phoneIconButton.classList.add('icon-button-circle');
   // phoneIconButton.innerHTML = '<span class="icon"><img src="/icons/phone.svg" /></span>';
   const phoneIconButton = a(
-    { class: 'icon-button-circle', href: 'tel:844-937-8679', 'aria-label': 'Call University of Phoenix: 844-937-8679' },
+    {
+      class: 'icon-button-circle header-call', href: 'tel:844-937-8679', 'aria-label': 'Call University of Phoenix: 844-937-8679',
+    },
     span(
       { class: 'icon' },
       img({ src: '/icons/phone.svg' }),
     ),
+    span({ class: 'header-phone-text' }, '844-937-8679'),
   );
   if (!isDesktop.matches) {
     iconsContainer.append(searchDiv);
     iconsContainer.append(phoneIconButton);
+  } else {
+    phoneIconButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      toggleHeaderCall();
+    });
   }
 
   const requestInfo = div(
