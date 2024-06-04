@@ -24,6 +24,9 @@ export default function decorate(block) {
     if (!hasWrapper(summary)) {
       summary.innerHTML = `<p>${dataWrapperText}</p>`;
     }
+    const dropdownArrow = document.createElement('div');
+    dropdownArrow.className = 'accordion-container-dropdown-arrow';
+    summary.append(dropdownArrow);
     // decorate accordion item body
     parentAccordionContainer = document.createElement('details');
     parentAccordionContainer.classList.add('accordion-item', 'accordion-container-item');

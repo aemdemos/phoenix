@@ -253,4 +253,40 @@ body > main > div.section.aside-nav.fragment-container.accordion-container > div
   .accordion .accordion-dropdown-arrow::after, .accordion .accordion-dropdown-arrow::before {
     background-color: black;
   }
+
+  .accordion-container-dropdown-arrow {
+    height: 10px;
+    position: absolute;
+    right: 18px;
+    top: 25%;
+    width: 17px;
+  }
+
+  .accordion-container-dropdown-arrow::after, .accordion-container-dropdown-arrow::before {
+    background-color: #fff;
+    bottom: 0;
+    content: "";
+    height: 100%;
+    position: absolute;
+    transition: all .5s;
+    width: 3px;
+  }
+
+  .accordion-container-dropdown-arrow::before {
+    left: 4px;
+    transform: rotate(-48deg)
+  }
+
+  .accordion-container-dropdown-arrow::after {
+    right: 3px;
+    transform: rotate(48deg)
+  }
+
+  details[open] .accordion-container-dropdown-arrow::after {
+    transform: rotate(-48deg)
+  }
+
+  details[open] .accordion-container-dropdown-arrow::before {
+    transform: rotate(48deg)
+  }
 }
