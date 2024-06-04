@@ -1,10 +1,6 @@
-.accordion {
-  -webkit-font-smoothing: antialiased;
-}
-
 /* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
-  margin-top: 15px;
+  margin-top: 12px;
 }
 
 .accordion details summary {
@@ -14,10 +10,6 @@
   cursor: pointer;
   list-style: none;
   transition: background-color 0.2s;
-}
-
-.accordion details[open] summary {
-  margin-bottom: 1%;
 }
 
 .accordion details:not(.accordion-container-item) > summary::before {
@@ -91,8 +83,8 @@
 .aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > summary p {
   font-size: 20px;
   font-weight: 600;
-  margin-top: 12%;
-  margin-bottom: 7%;
+  margin-top: 10%;
+  margin-bottom: 3%;
 }
 
 .aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details > summary p,
@@ -105,6 +97,7 @@ body > main > div.section.aside-nav.fragment-container.accordion-container > div
   border: 0;
   margin-top: 0;
   font-weight: 400;
+  margin-bottom: 2.5%;
 }
 
 body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details:last-child > summary::after,
@@ -141,6 +134,7 @@ body > main > div.section.aside-nav.fragment-container.accordion-container > div
 
 body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details > div > p {
   margin: 0 !important;
+  line-height: 1rem;
 }
 
 body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details > div > p:nth-child(2) > a {
@@ -152,7 +146,6 @@ body > main > div.section.aside-nav.fragment-container.accordion-container > div
   font-size: var(--body-font-size-xs) !important;
   border-radius: 0 !important;
   line-height: 1.5rem;
-  -webkit-font-smoothing: antialiased;
 }
 
 body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details[open] > summary::after {
@@ -175,7 +168,7 @@ body > main > div.section.aside-nav.fragment-container.accordion-container > div
     font-size: calc(var(--body-font-size-xs));
     font-weight: 200;
     margin-top: 36px;
-    margin-bottom: 9.5px;
+    margin-bottom: 7px;
     margin-left: 1px;
   }
 
@@ -264,6 +257,14 @@ body > main > div.section.aside-nav.fragment-container.accordion-container > div
 
   .accordion details[open].accordion-container-item > summary::after {
     transform: translateY(-50%) rotate(134deg);
+  }
+
+  .accordion details[open] summary {
+    margin-bottom: 1%;
+  }
+
+  body > main > div.section.aside-nav.fragment-container.accordion-container > div > div.section.accordion-container > div > div > details > details:nth-child(8) > summary > p:nth-child(2) > a {
+    margin-bottom: 0;
   }
 }
 
