@@ -209,7 +209,6 @@ async function loadLazy(doc) {
   if (window.innerWidth > 990) {
     const asideDiv = document.querySelector('.aside-nav');
     const footer = document.querySelector('footer');
-    let isFixed = true;
     window.addEventListener('scroll', () => {
       const footerTop = footer.getBoundingClientRect().top;
       const divHeight = asideDiv.offsetHeight;
