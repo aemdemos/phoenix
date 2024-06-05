@@ -386,3 +386,10 @@ body.no-scroll {
   height: 100%;
   overflow-y: hidden;
 }
+
+@media (width < 900px) {
+  #onetrust-banner-sdk #onetrust-policy-text {
+    font-size: 12px !important;
+    line-height: 16px !important;
+  }
+}
