@@ -1,3 +1,4 @@
 helix-importer-ui
-clientlibs/clientlib-chat.min.js
-clientlibs/clientlib-chat.min.css
+scripts/clientlibs/*.min.js
+scripts/clientlibs/*.min.css
+scripts/acdl/adobe-client-data-layer.min.js
