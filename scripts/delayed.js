@@ -26,6 +26,6 @@ loadScript('/scripts/acdl/adobe-client-data-layer.min.js', { defer: true });
 loadScript('/scripts/acdl/setup.js', { defer: true });
 
 // Clientlib libraries
-loadScript('https://www.phoenix.edu/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.js', { defer: true });
-loadScript('/clientlibs/clientlib-chat.min.js', { defer: true });
-loadCSS('/clientlibs/clientlib-chat.min.css');
+loadScript('/scripts/clientlibs/clientlib-common-library.min.js', { defer: true });
+loadScript('/scripts/clientlibs/clientlib-chat.min.js', { defer: true });
+loadCSS('/scripts/clientlibs/clientlib-chat.min.css');
