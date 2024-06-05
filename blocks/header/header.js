@@ -758,12 +758,16 @@ function toggleHeaderCall() {
 export default async function decorate(block) {
   const resp = await fetch('/blocks/header/master.contentonly.html');
   if (resp.ok) {
+    // const htmlString = await resp.text();
+    // const parser = new DOMParser();
+    // const doc = parser.parseFromString(htmlString, 'text/html');
+    // const headerContainer = doc.querySelector('');
     const body = document.querySelector('body');
     const headerDiv = document.createElement('div');
     headerDiv.innerHTML = await resp.text();
     body.append(headerDiv);
-    loadCSS('/blocks/header/clientlib-common-library.min.css');
-    loadScript('/blocks/header/clientlib-common-library.min.js');
+    await loadCSS('/blocks/header/clientlib-common-library.min.css');
+    await loadScript('/blocks/header/clientlib-common-library.min.js');
   }
 
   return;
