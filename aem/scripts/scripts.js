@@ -83,7 +83,7 @@ function buildArticleHeader(main) {
           span({ classList: ['icon', 'icon-linkedin-black'] }, img({ src: '/aem/icons/linkedin-black.svg', alt: 'linkedin', class: 'icon' }))),
         // eslint-disable-next-line no-script-url
         a({ href: 'javascript:void((function()%7Bvar%20e=document.createElement(\'script\');e.setAttribute(\'type\',\'text/javascript\');e.setAttribute(\'charset\',\'UTF-8\');e.setAttribute(\'src\',\'//assets.pinterest.com/js/pinmarklet.js?r=%27+Math.random()*99999999);document.body.appendChild(e)%7D)());' },
-          span({ classList: ['icon', 'icon-pinterest-black'] }, img({ src: '/icons/pinterest-black.svg', alt: 'pinterest', class: 'icon' }))),
+          span({ classList: ['icon', 'icon-pinterest-black'] }, img({ src: '/aem/icons/pinterest-black.svg', alt: 'pinterest', class: 'icon' }))),
         a({ href: `mailto:?subject=How%20to%20Prepare%20for%20an%20Unpredictable%20Job%20Market%20&body=%20Check%20this%20out:%20${window.location}` },
           span({ classList: ['icon', 'icon-email-black'] }, img({ src: '/aem/icons/email-black.svg', alt: 'email', class: 'icon' }))),
       ),

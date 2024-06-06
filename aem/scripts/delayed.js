@@ -27,5 +27,5 @@ loadScript('/aem/scripts/acdl/setup.js', { defer: true });
 
 // Clientlib libraries
 loadScript('/aem/scripts/clientlibs/clientlib-common-library.min.js', { defer: true });
-loadScript('aem/scripts/clientlibs/clientlib-chat.min.js', { defer: true });
+loadScript('/aem/scripts/clientlibs/clientlib-chat.min.js', { defer: true });
 loadCSS('/aem/scripts/clientlibs/clientlib-chat.min.css');
