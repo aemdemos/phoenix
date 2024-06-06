@@ -7,5 +7,6 @@ export default async function decorate(block) {
   const heroImage = block.querySelectorAll('img')[0];
   if (heroImage) {
     heroImage.loading = 'eager';
+    heroImage.fetchPriority = 'high';
   }
 }
