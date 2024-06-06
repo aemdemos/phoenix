@@ -1,4 +1,4 @@
 helix-importer-ui
-scripts/clientlibs/*.min.js
-scripts/clientlibs/*.min.css
-scripts/acdl/adobe-client-data-layer.min.js
+aem/scripts/clientlibs/*.min.js
+aem/scripts/clientlibs/*.min.css
+aem/scripts/acdl/adobe-client-data-layer.min.js

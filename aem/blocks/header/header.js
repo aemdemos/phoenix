@@ -148,7 +148,7 @@ function createSearchSection(searchSection) {
         { class: 'search-icon', 'aria-label': 'search University of Phoenix' },
         span(
           { class: 'icon' },
-          img({ src: '/icons/search.svg' }),
+          img({ src: '/aem/icons/search.svg' }),
         ),
       ),
     ),
@@ -169,7 +169,7 @@ function createSearchSection(searchSection) {
     onclick: openHeaderOverlay,
   }, span(
     { class: 'icon' },
-    img({ src: '/icons/search.svg' }),
+    img({ src: '/aem/icons/search.svg' }),
   ));
 
   searchDiv.append(headerOverlay);
@@ -188,7 +188,7 @@ function createNavTop(searchDiv, phoneIconButton) {
       { class: 'student-login-container', href: 'https://my.phoenix.edu/' },
       div(
         { class: 'student-login' },
-        img({ src: '/icons/login-icon.svg' }),
+        img({ src: '/aem/icons/login-icon.svg' }),
         span('Student Login'),
       ),
     ),
@@ -734,7 +734,7 @@ function buildMobileNav(nav) {
     { class: 'student-login-container', href: 'https://my.phoenix.edu/' },
     div(
       { class: 'student-login' },
-      img({ src: '/icons/login-icon.svg' }),
+      img({ src: '/aem/icons/login-icon.svg' }),
       span('Student Login'),
     ),
   );
@@ -872,16 +872,13 @@ export default async function decorate(block) {
   iconsContainer.classList.add('nav-icons');
   const searchDiv = createSearchSection(nav.children[0]);
 
-  // const phoneIconButton = document.createElement('button');
-  // phoneIconButton.classList.add('icon-button-circle');
-  // phoneIconButton.innerHTML = '<span class="icon"><img src="/icons/phone.svg" /></span>';
   const phoneIconButton = a(
     {
       class: 'icon-button-circle header-call', href: 'tel:844-937-8679', 'aria-label': 'Call University of Phoenix: 844-937-8679',
     },
     span(
       { class: 'icon' },
-      img({ src: '/icons/phone.svg' }),
+      img({ src: '/aem/icons/phone.svg' }),
     ),
     span({ class: 'header-phone-text' }, '844-937-8679'),
   );
@@ -897,7 +894,7 @@ export default async function decorate(block) {
 
   const requestInfo = div(
     { class: 'request-info' },
-    a({ class: 'header-button-redborder', href: '/request/international-student' }, 'Request Info'),
+    a({ class: 'header-button-redborder', href: 'https://www.phoenix.edu/request/international-student' }, 'Request Info'),
   );
 
   navRightContainer.append(requestInfo);
@@ -914,19 +911,6 @@ export default async function decorate(block) {
     const navTop = createNavTop(searchDiv, phoneIconButton);
     nav.prepend(navTop);
   }
-
-  /* const classes = ['brand', 'sections', 'tools'];
-  classes.forEach((c, i) => {
-    const section = nav.children[i];
-    if (section) section.classList.add(`nav-${c}`);
-  });
-
-  const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
-  if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
-  } */
 
   const navSections = navOverallContainer.querySelector('.nav-sections');
   if (navSections) {
