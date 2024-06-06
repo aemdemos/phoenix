@@ -29,6 +29,22 @@ function ratingStars(stars) {
   }
 }
 
+async function loadTrustScoreData() {
+  const API_URL = 'https://www.phoenix.edu/services/feedback/v1/summary';
+  try {
+    const response = await fetch(API_URL);
+    if (!response.ok) {
+      throw new Error('Network response was not ok.');
+    }
+    const data = await response.json();
+    const stars = data && data.score && data.score.stars;
+    const reviews = data && data.numberOfReviews && data.numberOfReviews.total;
+    return {stars: stars, reviews: reviews};
+  } catch (error) {
+    console.error('There was a problem with the fetch operation:', error);
+  }
+}
+
 /**
  * loads and decorates the footer
  * @param {Element} block The footer block element
@@ -65,8 +81,13 @@ export default async function decorate(block) {
   // footer.querySelector('.section.discover-more').remove();
 
   // Decorate trustscore container
-  const trustscore = footer.querySelector('.section.trustscore').getAttribute('data-score');
-  const reviews = footer.querySelector('.section.trustscore').getAttribute('data-reviews');
+  let trustscore = footer.querySelector('.section.trustscore').getAttribute('data-score');
+  let reviews = footer.querySelector('.section.trustscore').getAttribute('data-reviews');
+
+  const trustScoreData = await loadTrustScoreData();
+  trustscore = trustScoreData && trustScoreData.stars ? trustScoreData.stars : trustscore;
+  reviews = trustScoreData && trustScoreData.reviews ? trustScoreData.reviews : reviews;
+
   footer.querySelector('.section.trustscore').remove();
   const trustscoreBox = document.createElement('div');
   trustscoreBox.classList.add('trustscore-box');
