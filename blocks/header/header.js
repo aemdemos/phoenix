@@ -762,8 +762,6 @@ export default async function decorate(block) {
     const headerDiv = document.createElement('div');
     headerDiv.innerHTML = await resp.text();
     body.append(headerDiv);
-    loadCSS('/blocks/header/clientlib-common-library.min.css');
-    loadScript('/blocks/header/clientlib-common-library.min.js');
   }
 
   return;

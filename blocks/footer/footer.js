@@ -34,6 +34,18 @@ function ratingStars(stars) {
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
+
+  const resp = await fetch('/blocks/footer/master.contentonly.html');
+  if (resp.ok) {
+    const body = document.querySelector('body');
+    const footerDiv = document.createElement('div');
+    footerDiv.innerHTML = await resp.text();
+    body.append(footerDiv);
+    const scr = document.createElement('script');
+    scr.text = footerDiv.querySelector('script').innerHTML;
+    body.append(scr);
+  }
+  return;
   // load footer as fragment
   const footerMeta = getMetadata('footer');
   const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';

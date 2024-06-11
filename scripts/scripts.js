@@ -11,7 +11,7 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
-  getMetadata,
+  getMetadata, loadScript,
 } from './aem.js';
 import wrapImgsInLinks from './utils.js';
 import {
@@ -194,6 +194,10 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
+  loadCSS('/blocks/header/clientlib-common-library.min.css');
+  loadCSS('/blocks/header/clientlib-site.min.css');
+  loadScript('/blocks/header/clientlib-common-library.min.js');
+  loadScript('/blocks/header/clientlib-site.min.js');
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
 

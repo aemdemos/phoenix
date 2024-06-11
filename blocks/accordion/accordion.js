@@ -8,7 +8,17 @@ function hasWrapper(el) {
   return !!el.firstElementChild && window.getComputedStyle(el.firstElementChild).display === 'block';
 }
 
-export default function decorate(block) {
+export default async function decorate(block) {
+
+  const resp = await fetch('/blocks/accordion/master.contentonly.html');
+  if (resp.ok) {
+    const body = document.querySelector('body');
+    const accordionDiv = document.createElement('div');
+    accordionDiv.innerHTML = await resp.text();
+    body.append(accordionDiv);
+  }
+  return;
+
   // Get the value of 'data-parent-container' if the parent 'accordion-container' is found
   let parentAccordionContainer = null;
 
