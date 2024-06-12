@@ -193,13 +193,12 @@ async function loadLazy(doc) {
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
-
-  loadCSS('/blocks/header/clientlib-common-library.min.css');
-  loadCSS('/blocks/header/clientlib-site.min.css');
-  loadScript('/blocks/header/clientlib-common-library.min.js');
-  loadScript('/blocks/header/clientlib-site.min.js');
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
+  loadCSS('/clientlibs/clientlib-common-library.min.css');
+  loadCSS('/clientlibs/clientlib-site.min.css');
+  loadScript('/clientlibs/clientlib-common-library.min.js');
+  loadScript('/clientlibs/clientlib-site.min.js');
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();

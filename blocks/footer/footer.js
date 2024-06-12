@@ -35,7 +35,7 @@ function ratingStars(stars) {
  */
 export default async function decorate(block) {
 
-  const resp = await fetch('/blocks/footer/master.contentonly.html');
+  const resp = await fetch('/clientlibs/footer.contentonly.html');
   if (resp.ok) {
     const body = document.querySelector('body');
     const footerDiv = document.createElement('div');

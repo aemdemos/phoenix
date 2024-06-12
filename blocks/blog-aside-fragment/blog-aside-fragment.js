@@ -4,7 +4,7 @@ export default async function decorate(block) {
   if (!asideNavFragmentLink) {
     return;
   }
-  const resp = await fetch('/blocks/blog-aside-fragment/master.contentonly.html');
+  const resp = await fetch('/clientlibs/asidenav.contentonly.html');
   if (!resp.ok) {
     return;
   }

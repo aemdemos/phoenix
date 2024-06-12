@@ -756,7 +756,7 @@ function toggleHeaderCall() {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  const resp = await fetch('/blocks/header/master.contentonly.html');
+  const resp = await fetch('/clientlibs/header.contentonly.html');
   if (resp.ok) {
     const body = document.querySelector('body');
     const headerDiv = document.createElement('div');

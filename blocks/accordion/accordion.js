@@ -10,7 +10,8 @@ function hasWrapper(el) {
 
 export default async function decorate(block) {
 
-  const resp = await fetch('/blocks/accordion/master.contentonly.html');
+  return;
+  const resp = await fetch('/clientlibs/asidenav.contentonly.html');
   if (resp.ok) {
     const body = document.querySelector('body');
     const accordionDiv = document.createElement('div');

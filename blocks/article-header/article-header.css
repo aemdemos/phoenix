@@ -1,9 +1,9 @@
-.article-title h1 {
-    margin-bottom: 0;
-    font-weight: 600;
-    -webkit-font-smoothing: antialiased;
-    font-size: 4rem;
-}
+/*.article-title h1 {*/
+/*    margin-bottom: 0;*/
+/*    font-weight: 600;*/
+/*    -webkit-font-smoothing: antialiased;*/
+/*    font-size: 4rem !important;*/
+/*}*/
 
 .article-shares {
     line-height: 1rem !important;
