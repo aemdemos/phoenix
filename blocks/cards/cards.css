@@ -4,7 +4,14 @@
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(278px, 1fr));
-  grid-gap: 16px;
+  grid-gap: 22px;
+}
+
+@media (width >= 640px) {
+  .cards > ul {
+    grid-template-columns: unset;
+    grid-auto-flow: column;
+  }
 }
 
 .cards > ul > li {
@@ -12,16 +19,25 @@
   background-color: var(--background-color)
 }
 
-.cards .cards-card-body {
-  margin: 16px;
-}
-
 .cards .cards-card-image {
   line-height: 0;
 }
 
 .cards .cards-card-body > *:first-child {
+  padding: 24px 24px 0;
+  margin-bottom: 16px;
   margin-top: 0;
+}
+
+.cards .cards-card-body > *:first-child a {
+  text-align: left;
+  border-radius: 0;
+}
+
+.cards .cards-card-body > p:nth-child(2),
+.cards .cards-card-body > p:nth-child(3) {
+  margin: 0 0 16px;
+  padding: 0 24px;
 }
 
 .cards > ul > li img {
@@ -48,7 +64,7 @@ body > main > div.section.columns-container.cards-container > div.default-conten
   color: var(--color-phoenix-red);
   letter-spacing: .15rem;
   -webkit-font-smoothing: antialiased;
-  font-size: var(--heading-font-size-l);
+  font-size: 16px;
 }
 
 .read-more {
@@ -62,7 +78,6 @@ body > main > div.section.columns-container.cards-container > div.default-conten
       -12px 0 19px -12px rgba(0 0 0 / 12%),
       12px 0 19px -12px rgba(0 0 0 / 12%),
       0 12px 19px -12px rgba(0 0 0 / 12%);
-  padding-top: 2%;
 }
 
 .read-more ul li div p a {
