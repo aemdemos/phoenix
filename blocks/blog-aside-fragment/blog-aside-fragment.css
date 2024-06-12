@@ -17,6 +17,7 @@
 
 main {
   position: relative;
+  margin-left: 25%;
 }
 
 @media (min-width: 1441px) {
