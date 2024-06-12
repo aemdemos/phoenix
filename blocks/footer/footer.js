@@ -34,7 +34,7 @@ function ratingStars(stars) {
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
-
+  block.remove();
   const resp = await fetch('/clientlibs/footer.contentonly.html');
   if (resp.ok) {
     const body = document.querySelector('body');

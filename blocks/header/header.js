@@ -756,6 +756,7 @@ function toggleHeaderCall() {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
+  block.remove();
   const resp = await fetch('/clientlibs/header.contentonly.html');
   if (resp.ok) {
     const body = document.querySelector('body');

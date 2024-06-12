@@ -1,4 +1,5 @@
 export default async function decorate(block) {
+  console.log('running now --------------------------------------------------');
   const asideNavFragmentLink = block.querySelector('a');
   block.remove();
   if (!asideNavFragmentLink) {
