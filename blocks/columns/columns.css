@@ -23,6 +23,14 @@
   border: 1px solid var(--almost-black-color);
 }
 
+.columns.index {
+  padding: 2% 0;
+}
+
+.columns.index a {
+  color: var(--body-link-color);
+}
+
 .columns.border h2{
   padding-left: 2%;
   font-size: 24px;
@@ -36,7 +44,7 @@
 }
 
 .columns.border li{
-  padding-bottom: 1%;
+  /*padding-bottom: 1%;*/
 }
 
 .columns.border li::marker {

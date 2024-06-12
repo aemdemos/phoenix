@@ -132,17 +132,17 @@ main pre {
 }
 
 /* links */
-a:any-link {
+main a:any-link {
   /*color: var(--body-link-color);*/
   text-decoration: underline;
 }
 
-a:hover {
+main a:hover {
   color: var(--link-hover-color);
 }
 
 /* buttons */
-a.button:any-link, button {
+main a.button:any-link, main button {
   font-family: var(--body-font-family);
   display: inline-block;
   box-sizing: border-box;
@@ -162,7 +162,7 @@ a.button:any-link, button {
   border-radius: 30px;
 }
 
-a.button:hover, a.button:focus, button:hover, button:focus  {
+main a.button:hover, main a.button:focus, main button:hover, main button:focus  {
   background-color: var(--link-hover-color);
   cursor: pointer;
 }
@@ -261,19 +261,19 @@ body > main > div:nth-child(1) > div > h1 {
 }
 
 .blog-content {
-  padding-top: 1% !important;
+  padding-top: 4% !important;
 }
 
 .blog-content p,
 .blog-content li {
   font-size: 20px;
   color: black;
-  margin: 0 0 16px;
+  margin: 0 0 2rem;
 }
 
 .blog-content h2 {
   font-size: var(--heading-font-size-xl);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .blog-content img {

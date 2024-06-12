@@ -135,10 +135,6 @@ function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
     if (isArticlePage) {
-      loadCSS('/clientlibs/clientlib-common-library.min.css');
-      loadCSS('/clientlibs/clientlib-site.min.css');
-      loadScript('/clientlibs/clientlib-common-library.min.js');
-      loadScript('/clientlibs/clientlib-site.min.js');
       buildArticleHeader(main);
     }
   } catch (error) {
@@ -199,6 +195,10 @@ async function loadLazy(doc) {
   if (hash && element) element.scrollIntoView();
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
+  loadCSS('/clientlibs/clientlib-common-library.min.css');
+  loadCSS('/clientlibs/clientlib-site.min.css');
+  loadScript('/clientlibs/clientlib-common-library.min.js');
+  loadScript('/clientlibs/clientlib-site.min.js');
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
