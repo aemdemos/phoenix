@@ -137,6 +137,11 @@ async function loadFonts() {
   }
 }
 
+async function loadClientLibs() {
+  loadCSS('/clientlibs/clientlib-site.min.css');
+  loadScript('/clientlibs/clientlib-site.min.js');
+}
+
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
@@ -145,6 +150,7 @@ function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
     if (isArticlePage) {
+      loadClientLibs();
       buildAsideNav(main);
       buildArticleHeader(main);
     }
@@ -209,11 +215,6 @@ async function loadAsideNav(asideNav) {
   asideNav.innerHTML = await resp.text();
 }
 
-async function loadClientLibs() {
-  loadCSS('/clientlibs/clientlib-site.min.css');
-  loadScript('/clientlibs/clientlib-site.min.js');
-}
-
 /**
  * Loads everything that doesn't need to be delayed.
  * @param {Element} doc The container element
@@ -228,7 +229,6 @@ async function loadLazy(doc) {
   loadHeader(doc.querySelector('header'));
   loadAsideNav(doc.querySelector('.aside-nav-container'));
   loadFooter(doc.querySelector('footer'));
-  loadClientLibs();
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
