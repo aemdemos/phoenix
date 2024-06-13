@@ -303,7 +303,6 @@ main {
   grid-template-columns: auto 1fr 2.4fr 0.1fr;
   width: 92%;
   max-width: 1330px;
-  margin: 100px auto 1%;
 }
 
 main .section.aside-nav {
@@ -316,7 +315,7 @@ main .section.aside-nav {
   main {
     display: flex;
     flex-direction: column; /* Stack elements vertically */
-    margin: 15% 0 0;
+    margin: 0;
   }
 
   main .section.aside-nav {
@@ -406,7 +405,6 @@ body.no-scroll {
 
 main {
   position: relative;
-  margin-left: 25%;
 }
 
 @media (min-width: 1441px) {
@@ -429,5 +427,6 @@ main {
     -ms-flex: 0 0 75%;
     flex: 0 0 75%;
     max-width: 75%;
+    margin: 100px auto 1% 25%;
   }
 }
