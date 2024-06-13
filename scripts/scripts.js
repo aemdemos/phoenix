@@ -230,7 +230,7 @@ async function loadLazy(doc) {
   loadHeader(doc.querySelector('header'));
   loadAsideNav(doc.querySelector('.aside-nav-container'));
   loadFooter(doc.querySelector('footer'));
-  loadClientLibs();
+  await loadClientLibs();
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
