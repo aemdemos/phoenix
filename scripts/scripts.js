@@ -145,8 +145,6 @@ function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
     if (isArticlePage) {
-      loadCSS('/clientlibs/clientlib-site.min.css');
-      loadScript('/clientlibs/clientlib-site.min.js');
       buildAsideNav(main);
       buildArticleHeader(main);
     }
@@ -211,6 +209,13 @@ async function loadAsideNav(asideNav) {
   asideNav.innerHTML = await resp.text();
 }
 
+async function loadClientLibs() {
+  loadCSS('/clientlibs/clientlib-site.min.css');
+  loadScript('/clientlibs/clientlib-site.min.js');
+  loadCSS('/clientlibs/clientlib-common-library.min.css');
+  loadScript('/clientlibs/clientlib-common-library.min.js');
+}
+
 /**
  * Loads everything that doesn't need to be delayed.
  * @param {Element} doc The container element
@@ -225,8 +230,7 @@ async function loadLazy(doc) {
   loadHeader(doc.querySelector('header'));
   loadAsideNav(doc.querySelector('.aside-nav-container'));
   loadFooter(doc.querySelector('footer'));
-  loadCSS('/clientlibs/clientlib-common-library.min.css');
-  loadScript('/clientlibs/clientlib-common-library.min.js');
+  loadClientLibs();
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
