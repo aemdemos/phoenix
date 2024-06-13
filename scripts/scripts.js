@@ -137,7 +137,7 @@ async function loadFonts() {
   }
 }
 
-async function loadClientLibs() {
+function loadClientLibs() {
   loadCSS('/clientlibs/clientlib-site.min.css');
   loadScript('/clientlibs/clientlib-site.min.js');
 }

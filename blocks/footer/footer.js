@@ -1,4 +1,4 @@
-import { getMetadata } from '../../scripts/aem.js';
+import { getMetadata, loadCSS, loadScript } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import loadNewsletterForm from './newsletter-form.js';
 
