@@ -59,7 +59,7 @@
 
 .contributor {
   border: 1px solid var(--almost-black-color);
-  padding: 2% 4% 2% 3%;
+  padding: 1.5% 4% 1.5% 3%;
   -webkit-font-smoothing: antialiased;
   margin: 3% auto;
 }
@@ -83,7 +83,7 @@
 }
 
 .verification {
-  padding: 2% 4% 2% 3%;
+  padding: 3% 4% 5% 3%;
   -webkit-font-smoothing: antialiased;
   margin: 3% auto;
 }

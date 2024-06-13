@@ -262,6 +262,9 @@ body > main > div:nth-child(1) > div > h1 {
 
 .blog-content {
   padding-top: 4% !important;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.01rem;
+  line-height: 3rem;
 }
 
 .blog-content p,
@@ -278,7 +281,7 @@ body > main > div:nth-child(1) > div > h1 {
 
 .blog-content img {
   width: 83.33%;
-  margin: 0 auto;
+  margin: 4% auto;
   display: flex;
 }
 
@@ -409,8 +412,7 @@ main {
 
 @media (min-width: 1441px) {
   main {
-    padding-left: 4rem;
-    padding-right: 4rem;
+
   }
 }
 
@@ -428,5 +430,7 @@ main {
     flex: 0 0 75%;
     max-width: 75%;
     margin: 100px auto 1% 25%;
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 }
