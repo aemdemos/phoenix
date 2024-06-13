@@ -764,7 +764,8 @@ export default async function decorate(block) {
     headerDiv.innerHTML = await resp.text();
     body.append(headerDiv);
   }
-
+  loadCSS('/clientlibs/clientlib-common-library.min.css');
+  loadScript('/clientlibs/clientlib-common-library.min.js');
   return;
   // load nav as fragment
   const navMeta = getMetadata('nav');
