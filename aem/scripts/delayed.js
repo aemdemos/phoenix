@@ -19,16 +19,16 @@ window.EDU = {
 };
 
 // ClientLib Component scripts
-loadScript('/clientlibs/clientlib-common-library.min.js');
-loadScript('/clientlibs/clientlib-site.min.js');
+loadScript('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.js');
+loadScript('/etc.clientlibs/edu/clientlibs/clientlib-site.min.js');
 
 // Load Launch script for tag manager
 loadScript('https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-4c68fe2386f7.min.js', { async: true });
 
 // Adobe Client Data Layer
-loadScript('/scripts/acdl/adobe-client-data-layer.min.js', { defer: true });
-loadScript('/scripts/acdl/setup.js', { defer: true });
+loadScript('/aem/scripts/acdl/adobe-client-data-layer.min.js', { defer: true });
+loadScript('/aem/scripts/acdl/setup.js', { defer: true });
 
 // Clientlib libraries
-loadScript('/clientlibs/clientlib-chat.min.js', { defer: true });
-loadCSS('/clientlibs/clientlib-chat.min.css');
+loadScript('/etc.clientlibs/edu/clientlibs/clientlib-chat.min.js', { defer: true });
+loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-chat.min.css');

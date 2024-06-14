@@ -6,7 +6,7 @@ import { a, div, p } from '../../scripts/dom-helpers.js';
  */
 export default async function decorate(block) {
   block.remove();
-  const resp = await fetch('/clientlibs/header.contentonly.html');
+  const resp = await fetch('/content/experience-fragments/edu/us/en/site/header/master.contentonly.html');
   if (resp.ok) {
     const body = document.querySelector('body');
     const headerDiv = document.createElement('div');
