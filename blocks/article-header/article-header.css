@@ -1,10 +1,3 @@
-/*.article-title h1 {*/
-/*    margin-bottom: 0;*/
-/*    font-weight: 600;*/
-/*    -webkit-font-smoothing: antialiased;*/
-/*    font-size: 4rem !important;*/
-/*}*/
-
 .article-shares {
     line-height: 1rem !important;
     display: flex;
@@ -102,7 +95,7 @@
 .article-byline .writer-details {
     display: flex;
     flex-direction: row;
-    padding: 5% 0 0 0 !important;
+    padding: 5% 0 0 !important;
     gap: 5%;
 }
 

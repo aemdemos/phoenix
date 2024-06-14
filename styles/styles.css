@@ -84,10 +84,6 @@ body.appear {
   display: block;
 }
 
-/*header {*/
-/*  height: var(--nav-height);*/
-/*}*/
-
 h1, h2, h3,
 h4, h5, h6 {
   font-family: var(--heading-font-family);
@@ -133,7 +129,6 @@ main pre {
 
 /* links */
 main a:any-link {
-  /*color: var(--body-link-color);*/
   text-decoration: underline;
 }
 
@@ -302,10 +297,14 @@ body > main > div:nth-child(1) > div > h1 {
 }
 
 main {
-  display: grid;
-  grid-template-columns: auto 1fr 2.4fr 0.1fr;
   width: 92%;
-  max-width: 1330px;
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  margin: 0;
+  max-width: 87vw;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
 }
 
 main .section.aside-nav {
@@ -315,19 +314,12 @@ main .section.aside-nav {
 }
 
 @media (width <= 990px) {
-
   #cmp-snav .cmp-snav-links {
     top: 5.5pc !important;
   }
 
   .main-container {
     margin-top: 115px !important;
-  }
-
-  main {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    margin: 0;
   }
 
   main .section.aside-nav {
@@ -373,12 +365,6 @@ main .section.aside-nav {
     font-size: calc(var(--body-font-size-xs) * 0.85);
   }
 
-  main {
-    max-width: 87vw;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   .blog-content p,
   .blog-content li,
   .blog-content em {
@@ -415,7 +401,7 @@ body.no-scroll {
   clear: none;
   width: 100%;
   max-width: 1342px;
-  margin: 105px auto 0 auto;
+  margin: 105px auto 0;
 }
 
 .aside-nav-container {
@@ -425,23 +411,20 @@ body.no-scroll {
   display: block;
 }
 
-@media (min-width: 990px) {
+@media (width > 990px) {
   #cmp-snav .cmp-snav-links {
     top: 7.5pc !important;
   }
 }
 
-main {
-  position: relative;
-}
-
-@media (min-width: 990px) {
+@media (width > 990px) {
   .main-container {
     flex-wrap: nowrap;
   }
 
   .aside-nav-container {
     -webkit-box-flex: 0;
+    /* stylelint-disable-next-line */
     -ms-flex: 0 0 25%;
     flex: 0 0 25%;
     max-width: 25%;
@@ -453,6 +436,7 @@ main {
 
   main {
     -webkit-box-flex: 0;
+    /* stylelint-disable-next-line */
     -ms-flex: 0 0 75%;
     flex: 0 0 75%;
     max-width: 75%;
