@@ -55,7 +55,7 @@ function buildAsideNav(main) {
   }
   const body = main.parentElement;
   body.prepend(
-    div({ class: 'main-container' }, buildBlock('aside-nav-container', [[a({ href: '/aem/clientlibs/asidenav.contentonly.html' })]]), main),
+    div({ class: 'main-container' }, buildBlock('aside-nav-container', [[a({ href: '/content/experience-fragments/edu/us/en/blog/blog-sidenav/master.contentonly.html' })]]), main),
   );
 }
 
@@ -208,7 +208,7 @@ async function loadAsideNav(asideNav) {
     return;
   }
   asideNav.innerHTML = '';
-  const resp = await fetch('/aem/clientlibs/asidenav.contentonly.html');
+  const resp = await fetch(asideNavFragmentLink);
   if (!resp.ok) {
     return;
   }
