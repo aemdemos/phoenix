@@ -281,7 +281,6 @@ body > main > div:nth-child(1) > div > h1 {
 }
 
 .blog-content em {
-  font-weight: 100;
   font-size: calc(var(--body-font-size-m) * 0.9);
 }
 
