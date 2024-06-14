@@ -26,19 +26,19 @@ function decorateSocialMediaIcons(block) {
     const iconName = icon.getAttribute('alt');
     switch (iconName) {
       case TWITTER:
-        handleSocialIconHover(icon, '../../icons/twitter-white.svg', '#1A9DF1');
+        handleSocialIconHover(icon, '/aem/icons/twitter-white.svg', '#1A9DF1');
         break;
       case FACEBOOK:
-        handleSocialIconHover(icon, '../../icons/facebook-white.svg', '#0C77F2');
+        handleSocialIconHover(icon, '/aem/icons/facebook-white.svg', '#0C77F2');
         break;
       case LINKEDIN:
-        handleSocialIconHover(icon, '../../icons/linkedin-white.svg', '#026699');
+        handleSocialIconHover(icon, '/aem/icons/linkedin-white.svg', '#026699');
         break;
       case PINTEREST:
-        handleSocialIconHover(icon, '../../icons/pinterest-white.svg', '#D7143A');
+        handleSocialIconHover(icon, '/aem/icons/pinterest-white.svg', '#D7143A');
         break;
       case EMAIL:
-        handleSocialIconHover(icon, '../../icons/email-white.svg', '#5F7079');
+        handleSocialIconHover(icon, '/aem/icons/email-white.svg', '#5F7079');
         break;
       default:
         break;

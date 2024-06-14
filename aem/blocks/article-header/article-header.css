@@ -42,23 +42,23 @@
 }
 
 .article-shares .social-container > a:nth-child(1) {
-    background-image: url("../../icons/twitter-white.svg");
+    background-image: url("/aem/icons/twitter-white.svg");
 }
 
 .article-shares .social-container > a:nth-child(2) {
-    background-image: url("../../icons/facebook-white.svg");
+    background-image: url("/aem/icons/facebook-white.svg");
 }
 
 .article-shares .social-container > a:nth-child(3) span {
-    background-image: url("../../icons/linkedin-white.svg");
+    background-image: url("/aem/icons/linkedin-white.svg");
 }
 
 .article-shares .social-container > a:nth-child(4) {
-    background-image: url("../../icons/pinterest-white.svg");
+    background-image: url("/aem/icons/pinterest-white.svg");
 }
 
 .article-shares .social-container > a:nth-child(5) {
-    background-image: url("../../icons/email-white.svg");
+    background-image: url("/aem/icons/email-white.svg");
 }
 
 .block div.article-byline {
