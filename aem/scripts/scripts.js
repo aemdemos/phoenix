@@ -55,7 +55,7 @@ function buildAsideNav(main) {
   }
   const body = main.parentElement;
   body.prepend(
-    div({ class: 'main-container' }, buildBlock('aside-nav-container', [[a({ href: '/clientlibs/asidenav.contentonly.html' })]]), main),
+    div({ class: 'main-container' }, buildBlock('aside-nav-container', [[a({ href: '/aem/clientlibs/asidenav.contentonly.html' })]]), main),
   );
 }
 
@@ -86,16 +86,16 @@ function buildArticleHeader(main) {
       p(
         { class: 'social-container' },
         a({ href: `https://twitter.com/intent/tweet?text=Check+this+out:=${window.location}` },
-          span({ classList: ['icon', 'icon-twitter-black'] }, img({ src: '/icons/twitter-black.svg', alt: 'twitter', class: 'icon' }))),
+          span({ classList: ['icon', 'icon-twitter-black'] }, img({ src: '/aem/icons/twitter-black.svg', alt: 'twitter', class: 'icon' }))),
         a({ href: `https://www.facebook.com/sharer/sharer.php?u=${window.location}` },
-          span({ classList: ['icon', 'icon-facebook-black'] }, img({ src: '/icons/facebook-black.svg', alt: 'facebook', class: 'icon' }))),
+          span({ classList: ['icon', 'icon-facebook-black'] }, img({ src: '/aem/icons/facebook-black.svg', alt: 'facebook', class: 'icon' }))),
         a({ href: `https://www.linkedin.com/cws/share?url=${window.location}` },
-          span({ classList: ['icon', 'icon-linkedin-black'] }, img({ src: '/icons/linkedin-black.svg', alt: 'linkedin', class: 'icon' }))),
+          span({ classList: ['icon', 'icon-linkedin-black'] }, img({ src: '/aem/icons/linkedin-black.svg', alt: 'linkedin', class: 'icon' }))),
         // eslint-disable-next-line no-script-url
         a({ href: 'javascript:void((function()%7Bvar%20e=document.createElement(\'script\');e.setAttribute(\'type\',\'text/javascript\');e.setAttribute(\'charset\',\'UTF-8\');e.setAttribute(\'src\',\'//assets.pinterest.com/js/pinmarklet.js?r=%27+Math.random()*99999999);document.body.appendChild(e)%7D)());' },
-          span({ classList: ['icon', 'icon-pinterest-black'] }, img({ src: '/icons/pinterest-black.svg', alt: 'pinterest', class: 'icon' }))),
+          span({ classList: ['icon', 'icon-pinterest-black'] }, img({ src: '/aem/icons/pinterest-black.svg', alt: 'pinterest', class: 'icon' }))),
         a({ href: `mailto:?subject=How%20to%20Prepare%20for%20an%20Unpredictable%20Job%20Market%20&body=%20Check%20this%20out:%20${window.location}` },
-          span({ classList: ['icon', 'icon-email-black'] }, img({ src: '/icons/email-black.svg', alt: 'email', class: 'icon' }))),
+          span({ classList: ['icon', 'icon-email-black'] }, img({ src: '/aem/icons/email-black.svg', alt: 'email', class: 'icon' }))),
       ),
     ],
     [
@@ -138,8 +138,8 @@ async function loadFonts() {
 }
 
 function loadClientLibCSS() {
-  loadCSS('/clientlibs/clientlib-common-library.min.css');
-  loadCSS('/clientlibs/clientlib-site.min.css');
+  loadCSS('/aem/clientlibs/clientlib-common-library.min.css');
+  loadCSS('/aem/clientlibs/clientlib-site.min.css');
 }
 
 /**
@@ -208,7 +208,7 @@ async function loadAsideNav(asideNav) {
     return;
   }
   asideNav.innerHTML = '';
-  const resp = await fetch('/clientlibs/asidenav.contentonly.html');
+  const resp = await fetch('/aem/clientlibs/asidenav.contentonly.html');
   if (!resp.ok) {
     return;
   }
