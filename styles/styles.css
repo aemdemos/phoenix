@@ -314,7 +314,16 @@ main .section.aside-nav {
   font-size: 18px;
 }
 
-@media (width <= 991px) {
+@media (width <= 990px) {
+
+  #cmp-snav .cmp-snav-links {
+    top: 5.5pc !important;
+  }
+
+  .main-container {
+    margin-top: 115px !important;
+  }
+
   main {
     display: flex;
     flex-direction: column; /* Stack elements vertically */
@@ -363,19 +372,30 @@ main .section.aside-nav {
     text-decoration: none !important;
     font-size: calc(var(--body-font-size-xs) * 0.85);
   }
-}
 
-@media (width <= 990px) {
   main {
-    max-width: 85.5vw;
+    max-width: 87vw;
     margin-left: auto;
     margin-right: auto;
   }
 
   .blog-content p,
-  .blog-content li {
+  .blog-content li,
+  .blog-content em {
     font-size: var(--body-font-size-xs);
     font-weight: 400;
+    line-height: 2.32rem;
+  }
+
+  .blog-content img {
+    margin: 9% auto 12%;
+  }
+
+  .blog-content p:last-child em {
+    display: block;
+    letter-spacing: 0.001rem;
+    line-height: 2.4rem;
+    padding-right: 3%;
   }
 }
 
@@ -395,28 +415,31 @@ body.no-scroll {
   clear: none;
   width: 100%;
   max-width: 1342px;
-  margin: 75px auto 0 auto;
+  margin: 105px auto 0 auto;
 }
 
 .aside-nav-container {
   position: relative;
-  min-height: .1rem;
+  min-height: 0.1rem;
   width: 100%;
-  height: 100%;
   display: block;
+}
+
+@media (min-width: 990px) {
+  #cmp-snav .cmp-snav-links {
+    top: 7.5pc !important;
+  }
 }
 
 main {
   position: relative;
 }
 
-@media (min-width: 1441px) {
-  main {
-
+@media (min-width: 990px) {
+  .main-container {
+    flex-wrap: nowrap;
   }
-}
 
-@media (min-width: 992px) {
   .aside-nav-container {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 25%;
@@ -424,13 +447,24 @@ main {
     max-width: 25%;
   }
 
+  .aside-nav-container > div:first-child {
+    height: 100%;
+  }
+
   main {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 75%;
     flex: 0 0 75%;
     max-width: 75%;
-    margin: 100px auto 1% 25%;
+    margin: 100px auto 1% 0;
     padding-left: 4rem;
     padding-right: 4rem;
+  }
+}
+
+@media (width < 990px) {
+  #onetrust-banner-sdk #onetrust-policy-text {
+    font-size: 12px !important;
+    line-height: 16px !important;
   }
 }

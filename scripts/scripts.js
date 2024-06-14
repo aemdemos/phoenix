@@ -137,9 +137,9 @@ async function loadFonts() {
   }
 }
 
-function loadClientLibs() {
+function loadClientLibCSS() {
+  loadCSS('/clientlibs/clientlib-common-library.min.css');
   loadCSS('/clientlibs/clientlib-site.min.css');
-  loadScript('/clientlibs/clientlib-site.min.js');
 }
 
 /**
@@ -150,7 +150,7 @@ function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
     if (isArticlePage) {
-      loadClientLibs();
+      loadClientLibCSS();
       buildAsideNav(main);
       buildArticleHeader(main);
     }
@@ -236,45 +236,6 @@ async function loadLazy(doc) {
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
-
-  /* scroll handling to keep aside-nav in view for desktop */
-  if (window.innerWidth > 990) {
-    const asideDiv = document.querySelector('.aside-nav');
-    const footer = document.querySelector('footer');
-    window.addEventListener('scroll', () => {
-      const footerTop = footer.getBoundingClientRect().top;
-      const divHeight = asideDiv.offsetHeight;
-      if (footerTop <= divHeight + 150) {
-        asideDiv.style.top = `${document.body.scrollTop + footerTop - divHeight}px`;
-      } else {
-        asideDiv.style.top = '150px';
-      }
-    });
-  }
-
-  /* request Info button for mobile view */
-  if (window.innerWidth < 991) {
-    const requestInfoButtonContainer = document.createElement('div');
-    requestInfoButtonContainer.classList.add('section');
-    requestInfoButtonContainer.classList.add('request-info-button-mobile');
-    const requestInfoButtonWrapper = document.createElement('div');
-    const requestInfoButton = document.createElement('a');
-    requestInfoButton.setAttribute('href', 'https://www.phoenix.edu/request/international-student');
-    requestInfoButton.innerText = 'Request Info';
-    requestInfoButtonWrapper.appendChild(requestInfoButton);
-    requestInfoButtonContainer.appendChild(requestInfoButtonWrapper);
-    const footer = document.querySelector('footer');
-    main.parentElement.insertBefore(requestInfoButtonContainer, footer);
-    window.addEventListener('scroll', () => {
-      requestInfoButtonContainer.style.visibility = 'visible';
-      const footerTop = footer.getBoundingClientRect().top;
-      if (footerTop < window.innerHeight) {
-        requestInfoButtonContainer.style.position = 'static';
-      } else {
-        requestInfoButtonContainer.style.position = 'fixed';
-      }
-    });
-  }
 }
 
 /**

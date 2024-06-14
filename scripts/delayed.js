@@ -7,24 +7,28 @@ sampleRUM('cwv');
 // Chat
 window.EDU = {
   Configs: {
-    chatApiURL: '/genesys/2/chat/Chat',
-    chatCallBackURL: '/genesys/1/service/callback',
-    chatCometURL: '/genesys/cometd',
-    chatDataURL: '/genesys/2/chat/Chat',
     chatDomain: 'https://ucpgms.phoenix.edu',
+    chatDataURL: '/genesys/2/chat/Chat',
     chatGWEHttpEndPoint: 'http://gwe.phoenix.edu',
     chatGWEHttpsEndPoint: 'https://gwe.phoenix.edu',
-
+    chatCometURL: '/genesys/cometd',
+    chatApiURL: '/genesys/2/chat/Chat',
+    chatCallBackURL: '/genesys/1/service/callback',
   },
-  chatConfig: {
-    chatService: '',
-    callBackUrl: '',
-    chatClientlibHashCode: '1956f4d4e84fb208cfba5940203678b7',
-  },
+  Utils: {},
 };
+
+// ClientLib Component scripts
+loadScript('/clientlibs/clientlib-common-library.min.js');
+loadScript('/clientlibs/clientlib-site.min.js');
 
 // Load Launch script for tag manager
 loadScript('https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-4c68fe2386f7.min.js', { async: true });
 
-loadScript('/clientlibs/clientlib-chat.min.js');
+// Adobe Client Data Layer
+loadScript('/scripts/acdl/adobe-client-data-layer.min.js', { defer: true });
+loadScript('/scripts/acdl/setup.js', { defer: true });
+
+// Clientlib libraries
+loadScript('/clientlibs/clientlib-chat.min.js', { defer: true });
 loadCSS('/clientlibs/clientlib-chat.min.css');

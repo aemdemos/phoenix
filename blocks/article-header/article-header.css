@@ -9,7 +9,7 @@
     line-height: 1rem !important;
     display: flex;
     gap: 32px;
-    padding-top: 16px;
+    padding-top: 10px;
 }
 
 .article-shares > div {
@@ -71,6 +71,7 @@
 .block div.article-byline {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 1%;
 }
 
 @media (width <= 990px) {
@@ -88,7 +89,7 @@
     -webkit-font-smoothing: antialiased;
 }
 
-.article-byline div {
+.article-byline > div {
     padding-left: 5%;
     width: 100%;
 }
@@ -113,7 +114,7 @@
 
 .article-byline .writer-details p:first-child,
 .article-byline .reviewer-details p:first-child {
-    width: 12%;
+    width: 11%;
 }
 
 .article-byline .writer-details p:last-child,
@@ -129,10 +130,19 @@
     .article-title h1 {
         font-size: var(--heading-font-size-xl) !important;
         margin-top: 50px;
+        margin-bottom: 8px;
+    }
+
+    .article-byline > div {
+        padding-left: 3%;
+    }
+
+    .writer-details p:first-child, .article-byline .reviewer-details p:first-child {
+        width: 13% !important;
     }
 
     .reviewer-details p:last-child {
-        width: 70% !important;
+        width: 80% !important;
     }
 
     .article-shares {
@@ -145,5 +155,6 @@
 
     .social-container {
         gap: 0.5rem;
+        justify-content: flex-start;
     }
 }
