@@ -1,14 +1,8 @@
-.article-title h1 {
-    margin-bottom: 0;
-    font-weight: 600;
-    -webkit-font-smoothing: antialiased;
-}
-
 .article-shares {
     line-height: 1rem !important;
     display: flex;
     gap: 32px;
-    padding-top: 16px;
+    padding-top: 10px;
 }
 
 .article-shares > div {
@@ -70,6 +64,7 @@
 .block div.article-byline {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 1%;
 }
 
 @media (width <= 990px) {
@@ -83,9 +78,11 @@
     font-size: var(--body-font-size-xs);
     font-weight: 400;
     color: var(--darker-grey-color);
+    line-height: 2.5rem;
+    -webkit-font-smoothing: antialiased;
 }
 
-.article-byline div {
+.article-byline > div {
     padding-left: 5%;
     width: 100%;
 }
@@ -98,7 +95,7 @@
 .article-byline .writer-details {
     display: flex;
     flex-direction: row;
-    padding: 0 !important;
+    padding: 5% 0 0 !important;
     gap: 5%;
 }
 
@@ -110,7 +107,7 @@
 
 .article-byline .writer-details p:first-child,
 .article-byline .reviewer-details p:first-child {
-    width: 12%;
+    width: 11%;
 }
 
 .article-byline .writer-details p:last-child,
@@ -126,10 +123,19 @@
     .article-title h1 {
         font-size: var(--heading-font-size-xl) !important;
         margin-top: 50px;
+        margin-bottom: 8px;
+    }
+
+    .article-byline > div {
+        padding-left: 3%;
+    }
+
+    .writer-details p:first-child, .article-byline .reviewer-details p:first-child {
+        width: 13% !important;
     }
 
     .reviewer-details p:last-child {
-        width: 70% !important;
+        width: 80% !important;
     }
 
     .article-shares {
@@ -142,5 +148,6 @@
 
     .social-container {
         gap: 0.5rem;
+        justify-content: flex-start;
     }
 }

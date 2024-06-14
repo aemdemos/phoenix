@@ -4,6 +4,7 @@ main .hero-container > div {
 
 main .hero-container {
   padding: 0;
+  margin-bottom: 5%;
 }
 
 .hero {

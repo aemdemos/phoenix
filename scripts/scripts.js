@@ -49,6 +49,16 @@ function isArticlePage() {
   return getMetadata('template') === 'Blog Article';
 }
 
+function buildAsideNav(main) {
+  if (document.querySelector('.main-container')) {
+    return;
+  }
+  const body = main.parentElement;
+  body.prepend(
+    div({ class: 'main-container' }, buildBlock('aside-nav-container', [[a({ href: '/clientlibs/asidenav.contentonly.html' })]]), main),
+  );
+}
+
 /**
  * Builds an article header and prepends to main in a new section.
  * @param main
@@ -127,6 +137,11 @@ async function loadFonts() {
   }
 }
 
+function loadClientLibCSS() {
+  loadCSS('/clientlibs/clientlib-common-library.min.css');
+  loadCSS('/clientlibs/clientlib-site.min.css');
+}
+
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
@@ -135,6 +150,8 @@ function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
     if (isArticlePage) {
+      loadClientLibCSS();
+      buildAsideNav(main);
       buildArticleHeader(main);
     }
   } catch (error) {
@@ -182,6 +199,22 @@ async function loadEager(doc) {
   }
 }
 
+async function loadAsideNav(asideNav) {
+  if (!asideNav) {
+    return;
+  }
+  const asideNavFragmentLink = asideNav.querySelector('a');
+  if (!asideNavFragmentLink) {
+    return;
+  }
+  asideNav.innerHTML = '';
+  const resp = await fetch('/clientlibs/asidenav.contentonly.html');
+  if (!resp.ok) {
+    return;
+  }
+  asideNav.innerHTML = await resp.text();
+}
+
 /**
  * Loads everything that doesn't need to be delayed.
  * @param {Element} doc The container element
@@ -193,8 +226,8 @@ async function loadLazy(doc) {
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
-
   loadHeader(doc.querySelector('header'));
+  loadAsideNav(doc.querySelector('.aside-nav-container'));
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
@@ -203,45 +236,6 @@ async function loadLazy(doc) {
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
-
-  /* scroll handling to keep aside-nav in view for desktop */
-  if (window.innerWidth > 990) {
-    const asideDiv = document.querySelector('.aside-nav');
-    const footer = document.querySelector('footer');
-    window.addEventListener('scroll', () => {
-      const footerTop = footer.getBoundingClientRect().top;
-      const divHeight = asideDiv.offsetHeight;
-      if (footerTop <= divHeight + 150) {
-        asideDiv.style.top = `${document.body.scrollTop + footerTop - divHeight}px`;
-      } else {
-        asideDiv.style.top = '150px';
-      }
-    });
-  }
-
-  /* request Info button for mobile view */
-  if (window.innerWidth < 991) {
-    const requestInfoButtonContainer = document.createElement('div');
-    requestInfoButtonContainer.classList.add('section');
-    requestInfoButtonContainer.classList.add('request-info-button-mobile');
-    const requestInfoButtonWrapper = document.createElement('div');
-    const requestInfoButton = document.createElement('a');
-    requestInfoButton.setAttribute('href', 'https://www.phoenix.edu/request/international-student');
-    requestInfoButton.innerText = 'Request Info';
-    requestInfoButtonWrapper.appendChild(requestInfoButton);
-    requestInfoButtonContainer.appendChild(requestInfoButtonWrapper);
-    const footer = document.querySelector('footer');
-    main.parentElement.insertBefore(requestInfoButtonContainer, footer);
-    window.addEventListener('scroll', () => {
-      requestInfoButtonContainer.style.visibility = 'visible';
-      const footerTop = footer.getBoundingClientRect().top;
-      if (footerTop < window.innerHeight) {
-        requestInfoButtonContainer.style.position = 'static';
-      } else {
-        requestInfoButtonContainer.style.position = 'fixed';
-      }
-    });
-  }
 }
 
 /**

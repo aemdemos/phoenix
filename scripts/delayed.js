@@ -18,6 +18,10 @@ window.EDU = {
   Utils: {},
 };
 
+// ClientLib Component scripts
+loadScript('/clientlibs/clientlib-common-library.min.js');
+loadScript('/clientlibs/clientlib-site.min.js');
+
 // Load Launch script for tag manager
 loadScript('https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-4c68fe2386f7.min.js', { async: true });
 
@@ -26,6 +30,5 @@ loadScript('/scripts/acdl/adobe-client-data-layer.min.js', { defer: true });
 loadScript('/scripts/acdl/setup.js', { defer: true });
 
 // Clientlib libraries
-loadScript('/scripts/clientlibs/clientlib-common-library.min.js', { defer: true });
-loadScript('/scripts/clientlibs/clientlib-chat.min.js', { defer: true });
-loadCSS('/scripts/clientlibs/clientlib-chat.min.css');
+loadScript('/clientlibs/clientlib-chat.min.js', { defer: true });
+loadCSS('/clientlibs/clientlib-chat.min.css');

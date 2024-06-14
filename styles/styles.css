@@ -84,10 +84,6 @@ body.appear {
   display: block;
 }
 
-header {
-  height: var(--nav-height);
-}
-
 h1, h2, h3,
 h4, h5, h6 {
   font-family: var(--heading-font-family);
@@ -98,7 +94,7 @@ h4, h5, h6 {
   scroll-margin: calc(var(--nav-height) + 1em);
 }
 
-h1 { font-size: var(--heading-font-size-xxl) }
+h1 { font-size: var(--heading-font-size-xxl) !important; }
 h2 { font-size: var(--heading-font-size-xl) }
 h3 { font-size: var(--heading-font-size-l) }
 h4 { font-size: var(--heading-font-size-m) }
@@ -132,17 +128,16 @@ main pre {
 }
 
 /* links */
-a:any-link {
-  color: var(--body-link-color);
+main a:any-link {
   text-decoration: underline;
 }
 
-a:hover {
+main a:hover {
   color: var(--link-hover-color);
 }
 
 /* buttons */
-a.button:any-link, button {
+main a.button:any-link, main button {
   font-family: var(--body-font-family);
   display: inline-block;
   box-sizing: border-box;
@@ -162,7 +157,7 @@ a.button:any-link, button {
   border-radius: 30px;
 }
 
-a.button:hover, a.button:focus, button:hover, button:focus  {
+main a.button:hover, main a.button:focus, main button:hover, main button:focus  {
   background-color: var(--link-hover-color);
   cursor: pointer;
 }
@@ -261,24 +256,27 @@ body > main > div:nth-child(1) > div > h1 {
 }
 
 .blog-content {
-  padding-top: 1% !important;
+  padding-top: 4% !important;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.01rem;
+  line-height: 3rem;
 }
 
 .blog-content p,
 .blog-content li {
   font-size: 20px;
   color: black;
-  margin: 0 0 16px;
+  margin: 0 0 2rem;
 }
 
 .blog-content h2 {
   font-size: var(--heading-font-size-xl);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .blog-content img {
   width: 83.33%;
-  margin: 0 auto;
+  margin: 4% auto;
   display: flex;
 }
 
@@ -299,11 +297,14 @@ body > main > div:nth-child(1) > div > h1 {
 }
 
 main {
-  display: grid;
-  grid-template-columns: auto 1fr 2.4fr 0.1fr;
   width: 92%;
-  max-width: 1330px;
-  margin: 100px auto 1%;
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  margin: 0;
+  max-width: 87vw;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
 }
 
 main .section.aside-nav {
@@ -312,11 +313,13 @@ main .section.aside-nav {
   font-size: 18px;
 }
 
-@media (width <= 991px) {
-  main {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    margin: 15% 0 0;
+@media (width <= 990px) {
+  #cmp-snav .cmp-snav-links {
+    top: 5.5pc !important;
+  }
+
+  .main-container {
+    margin-top: 115px !important;
   }
 
   main .section.aside-nav {
@@ -361,19 +364,24 @@ main .section.aside-nav {
     text-decoration: none !important;
     font-size: calc(var(--body-font-size-xs) * 0.85);
   }
-}
-
-@media (width <= 990px) {
-  main {
-    max-width: 85.5vw;
-    margin-left: auto;
-    margin-right: auto;
-  }
 
   .blog-content p,
-  .blog-content li {
+  .blog-content li,
+  .blog-content em {
     font-size: var(--body-font-size-xs);
     font-weight: 400;
+    line-height: 2.32rem;
+  }
+
+  .blog-content img {
+    margin: 9% auto 12%;
+  }
+
+  .blog-content p:last-child em {
+    display: block;
+    letter-spacing: 0.001rem;
+    line-height: 2.4rem;
+    padding-right: 3%;
   }
 }
 
@@ -387,7 +395,58 @@ body.no-scroll {
   overflow-y: hidden;
 }
 
-@media (width < 900px) {
+.main-container {
+  flex-wrap: wrap;
+  display: flex;
+  clear: none;
+  width: 100%;
+  max-width: 1342px;
+  margin: 105px auto 0;
+}
+
+.aside-nav-container {
+  position: relative;
+  min-height: 0.1rem;
+  width: 100%;
+  display: block;
+}
+
+@media (width > 990px) {
+  #cmp-snav .cmp-snav-links {
+    top: 7.5pc !important;
+  }
+}
+
+@media (width > 990px) {
+  .main-container {
+    flex-wrap: nowrap;
+  }
+
+  .aside-nav-container {
+    -webkit-box-flex: 0;
+    /* stylelint-disable-next-line */
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .aside-nav-container > div:first-child {
+    height: 100%;
+  }
+
+  main {
+    -webkit-box-flex: 0;
+    /* stylelint-disable-next-line */
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+    margin: 100px auto 1% 0;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (width < 990px) {
   #onetrust-banner-sdk #onetrust-policy-text {
     font-size: 12px !important;
     line-height: 16px !important;
