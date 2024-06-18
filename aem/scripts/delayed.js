@@ -15,6 +15,9 @@ window.EDU = {
     chatApiURL: '/genesys/2/chat/Chat',
     chatCallBackURL: '/genesys/1/service/callback',
   },
+  chatConfig: {
+    chatClientlibHashCode: '1956f4d4e84fb208cfba5940203678b7',
+  },
   Utils: {},
 };
 
