@@ -22,17 +22,22 @@ const event = new Event('DOMContentLoaded', {
   bubbles: true,
   cancelable: true,
 });
-// ClientLib Component scripts
-loadScript('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.js').then(() => { document.dispatchEvent(event); });
-loadScript('/etc.clientlibs/edu/clientlibs/clientlib-site.min.js');
 
-// Load Launch script for tag manager
-loadScript('https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-e14ec2ae782a-staging.min.js').then(() => { document.dispatchEvent(event); });
+async function loadClientLibs() {
+  // ClientLib Component scripts
+  loadScript('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.js');
+  loadScript('/etc.clientlibs/edu/clientlibs/clientlib-site.min.js');
 
-// Adobe Client Data Layer
-loadScript('/aem/scripts/acdl/adobe-client-data-layer.min.js', { defer: true });
-loadScript('/aem/scripts/acdl/setup.js', { defer: true });
+  // Load Launch script for tag manager
+  loadScript('https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-e14ec2ae782a-staging.min.js');
 
-// Clientlib libraries
-loadScript('/etc.clientlibs/edu/clientlibs/clientlib-chat.min.js', { defer: true });
-loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-chat.min.css');
+  // Adobe Client Data Layer
+  loadScript('/aem/scripts/acdl/adobe-client-data-layer.min.js');
+  loadScript('/aem/scripts/acdl/setup.js');
+
+  // Clientlib libraries
+  loadScript('/etc.clientlibs/edu/clientlibs/clientlib-chat.min.js');
+  loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-chat.min.css');
+}
+
+loadClientLibs().then(() => { document.dispatchEvent(event); });
