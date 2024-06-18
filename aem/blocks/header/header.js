@@ -1,4 +1,5 @@
-import { a, div, p } from '../../scripts/dom-helpers.js';
+// import { a, div, p } from '../../scripts/dom-helpers.js';
+import { loadScript } from '../../scripts/aem.js';
 
 /**
  * loads and decorates the header, mainly the nav
@@ -19,5 +20,12 @@ export default async function decorate(block) {
     //   p({ id: 'alertCopy' }, 'Request a ', a({ class: 'alertWindowLink', href: '#' }, 'Free Scholarships and Savings Guide')),
     // );
     // headerContainer.prepend(announcementBar);
+    loadScript('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.js').then(() => {
+      const event = new Event('DOMContentLoaded', {
+        bubbles: true,
+        cancelable: true,
+      });
+      document.dispatchEvent(event);
+    });
   }
 }

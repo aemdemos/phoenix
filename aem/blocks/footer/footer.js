@@ -1,3 +1,5 @@
+import { loadScript } from '../../scripts/aem.js';
+
 /**
  * loads and decorates the footer
  * @param {Element} block The footer block element
@@ -13,5 +15,12 @@ export default async function decorate(block) {
     const scr = document.createElement('script');
     scr.text = footerDiv.querySelector('script').innerHTML;
     body.append(scr);
+    loadScript('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.js').then(() => {
+      const event = new Event('DOMContentLoaded', {
+        bubbles: true,
+        cancelable: true,
+      });
+      document.dispatchEvent(event);
+    });
   }
 }

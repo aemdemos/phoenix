@@ -226,11 +226,10 @@ async function loadLazy(doc) {
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
-  await Promise.all([
-    loadHeader(doc.querySelector('header')),
-    loadAsideNav(doc.querySelector('.aside-nav-container')),
-    loadFooter(doc.querySelector('footer')),
-  ]);
+
+  loadHeader(doc.querySelector('header'));
+  loadAsideNav(doc.querySelector('.aside-nav-container'));
+  loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
