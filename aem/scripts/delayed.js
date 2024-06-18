@@ -23,7 +23,7 @@ await loadScript('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min
 await loadScript('/etc.clientlibs/edu/clientlibs/clientlib-site.min.js');
 
 // Load Launch script for tag manager
-await loadScript('https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-e14ec2ae782a-staging.min.js', { async: true });
+await loadScript('https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-e14ec2ae782a-staging.min.js');
 
 // Adobe Client Data Layer
 await loadScript('/aem/scripts/acdl/adobe-client-data-layer.min.js', { defer: true });
