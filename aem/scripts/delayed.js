@@ -18,12 +18,37 @@ window.EDU = {
   Utils: {},
 };
 
+function getEnvType(hostname = window.location.hostname) {
+  const fqdnToEnvType = {
+    'main--phoenix--aemsites.hlx.page': 'preview',
+    'main--phoenix--aemsites.hlx.live': 'preview',
+    'stage.phoenix.edu': 'preview',
+    'phoenix.edu': 'live',
+    'www.phoenix.edu': 'live',
+  };
+  return fqdnToEnvType[hostname] || 'dev';
+}
+
+const config = {
+  dev: {
+    launchSrc: 'https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-e14ec2ae782a-staging.min.js',
+  },
+  preview: {
+    launchSrc: 'https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-e14ec2ae782a-staging.min.js',
+  },
+  live: {
+    launchSrc: 'https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-4c68fe2386f7.min.js',
+  },
+};
+
 // ClientLib Component scripts
 loadScript('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.js');
 loadScript('/etc.clientlibs/edu/clientlibs/clientlib-site.min.js');
 
 // Load Launch script for tag manager
-loadScript('https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-e14ec2ae782a-staging.min.js', { async: true });
+
+const envType = getEnvType();
+loadScript(config[envType].launchSrc, { async: true });
 
 // Adobe Client Data Layer
 loadScript('/aem/scripts/acdl/adobe-client-data-layer.min.js', { defer: true });
