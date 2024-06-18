@@ -138,7 +138,7 @@ async function loadFonts() {
 }
 
 function loadClientLibCSS() {
-  loadCSS('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.css');
+  loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-core.min.css');
   loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-site.min.css');
 }
 
