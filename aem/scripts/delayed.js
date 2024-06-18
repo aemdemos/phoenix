@@ -15,9 +15,6 @@ window.EDU = {
     chatApiURL: '/genesys/2/chat/Chat',
     chatCallBackURL: '/genesys/1/service/callback',
   },
-  chatConfig: {
-    chatClientlibHashCode: '1956f4d4e84fb208cfba5940203678b7',
-  },
   Utils: {},
 };
 
@@ -29,7 +26,7 @@ const event = new Event('DOMContentLoaded', {
 async function loadClientLibs() {
   await Promise.all([
   // ClientLib Component scripts
-    loadScript('/etc.clientlibs/edu/clientlibs/clientlib-core.min.js'),
+    loadScript('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.js'),
     loadScript('/etc.clientlibs/edu/clientlibs/clientlib-site.min.js'),
     // Load Launch script for tag manager
     loadScript('https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-e14ec2ae782a-staging.min.js'),
