@@ -18,12 +18,16 @@ window.EDU = {
   Utils: {},
 };
 
+const event = new Event('DOMContentLoaded', {
+  bubbles: true,
+  cancelable: true,
+});
 // ClientLib Component scripts
-loadScript('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.js');
+loadScript('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.js').then(() => { document.dispatchEvent(event); });
 loadScript('/etc.clientlibs/edu/clientlibs/clientlib-site.min.js');
 
 // Load Launch script for tag manager
-loadScript('https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-e14ec2ae782a-staging.min.js', { async: true });
+loadScript('https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-e14ec2ae782a-staging.min.js').then(() => { document.dispatchEvent(event); });
 
 // Adobe Client Data Layer
 loadScript('/aem/scripts/acdl/adobe-client-data-layer.min.js', { defer: true });
