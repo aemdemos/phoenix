@@ -19,16 +19,16 @@ window.EDU = {
 };
 
 // ClientLib Component scripts
-loadScript('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.js');
-loadScript('/etc.clientlibs/edu/clientlibs/clientlib-site.min.js');
+await loadScript('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.js');
+await loadScript('/etc.clientlibs/edu/clientlibs/clientlib-site.min.js');
 
 // Load Launch script for tag manager
-loadScript('https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-e14ec2ae782a-staging.min.js', { async: true });
+await loadScript('https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-e14ec2ae782a-staging.min.js', { async: true });
 
 // Adobe Client Data Layer
-loadScript('/aem/scripts/acdl/adobe-client-data-layer.min.js', { defer: true });
-loadScript('/aem/scripts/acdl/setup.js', { defer: true });
+await loadScript('/aem/scripts/acdl/adobe-client-data-layer.min.js', { defer: true });
+await loadScript('/aem/scripts/acdl/setup.js', { defer: true });
 
 // Clientlib libraries
-loadScript('/etc.clientlibs/edu/clientlibs/clientlib-chat.min.js', { defer: true });
-loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-chat.min.css');
+await loadScript('/etc.clientlibs/edu/clientlibs/clientlib-chat.min.js', { defer: true });
+await loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-chat.min.css');
