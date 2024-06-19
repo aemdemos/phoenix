@@ -145,7 +145,7 @@ function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
     if (isArticlePage) {
-      loadCSS('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.css');
+      // CSS for aside-nav site component
       loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-site.min.css');
       buildAsideNav(main);
       buildArticleHeader(main);
@@ -222,7 +222,8 @@ async function loadLazy(doc) {
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
-
+  // Common CSS for site components mainly header and footer
+  loadCSS('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.css');
   loadHeader(doc.querySelector('header'));
   loadAsideNav(doc.querySelector('.aside-nav-container'));
   loadFooter(doc.querySelector('footer'));
