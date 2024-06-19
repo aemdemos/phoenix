@@ -227,13 +227,13 @@ async function loadAsideNav(asideNav) {
 async function loadLazy(doc) {
   const main = doc.querySelector('main');
   loadAsideNav(doc.querySelector('.aside-nav-container'));
-  loadHeader(doc.querySelector('header'));
   await loadBlocks(main);
 
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
   // Common CSS for site components mainly header and footer
+  loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
