@@ -145,6 +145,8 @@ function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
     if (isArticlePage) {
+      loadCSS('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.css');
+      loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-site.min.css');
       buildAsideNav(main);
       buildArticleHeader(main);
     }
@@ -220,9 +222,6 @@ async function loadLazy(doc) {
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
-
-  loadCSS('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.css');
-  loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-site.min.css');
 
   loadHeader(doc.querySelector('header'));
   loadAsideNav(doc.querySelector('.aside-nav-container'));
