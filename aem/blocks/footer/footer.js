@@ -13,5 +13,11 @@ export default async function decorate(block) {
     const scr = document.createElement('script');
     scr.text = footerDiv.querySelector('script').innerHTML;
     body.append(scr);
+    footerDiv.querySelectorAll('a').forEach((anchor) => {
+      // eslint-disable-next-line no-script-url
+      if (anchor.getAttribute('href') === 'javascript:void(0)') {
+        anchor.setAttribute('href', '#');
+      }
+    });
   }
 }

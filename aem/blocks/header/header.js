@@ -13,5 +13,11 @@ export default async function decorate(block) {
     const headerDiv = document.createElement('div');
     headerDiv.innerHTML = await resp.text();
     body.append(headerDiv);
+    headerDiv.querySelectorAll('a').forEach((anchor) => {
+      // eslint-disable-next-line no-script-url
+      if (anchor.getAttribute('href') === 'javascript:void(0)') {
+        anchor.setAttribute('href', '#');
+      }
+    });
   }
 }
