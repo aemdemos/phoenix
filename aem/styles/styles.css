@@ -411,6 +411,7 @@ body.no-scroll {
   min-height: 0.1rem;
   width: 100%;
   display: block;
+  visibility: hidden;
 }
 
 @media (width > 990px) {

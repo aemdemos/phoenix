@@ -146,7 +146,6 @@ function buildAutoBlocks(main) {
     buildHeroBlock(main);
     if (isArticlePage) {
       // CSS for aside-nav site component
-      loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-site.min.css');
       buildAsideNav(main);
       buildArticleHeader(main);
     }
@@ -211,6 +210,12 @@ async function loadAsideNav(asideNav) {
   asideNav.innerHTML = await resp.text();
 }
 
+function showAsideNav(asideNav) {
+  if (asideNav) {
+    asideNav.style.visibility = 'visible';
+  }
+}
+
 /**
  * Loads everything that doesn't need to be delayed.
  * @param {Element} doc The container element
@@ -227,6 +232,9 @@ async function loadLazy(doc) {
   loadHeader(doc.querySelector('header'));
   loadAsideNav(doc.querySelector('.aside-nav-container'));
   loadFooter(doc.querySelector('footer'));
+  loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-site.min.css').then(() => {
+    showAsideNav(doc.querySelector('.aside-nav-container'));
+  });
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
