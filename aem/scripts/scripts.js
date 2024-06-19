@@ -150,12 +150,11 @@ function showAsideNav(asideNav) {
  */
 function buildAutoBlocks(main) {
   try {
+    loadCSS('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.css');
     buildHeroBlock(main);
     if (isArticlePage) {
-      // CSS for aside-nav site component
       buildAsideNav(main);
       buildArticleHeader(main);
-      loadCSS('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.css');
       loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-site.min.css').then(() => {
         showAsideNav(document.querySelector('.aside-nav-container'));
       });
@@ -227,8 +226,8 @@ async function loadAsideNav(asideNav) {
  */
 async function loadLazy(doc) {
   const main = doc.querySelector('main');
-  loadHeader(doc.querySelector('header'));
   loadAsideNav(doc.querySelector('.aside-nav-container'));
+  loadHeader(doc.querySelector('header'));
   await loadBlocks(main);
 
   const { hash } = window.location;
