@@ -144,6 +144,7 @@ function showAsideNav(asideNav) {
  */
 function buildAutoBlocks(main) {
   try {
+    loadCSS('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.css');
     buildHeroBlock(main);
     if (isArticlePage) {
       buildAsideNav(main);
