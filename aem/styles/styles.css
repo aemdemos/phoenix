@@ -55,6 +55,7 @@
 
   /* nav height */
   --nav-height: 64px;
+  --margin-base: 0 0 1.6rem;
 }
 
 @font-face {
@@ -70,10 +71,14 @@
   }
 }
 
+html {
+  font-size: 10px;
+  line-height: 1.15;
+}
+
 body {
-  font-size: var(--body-font-size-m);
   margin: 0;
-  font-family: var(--body-font-family);
+  font-family: var(--body-font-family) !important;
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--background-color);
@@ -89,8 +94,7 @@ h4, h5, h6 {
   font-family: var(--heading-font-family);
   font-weight: 600;
   line-height: 1.25;
-  margin-top: 1em;
-  margin-bottom: .5em;
+  margin: var(--margin-base);
   scroll-margin: calc(var(--nav-height) + 1em);
 }
 
@@ -102,8 +106,7 @@ h5 { font-size: var(--heading-font-size-s) }
 h6 { font-size: var(--heading-font-size-xs) }
 
 p, dl, ol, ul, pre, blockquote {
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin: var(--margin-base);
 }
 
 code, pre {
@@ -436,12 +439,10 @@ body.no-scroll {
   main {
     -webkit-box-flex: 0;
     /* stylelint-disable-next-line */
-    -ms-flex: 0 0 75%;
-    flex: 0 0 75%;
     max-width: 75%;
     margin: 100px auto 1% 0;
-    padding-left: 4rem;
-    padding-right: 4rem;
+    padding-left: 3.5%;
+    padding-right: 2.5%;
   }
 }
 

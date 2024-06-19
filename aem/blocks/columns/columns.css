@@ -73,9 +73,9 @@
 }
 
 .contributor > div > div:nth-child(2) h2 {
-  font-size: calc(var(--heading-font-size-xl) * 0.9);
+  font-size: calc(var(--heading-font-size-xl) * 0.85);
   color: var(--color-phoenix-red);
-  margin-bottom: 0;
+  margin-bottom: 1rem;
 }
 
 .contributor > div > div:nth-child(2) p {
