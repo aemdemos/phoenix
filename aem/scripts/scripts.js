@@ -155,6 +155,10 @@ function buildAutoBlocks(main) {
       // CSS for aside-nav site component
       buildAsideNav(main);
       buildArticleHeader(main);
+      loadCSS('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.css');
+      loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-site.min.css').then(() => {
+        showAsideNav(document.querySelector('.aside-nav-container'));
+      });
     }
   } catch (error) {
     // eslint-disable-next-line no-console
@@ -223,20 +227,16 @@ async function loadAsideNav(asideNav) {
  */
 async function loadLazy(doc) {
   const main = doc.querySelector('main');
+  loadHeader(doc.querySelector('header'));
+  loadAsideNav(doc.querySelector('.aside-nav-container'));
   await loadBlocks(main);
 
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
   // Common CSS for site components mainly header and footer
-  loadHeader(doc.querySelector('header'));
-  loadAsideNav(doc.querySelector('.aside-nav-container'));
   loadFooter(doc.querySelector('footer'));
 
-  loadCSS('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.css');
-  loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-site.min.css').then(() => {
-    showAsideNav(document.querySelector('.aside-nav-container'));
-  });
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
 
