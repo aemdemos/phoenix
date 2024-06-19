@@ -137,6 +137,12 @@ async function loadFonts() {
   }
 }
 
+function showAsideNav(asideNav) {
+  if (asideNav) {
+    asideNav.style.visibility = 'visible';
+  }
+}
+
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
@@ -147,6 +153,9 @@ function buildAutoBlocks(main) {
     if (isArticlePage) {
       // CSS for aside-nav site component
       buildAsideNav(main);
+      loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-site.min.css').then(() => {
+        showAsideNav(document.querySelector('.aside-nav-container'));
+      });
       buildArticleHeader(main);
     }
   } catch (error) {
@@ -210,12 +219,6 @@ async function loadAsideNav(asideNav) {
   asideNav.innerHTML = await resp.text();
 }
 
-function showAsideNav(asideNav) {
-  if (asideNav) {
-    asideNav.style.visibility = 'visible';
-  }
-}
-
 /**
  * Loads everything that doesn't need to be delayed.
  * @param {Element} doc The container element
@@ -232,9 +235,6 @@ async function loadLazy(doc) {
   loadHeader(doc.querySelector('header'));
   loadAsideNav(doc.querySelector('.aside-nav-container'));
   loadFooter(doc.querySelector('footer'));
-  loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-site.min.css').then(() => {
-    showAsideNav(doc.querySelector('.aside-nav-container'));
-  });
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
