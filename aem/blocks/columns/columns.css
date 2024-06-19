@@ -162,7 +162,7 @@
     margin-top: 0;
     font-size: calc(var(--body-font-size-xs) * 0.95);
   }
-  
+
   main > div.columns-container > div.default-content-wrapper > p {
     margin: 0;
   }
