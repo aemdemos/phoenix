@@ -137,11 +137,6 @@ async function loadFonts() {
   }
 }
 
-function loadClientLibCSS() {
-  loadCSS('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.css');
-  loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-site.min.css');
-}
-
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
@@ -150,7 +145,6 @@ function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
     if (isArticlePage) {
-      loadClientLibCSS();
       buildAsideNav(main);
       buildArticleHeader(main);
     }
@@ -227,6 +221,9 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
+  loadCSS('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.css');
+  loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-site.min.css');
+
   loadHeader(doc.querySelector('header'));
   loadAsideNav(doc.querySelector('.aside-nav-container'));
   loadFooter(doc.querySelector('footer'));
@@ -245,7 +242,7 @@ async function loadLazy(doc) {
  */
 function loadDelayed() {
   // eslint-disable-next-line import/no-cycle
-  window.setTimeout(() => import('./delayed.js'), 0);
+  window.setTimeout(() => import('./delayed.js'), 3000);
   // load anything that can be postponed to the latest here
 }
 
