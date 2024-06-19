@@ -27,12 +27,6 @@ const LCP_BLOCKS = ['hero']; // add your LCP blocks to the list
 function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
-  /* if(picture) {
-    const img = picture.querySelector('img');
-    if(img) {
-      img.setAttribute('loading', 'eager');
-    }
-  } */
   // eslint-disable-next-line no-bitwise
   if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_FOLLOWING)) {
     const section = document.createElement('div');
@@ -150,7 +144,6 @@ function showAsideNav(asideNav) {
  */
 function buildAutoBlocks(main) {
   try {
-    loadCSS('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.css');
     buildHeroBlock(main);
     if (isArticlePage) {
       buildAsideNav(main);
