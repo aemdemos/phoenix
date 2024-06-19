@@ -722,16 +722,11 @@ async function loadFooter(footer) {
  * @param {Array} lcpBlocks Array of blocks
  */
 async function waitForLCP(lcpBlocks) {
-  const blocks = document.querySelectorAll('.block');
-  // eslint-disable-next-line no-restricted-syntax
-  for (const block of blocks) {
-    const hasLCPBlock = block && lcpBlocks.includes(block.dataset.blockName);
-    if (hasLCPBlock) {
-      // eslint-disable-next-line no-await-in-loop
-      await loadBlock(block);
-    }
+  const block = document.querySelector('.block');
+  const hasLCPBlock = block && lcpBlocks.includes(block.dataset.blockName);
+  if (hasLCPBlock) {
+    await loadBlock(block);
   }
-
   document.body.style.display = null;
   const lcpCandidate = document.querySelector('main img');
 
