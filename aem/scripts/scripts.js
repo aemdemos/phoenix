@@ -229,14 +229,14 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
   // Common CSS for site components mainly header and footer
-  loadCSS('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.css');
   loadHeader(doc.querySelector('header'));
   loadAsideNav(doc.querySelector('.aside-nav-container'));
+  loadFooter(doc.querySelector('footer'));
+
+  loadCSS('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.css');
   loadCSS('/etc.clientlibs/edu/clientlibs/clientlib-site.min.css').then(() => {
     showAsideNav(document.querySelector('.aside-nav-container'));
   });
-  loadFooter(doc.querySelector('footer'));
-
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
 
