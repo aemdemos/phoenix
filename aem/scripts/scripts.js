@@ -140,6 +140,7 @@ async function loadFonts() {
 function showAsideNav(asideNav) {
   if (asideNav) {
     asideNav.style.visibility = 'visible';
+    asideNav.style.display = asideNav.style.display ? asideNav.style.display : 'block';
   }
 }
 

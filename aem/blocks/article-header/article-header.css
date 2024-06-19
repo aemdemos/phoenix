@@ -114,8 +114,6 @@
 .article-byline .reviewer-details p:last-child {
     width: 93%;
     padding-top: 2%;
-    font-size: var(--body-font-size-xs);
-    font-weight: 400;
     color: var(--darker-grey-color);
 }
 

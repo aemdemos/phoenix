@@ -133,10 +133,20 @@ main pre {
 /* links */
 main a:any-link {
   text-decoration: underline;
+  color: var(--body-link-color);
 }
 
 main a:hover {
   color: var(--link-hover-color);
+}
+
+main picture {
+  line-height: 0;
+}
+
+*, :after, :before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* buttons */
@@ -385,6 +395,11 @@ main .section.aside-nav {
     line-height: 2.4rem;
     padding-right: 3%;
   }
+
+  main li {
+    line-height: var(--line-height-base, 1.2);
+    margin-bottom: 1.6rem;
+  }
 }
 
 /* Chat Widget */
@@ -451,5 +466,9 @@ body.no-scroll {
   #onetrust-banner-sdk #onetrust-policy-text {
     font-size: 12px !important;
     line-height: 16px !important;
+  }
+
+  .aside-nav-container {
+    display: none;
   }
 }
