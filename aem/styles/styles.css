@@ -144,8 +144,7 @@ main picture {
   line-height: 0;
 }
 
-*, :after, :before {
-  -webkit-box-sizing: border-box;
+*, ::after, ::before {
   box-sizing: border-box;
 }
 
