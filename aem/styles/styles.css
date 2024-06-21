@@ -105,7 +105,7 @@ h4 { font-size: var(--heading-font-size-m) }
 h5 { font-size: var(--heading-font-size-s) }
 h6 { font-size: var(--heading-font-size-xs) }
 
-p, dl, ol, ul, pre, blockquote {
+p, dl, ol, pre, blockquote {
   margin: var(--margin-base);
 }
 
