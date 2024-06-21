@@ -18,23 +18,14 @@ window.EDU = {
   Utils: {},
 };
 
-async function onLoadClientLibs() {
-  await Promise.all([
-    // ClientLib Component scripts
-    loadScript('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.js'),
-    loadScript('/etc.clientlibs/edu/clientlibs/clientlib-site.min.js'),
-    // Load Launch script for tag manager
-    loadScript('https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-e14ec2ae782a-staging.min.js'),
-  ]);
-}
-
-onLoadClientLibs().then(() => {
-  const event = new Event('DOMContentLoaded', {
-    bubbles: true,
-    cancelable: true,
-  });
-  document.dispatchEvent(event);
+// ClientLib Component scripts
+loadScript('/etc.clientlibs/phxedu/clientlibs/clientlib-common-library.min.js').then(() => {
+  window.stickyFooterFunction();
+  window.footerFunction();
 });
+loadScript('/etc.clientlibs/edu/clientlibs/clientlib-site.min.js');
+// Load Launch script for tag manager
+loadScript('https://assets.adobedtm.com/7679441b2bf7/5d94d460e974/launch-e14ec2ae782a-staging.min.js');
 
 // Adobe Client Data Layer
 loadScript('/aem/scripts/acdl/adobe-client-data-layer.min.js');
