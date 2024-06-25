@@ -471,3 +471,12 @@ body.no-scroll {
     display: none;
   }
 }
+
+body.sidekick-library header[id='header'],
+body.sidekick-library .cmp-header__bg-bar,
+body.sidekick-library .aside-nav-container,
+body.sidekick-library .sticky-footer-container,
+body.sidekick-library .footer2,
+body.sidekick-library aside.cx-widget {
+  display: none !important;
+}
