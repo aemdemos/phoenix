@@ -472,6 +472,7 @@ body.no-scroll {
   }
 }
 
+/* stylelint-disable selector-class-pattern */
 body.sidekick-library header[id='header'],
 body.sidekick-library .cmp-header__bg-bar,
 body.sidekick-library .aside-nav-container,
